@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import bio from '../../../bio';
+import './Skills.css';
 
 let i = 100
 
 function IconSkill(skill) {
     return (
-        <div key={i++} className="IconSkill">
+        <div key={i++} className="icon-skill">
             {
                 skill.icon ?
                     <i className={skill.icon} />
@@ -25,7 +26,7 @@ function IconSkill(skill) {
 
 function Skill(skill) {
     return (
-        <div key={i++} className="Skill">
+        <div key={i++} className="skill">
             <h3>{skill.name}<div className="slide" /></h3>
         </div>
     )
@@ -42,7 +43,7 @@ class Skills extends Component {
         return (
             <div className="content" id="Skills" >
                 <h1>My Skills</h1>
-                <div className="skills-header">
+                <div className="skills-section">
                     {
                         bio.Skills.main.map(IconSkill)
                     }

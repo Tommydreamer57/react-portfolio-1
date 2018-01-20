@@ -1,21 +1,37 @@
+
+#MenuButton, #LeftButton, #RightButton {
+    /* border: 1px solid black; */
+}
+
 #MenuButton {
     position: fixed;
-    top: 15px;
-    right: 15px;
+    top: 0;
+    right: 0;
+    width: 10vw;
+    height: 10vw;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
 
+#MenuButton .arrow {
+    margin: 5px;
+}
+
+#MenuButton:hover {
+    cursor: pointer;
 }
 
 .arrow {
     width: 50px;
-    height: 5px;
+    height: 4px;
     background: black;
     border-radius: 3px;
-    margin: 5px;
 }
 
-#LeftButton, #RightButton {
+.nav-button {
     position: fixed;
     top: 30vh;
     height: 40vh;
@@ -24,7 +40,72 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: right .4s ease .8s, left .4s ease .8s;
 }
+
+.arrow-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow-wrapper .arrow {
+    margin: 5px;    
+    transition: margin 0.4s, transform 0.4s;
+}
+
+#right-one, #left-two {
+}
+
+#left-one, #right-two {
+}
+
+.nav-button:hover #left-one, .nav-button:hover #right-two {
+    transform: rotate(-45deg);
+    margin: 14.825px;        
+}
+
+.nav-button:hover #left-two, .nav-button:hover #right-one {
+    transform: rotate(45deg);
+    margin: 14.825px;    
+}
+
+.nav-label {
+    position: absolute;
+    transition: left .4s, right .4s, opacity .4s;
+    opacity: 0;
+}
+
+#LeftButton .nav-label {
+    left: 50%;
+}
+
+#LeftButton:hover .nav-label {
+    left: 100%;
+}
+
+#RightButton .nav-label {
+    right: 50%;
+}
+
+#RightButton:hover .nav-label {
+    right: 100%;
+}
+
+.nav-button:hover .nav-label {
+    opacity: 1;
+}
+
+#Buttons .left-away {
+    left: -10vw;
+}
+
+#Buttons .right-away {
+    right: -10vw;
+}
+
 #LeftButton {
     left: 0;
 }

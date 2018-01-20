@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Menu.css';
+// import './Menu.css';
 
 let i = 400
 
@@ -35,7 +35,7 @@ function Menu(props) {
                         to={link.to}
                         key={i++}
                         onClick={props.toggleMenu}
-                        className={link.selected ? 'MenuLink selected' : 'MenuLink'}
+                        className={link.selected ? 'menu-link selected' : 'menu-link'}
                     >
                         <div className="slide slide-left" />
                         <div className="slide slide-right" />

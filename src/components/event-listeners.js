@@ -30,11 +30,14 @@ function addEventListeners() {
     function setHeight() {
         contentHeight = 0;
         findTallestNode(document.getElementsByClassName('current'))
-        scrollbarHeight = (viewHeight - 4) * viewHeight / contentHeight
-        scrollbar.style.height = scrollbarHeight + 'px'
         if (contentHeight <= viewHeight + 4) {
             scrollbarHeight = 0
+            console.log('no scrollbar')
         }
+        else {
+            scrollbarHeight = (viewHeight - 4) * viewHeight / contentHeight
+        }
+        scrollbar.style.height = scrollbarHeight + 'px'
     }
 
     function setTop() {
