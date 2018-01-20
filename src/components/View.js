@@ -12,7 +12,15 @@ import addEventListeners from './event-listeners';
 class View extends Component {
     constructor(props) {
         super(props)
-        this.removeEventListeners = function () { }
+        this.removeEventListeners = () => { }
+        this.state = {
+            open: false
+        }
+    }
+    toggleMenu = () => {
+        this.setState({
+            open: !this.state.open
+        })
     }
     componentDidMount = () => {
         this.removeEventListeners = addEventListeners()
@@ -39,8 +47,8 @@ class View extends Component {
                         <Contact />
                     </div>
                 </div>
-                <Buttons current={current} />
-                <Menu current={current} />
+                <Buttons current={current} toggleMenu={this.toggleMenu} />
+                <Menu current={current} open={this.state.open} toggleMenu={this.toggleMenu} />
             </div>
         )
     }

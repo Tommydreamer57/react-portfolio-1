@@ -2,22 +2,33 @@
     position: fixed;
     top: 15px;
     right: 15px;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .arrow {
-    width: 5px;
-    height: 50px;
+    width: 50px;
+    height: 5px;
     background: black;
     border-radius: 3px;
     margin: 5px;
 }
 
-#LeftButton {
+#LeftButton, #RightButton {
     position: fixed;
-    left: 15px;
+    top: 30vh;
+    height: 40vh;
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#LeftButton {
+    left: 0;
 }
 
 #RightButton {
-    position: fixed;
-    right: 15px;
+    right: 0;
 }

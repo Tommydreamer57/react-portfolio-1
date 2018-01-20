@@ -21,7 +21,7 @@ function Buttons(props) {
     console.log(previous, current, next)
     return (
         <div id="Buttons">
-            <div id="MenuButton">
+            <div id="MenuButton" onClick={props.toggleMenu} >
                 <div id="menu-one" className="arrow" />
                 <div id="menu-two" className="arrow" />
                 <div id="menu-three" className="arrow" />

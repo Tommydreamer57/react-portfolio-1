@@ -14,6 +14,7 @@ function addEventListeners() {
     scrollbar.style.right = '2px'
     scrollbar.style.top = '2px'
     scrollbar.style.borderRadius = '5px'
+    scrollbar.style.transition = 'height .4s'
 
     function findTallestNode(nodes) {
         viewHeight = window.innerHeight;
@@ -31,6 +32,9 @@ function addEventListeners() {
         findTallestNode(document.getElementsByClassName('current'))
         scrollbarHeight = (viewHeight - 4) * viewHeight / contentHeight
         scrollbar.style.height = scrollbarHeight + 'px'
+        if (contentHeight <= viewHeight + 4) {
+            scrollbarHeight = 0
+        }
     }
 
     function setTop() {
