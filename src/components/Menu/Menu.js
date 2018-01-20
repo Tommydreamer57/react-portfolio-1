@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import './Menu.css';
+import './Menu.css';
 
 let i = 400
 
@@ -28,7 +28,7 @@ function Menu(props) {
         }
     ]
     return (
-        <div id="Menu" className={props.open ? 'open' : 'closed'}>
+        <div id="Menu" className={props.open ? 'menu open' : 'menu closed'}>
             {
                 links.map(link => (
                     <Link
@@ -39,7 +39,9 @@ function Menu(props) {
                     >
                         <div className="slide slide-left" />
                         <div className="slide slide-right" />
-                        <div className="nav-text">{link.label}</div>
+                        <div className="menu-link-text">
+                            {link.label}
+                        </div>
                     </Link>
                 ))
             }
