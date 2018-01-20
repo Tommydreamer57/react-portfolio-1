@@ -33,7 +33,7 @@ function Buttons(props) {
     return (
         <div id="Buttons">
 
-            <div id="MenuButton" onClick={props.toggleMenu} >
+            <div id="MenuButton" className={props.open ? 'close-menu' : 'open-menu'} onClick={props.toggleMenu} >
                 <div id="menu-one" className="arrow" />
                 <div id="menu-two" className="arrow" />
                 <div id="menu-three" className="arrow" />
@@ -52,7 +52,7 @@ function Buttons(props) {
             </Link>
 
             <Link
-                to={next}
+                to={next || "/contact"}
                 id="RightButton"
                 className={props.current !== "contact" ? 'nav-button' : 'nav-button right-away'}
             >

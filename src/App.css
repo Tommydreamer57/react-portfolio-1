@@ -10,8 +10,15 @@ body,
     margin: 0;
     padding: 0;
     background: #CCC;
-    text-decoration: none;
     font-family: calibri;
+}
+
+* {
+    /* border: 1px solid black !important; */
+}
+
+a {
+    text-decoration: none;
 }
 
 ::-webkit-scrollbar {
@@ -77,32 +84,3 @@ p {
     left: 200vw;
     overflow: hidden;
 }
-
-/* MENU */
-
-#Menu {
-    position: fixed;
-    right: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    background: #CCC;
-    transition: top 0.3s cubic-bezier(0.65, 0.15, 0, 1);
-    z-index: 2;
-}
-
-.closed {
-    position: fixed;
-    top: -100vh;
-}
-
-.open {
-    position: fixed;    
-    top: 0;
-}
-
-

@@ -47,8 +47,16 @@ class View extends Component {
                         <Contact />
                     </div>
                 </div>
-                <Buttons current={current} toggleMenu={this.toggleMenu} />
-                <Menu current={current} open={this.state.open} toggleMenu={this.toggleMenu} />
+                <Buttons
+                    current={current}
+                    open={this.state.open}
+                    toggleMenu={this.toggleMenu}
+                />
+                <Menu
+                    current={current}
+                    open={this.state.open}
+                    toggleMenu={this.toggleMenu}
+                />
             </div>
         )
     }

@@ -16,19 +16,51 @@
     z-index: 3;
 }
 
-#MenuButton .arrow {
+#MenuButton:hover {
+    cursor: pointer;
+}
+
+.open-menu .arrow {
     margin: 5px;
 }
 
-#MenuButton:hover {
-    cursor: pointer;
+.open-menu:hover .arrow {
+    margin: 7.5px;
+}
+
+.close-menu .arrow {
+    margin: -2px;
+    width: 65px;
+}
+
+.close-menu #menu-one, .close-menu #menu-three {
+    transform: rotate(-135deg);
+    opacity: 0.125;    
+}
+
+.close-menu #menu-two {
+    transform: rotate(135deg);
+}
+
+#MenuButton .arrow {
+    transition: margin 0.6s cubic-bezier(.65,.15,0,1), transform 0.8s cubic-bezier(.65,.15,0,1), opacity 0.6s, width 0.6s cubic-bezier(.65,.15,0,1);
+}
+
+.close-menu:hover #menu-one, .close-menu:hover #menu-three {
+    transform: rotate(-125deg);
+}
+
+.close-menu:hover #menu-two {
+    transform: rotate(125deg);
 }
 
 .arrow {
     width: 50px;
     height: 4px;
     background: black;
+    opacity: 0.25;
     border-radius: 3px;
+    transition: margin 0.4s, transform 0.4s;
 }
 
 .nav-button {
@@ -53,13 +85,6 @@
 
 .arrow-wrapper .arrow {
     margin: 5px;    
-    transition: margin 0.4s, transform 0.4s;
-}
-
-#right-one, #left-two {
-}
-
-#left-one, #right-two {
 }
 
 .nav-button:hover #left-one, .nav-button:hover #right-two {

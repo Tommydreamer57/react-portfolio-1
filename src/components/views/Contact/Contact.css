@@ -1,0 +1,23 @@
+.links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 4rem 0;
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 9rem;
+    width: 5rem;
+    margin: 1rem;
+}
+
+.link i, .link img {
+    font-size: 4.25rem;
+    height: 4rem;
+    color: white;
+    /* svg fill color located in svg file */
+}
