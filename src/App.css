@@ -1,0 +1,34 @@
+html,
+body,
+#root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+.previous, .current, .next {
+    transition: left 1s;
+    position: fixed;
+    top: 50px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.previous {
+    left: -100vw;
+    overflow: hidden;
+}
+
+.current {
+    left: 0;
+    overflow: scroll;
+}
+
+.next {
+    left: 100vw;
+    overflow: hidden;
+}
