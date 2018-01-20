@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import bio from '../../../bio';
 
+let i = 300
+
 function Link(link) {
     return (
-        <a href={link.link} className="Link">
+        <a key={i++} href={link.link} className="Link">
             {
                 link.icon ?
                     <i className={link.icon} />

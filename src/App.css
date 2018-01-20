@@ -15,6 +15,8 @@ body,
     display: none;
 }
 
+/* VIEW TRANSITIONS */
+
 .previous, .current, .next {
     transition: left 1s;
     position: fixed;
@@ -26,7 +28,6 @@ body,
 .previous {
     left: -200vw;
     overflow: hidden;
-    opacity: 0;
 }
 
 .current {
@@ -37,9 +38,28 @@ body,
 .next {
     left: 200vw;
     overflow: hidden;
-    opacity: 0;
 }
 
 .content {
-    padding: 7.5vw 20vw;
+    margin: 7.5vw 20vw;
+}
+
+/* MENU */
+
+.Menu {
+    position: fixed;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.closed {
+    position: fixed;
+    top: -100vh;
+}
+
+.open {
+    position: fixed;    
+    top: 0;
 }

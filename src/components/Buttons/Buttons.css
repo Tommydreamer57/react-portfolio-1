@@ -1,0 +1,23 @@
+#MenuButton {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+}
+
+.arrow {
+    width: 5px;
+    height: 50px;
+    background: black;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+#LeftButton {
+    position: fixed;
+    left: 15px;
+}
+
+#RightButton {
+    position: fixed;
+    right: 15px;
+}

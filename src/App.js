@@ -17,59 +17,13 @@ import View from './components/View';
 // }
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      history: ['About']
-    }
-  }
-  pushHistory = view => {
-    let { history } = this.state
-    history.push(view)
-    this.setState({
-      history
-    })
-  }
   render = () => {
     return (
       <div id="App" className="App">
-
         <Switch>
           <Route exact path="/" component={View} />
           <Route path="/:view" component={View} />
         </Switch>
-
-        <div className="Navbar" style={{ zIndex: 100 }}>
-          <Link to="/">About</Link>
-          <Link to="/skills">Skills</Link>
-          <Link to="/projects">Projects</Link>
-          <Link to="/contact">Contact</Link>
-        </div>
-
-        {/* <Switch>
-          <Route exact path="/" render={() => (
-            <Slide current={About} history={this.state.history} />
-          )} />
-          <Route path="/skills" render={() => (
-            <Slide current={Skills} history={this.state.history} />
-          )} />
-          <Route path="/projects" render={() => (
-            <Slide current={Projects} history={this.state.history} />
-          )} />
-          <Route path="/contact" render={() => (
-            <Slide current={Contact} history={this.state.history} />
-          )} /> */}
-        {/* <Route exact path="/" children={({ match, ...rest }) => (
-            <TransitionGroup component={firstChild}>
-              {match && <About {...rest} />}
-            </TransitionGroup>
-          )} />
-          <Route path="/skills" children={({ match, ...rest }) => (
-            <TransitionGroup component={firstChild}>
-              {match && <Skills {...rest} />}
-            </TransitionGroup>
-          )} /> */}
-        {/* </Switch> */}
       </div>
     );
   }

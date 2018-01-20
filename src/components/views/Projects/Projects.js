@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import bio from '../../../bio';
 
+let i = 200
+
 function Project(project) {
     return (
-        <div className="project">
+        <div key={i++} className="project">
             <div className="info-wrapper">
                 <div className="info">
                     <a href={project.url} ><h2>{project.title}</h2></a>
@@ -32,13 +34,13 @@ function Project(project) {
 
 function Desc(desc) {
     return (
-        <p>{desc}</p>
+        <p key={i++} >{desc}</p>
     )
 }
 
 function Tech(tech) {
     return (
-        <div className="Tech">
+        <div key={i++} className="Tech">
             <h4>{tech.name}<div className="slide" /></h4>
         </div>
     )
