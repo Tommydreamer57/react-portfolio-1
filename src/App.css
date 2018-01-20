@@ -1,3 +1,7 @@
+
+@import url("https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css");
+
+
 html,
 body,
 #root {
@@ -5,6 +9,7 @@ body,
     width: 100%;
     margin: 0;
     padding: 0;
+    background: #CCC;
 }
 ::-webkit-scrollbar {
     display: none;
@@ -13,14 +18,15 @@ body,
 .previous, .current, .next {
     transition: left 1s;
     position: fixed;
-    top: 50px;
+    top: 0;
     width: 100vw;
     height: 100vh;
 }
 
 .previous {
-    left: -100vw;
+    left: -200vw;
     overflow: hidden;
+    opacity: 0;
 }
 
 .current {
@@ -29,6 +35,11 @@ body,
 }
 
 .next {
-    left: 100vw;
+    left: 200vw;
     overflow: hidden;
+    opacity: 0;
+}
+
+.content {
+    padding: 7.5vw 20vw;
 }

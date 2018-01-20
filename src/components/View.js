@@ -4,6 +4,8 @@ import Skills from './views/Skills/Skills';
 import Projects from './views/Projects/Projects';
 import Contact from './views/Contact/Contact';
 
+import Menu from './Menu';
+
 import addEventListeners from './event-listeners';
 
 class View extends Component {
@@ -34,6 +36,7 @@ class View extends Component {
                 <div className={current === 'contact' ? 'current' : 'next'} >
                     <Contact />
                 </div>
+                <Menu current={current} />
             </div>
         )
     }

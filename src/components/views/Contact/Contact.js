@@ -1,6 +1,22 @@
 import React, { Component } from 'react';
-// import addEventListeners from '../../event-listeners';
+import bio from '../../../bio';
 
+function Link(link) {
+    return (
+        <a href={link.link} className="Link">
+            {
+                link.icon ?
+                    <i className={link.icon} />
+                    :
+                    link.svg ?
+                        <img src={link.svg} />
+                        :
+                        null
+            }
+            <h3>{link.name}</h3>
+        </a>
+    )
+}
 
 class Contact extends Component {
     constructor(props) {
@@ -11,8 +27,13 @@ class Contact extends Component {
     }
     render = () => {
         return (
-            <div className="Contact" style={{background: 'blue', height: '100vh'}} >
-                Contact
+            <div className="content" id="Contact" >
+                <h1>Contact</h1>
+                <div className="links">
+                    {
+                        bio.Contact.map(Link)
+                    }
+                </div>
             </div>
         )
     }
