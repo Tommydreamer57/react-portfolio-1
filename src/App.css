@@ -59,7 +59,7 @@ p {
 /* VIEW TRANSITIONS */
 
 .content {
-    margin: 10vw 22.5vw;
+    margin: 6.25rem 22.5vw;
 }
 
 .previous, .current, .next {

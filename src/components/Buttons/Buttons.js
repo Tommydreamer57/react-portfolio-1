@@ -86,7 +86,7 @@ export default Buttons
 export function MoreButton(props) {
     return (
         <button id="MoreButton" onClick={props.toggleMore} >
-            <div className={props.more ? 'less-arrow' : 'more-arrow'}>
+            <div className="arrow-wrapper">
                 <div className="arrow" />
                 <div className="more-label">
                     {props.more ? 'Less' : 'More'}

@@ -11,10 +11,22 @@ button:focus {
     border: none;
     outline: 0;
 }
-
-#MenuButton, #LeftButton, #RightButton {
-    /* border: 1px solid black; */
+button:hover {
+    cursor: pointer
 }
+
+/* Arrow - Button Line */
+
+.arrow {
+    width: 50px;
+    height: 4px;
+    background: black;
+    opacity: 0.25;
+    border-radius: 3px;
+    transition: margin 0.4s ease, transform 0.4s ease;
+}
+
+/* Menu Button */
 
 #MenuButton {
     position: fixed;
@@ -29,16 +41,16 @@ button:focus {
     z-index: 3;
 }
 
-#MenuButton:hover {
+/* #MenuButton:hover {
     cursor: pointer;
-}
+} */
 
 .open-menu .arrow {
     margin: 5px;
 }
 
 .open-menu:hover .arrow {
-    margin: 7.5px;
+    margin: 8.75px;
 }
 
 .close-menu .arrow {
@@ -56,7 +68,7 @@ button:focus {
 }
 
 #MenuButton .arrow {
-    transition: margin 0.6s cubic-bezier(.65,.15,0,1), transform 0.8s cubic-bezier(.65,.15,0,1), opacity 0.6s, width 0.6s cubic-bezier(.65,.15,0,1);
+    transition: margin 0.5s ease, transform 0.8s cubic-bezier(.65,.15,0,1), opacity 0.6s ease, width 0.6s cubic-bezier(.65,.15,0,1);
 }
 
 .close-menu:hover #menu-one, .close-menu:hover #menu-three {
@@ -67,14 +79,7 @@ button:focus {
     transform: rotate(235deg);
 }
 
-.arrow {
-    width: 50px;
-    height: 4px;
-    background: black;
-    opacity: 0.25;
-    border-radius: 3px;
-    transition: margin 0.4s, transform 0.4s;
-}
+/* Navigation Buttons */
 
 .nav-button {
     position: fixed;
@@ -112,7 +117,7 @@ button:focus {
 
 .nav-label {
     position: absolute;
-    transition: left .4s, right .4s, opacity .4s;
+    transition: left .4s ease, right .4s ease, opacity .4s ease;
     opacity: 0;
 }
 
@@ -150,4 +155,36 @@ button:focus {
 
 #RightButton {
     right: 0;
+}
+
+/* About Page - More Button */
+
+#about-wrapper {
+    position: relative;
+}
+
+#MoreButton {
+    position: absolute;
+    bottom: -7.5rem;
+    width: 75%;
+    margin: 0 12.5%;
+    height: 7.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.more-label {
+    position: absolute;
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+
+#MoreButton:hover .arrow {
+    margin: 20px;
+}
+
+#MoreButton:hover .more-label {
+    opacity: 1;
 }

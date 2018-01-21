@@ -26,18 +26,20 @@ class About extends Component {
     render() {
         return (
             <div id="About" className="content" >
-                <h1>{bio.About.greeting}</h1>
-                <h3>{bio.About.intro}</h3>
-                {
-                    bio.About.info.map(Paragraph)
-                }
-                <div className="ellipsis" onClick={this.toggleMore} >...</div>
-                <div className={this.state.more ? 'more show-more' : 'more hide-more'}>
+                <div id="about-wrapper">
+                    <h1>{bio.About.greeting}</h1>
+                    <h3>{bio.About.intro}</h3>
                     {
-                        bio.About.more.map(Paragraph)
+                        bio.About.info.map(Paragraph)
                     }
+                    <div className={this.state.more ? 'more show-more' : 'more hide-more'}>
+                        <div className="ellipsis" onClick={this.toggleMore} >...</div>
+                        {
+                            bio.About.more.map(Paragraph)
+                        }
+                    </div>
+                    <MoreButton more={this.state.more} toggleMore={this.toggleMore} />
                 </div>
-                <MoreButton more={this.state.more} toggleMore={this.toggleMore} />
             </div>
         )
     }
