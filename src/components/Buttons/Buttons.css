@@ -1,4 +1,17 @@
 
+button {
+    background: transparent;
+    border: none;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+}
+
+button:focus {
+    border: none;
+    outline: 0;
+}
+
 #MenuButton, #LeftButton, #RightButton {
     /* border: 1px solid black; */
 }
@@ -34,12 +47,12 @@
 }
 
 .close-menu #menu-one, .close-menu #menu-three {
-    transform: rotate(-135deg);
+    transform: rotate(-225deg);
     opacity: 0.125;    
 }
 
 .close-menu #menu-two {
-    transform: rotate(135deg);
+    transform: rotate(225deg);
 }
 
 #MenuButton .arrow {
@@ -47,11 +60,11 @@
 }
 
 .close-menu:hover #menu-one, .close-menu:hover #menu-three {
-    transform: rotate(-125deg);
+    transform: rotate(-235deg);
 }
 
 .close-menu:hover #menu-two {
-    transform: rotate(125deg);
+    transform: rotate(235deg);
 }
 
 .arrow {
@@ -107,7 +120,7 @@
     left: 50%;
 }
 
-#LeftButton:hover .nav-label {
+#LeftButton:hover .nav-label-display {
     left: 100%;
 }
 
@@ -115,11 +128,11 @@
     right: 50%;
 }
 
-#RightButton:hover .nav-label {
+#RightButton:hover .nav-label-display {
     right: 100%;
 }
 
-.nav-button:hover .nav-label {
+.nav-button:hover .nav-label-display {
     opacity: 1;
 }
 

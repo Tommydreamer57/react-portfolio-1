@@ -9,7 +9,7 @@ function addEventListeners() {
     let current = document.getElementsByClassName('current')[0]
 
     scrollbar.style.width = '7.5px'
-    scrollbar.style.background = 'rgba(255, 255, 255, 0.25)'
+    scrollbar.style.background = 'rgba(255, 255, 255, 0.5)'
     scrollbar.style.position = 'fixed'
     scrollbar.style.right = '2px'
     scrollbar.style.top = '2px'

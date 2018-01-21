@@ -20,7 +20,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #BBB;
     overflow: hidden;
     /* transition: background-color 1s; */
     /* transition: transform 0.4s cubic-bezier(.65,.15,0,1), background-color 0.4s cubic-bezier(.65,.15,0,1); */
@@ -68,37 +67,4 @@
 .open {
     position: fixed;    
     top: 0;
-}
-
-.open .menu-link {
-    transform: none;
-    background-color: #DDD;
-    transition: background-color 1s;
-}
-
-.closed .menu-link {
-    transform: translateY(-10rem);
-    /* transition-delay: 1s; */
-    transition: background-color 1s;
-    /* background-color: blue; */
-}
-
-/* .menu-link:first-of-type {
-    transition-delay: 0.2s;
-}
-
-.menu-link:nth-of-type(2) {
-    transition-delay: 0.15s;
-}
-
-.menu-link:nth-of-type(3) {
-    transition-delay: 0.1s;
-}
-
-.menu-link:nth-of-type(4) {
-    transition-delay: 0.05s;
-} */
-
-.open .menu-link {
-    transform: none;
 }

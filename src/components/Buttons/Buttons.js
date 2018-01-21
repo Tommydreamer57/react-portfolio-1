@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Buttons.css';
 
+let i = 500
+
 let links = [
     '',
     '/',
@@ -33,11 +35,11 @@ function Buttons(props) {
     return (
         <div id="Buttons">
 
-            <div id="MenuButton" className={props.open ? 'close-menu' : 'open-menu'} onClick={props.toggleMenu} >
+            <button id="MenuButton" className={props.open ? 'close-menu' : 'open-menu'} onClick={props.toggleMenu} >
                 <div id="menu-one" className="arrow" />
                 <div id="menu-two" className="arrow" />
                 <div id="menu-three" className="arrow" />
-            </div>
+            </button>
 
             <Link
                 to={previous}
@@ -46,7 +48,13 @@ function Buttons(props) {
             >
                 <div className="arrow-wrapper">
                     <div id="left-one" className="arrow" />
-                    <div className="nav-label" >{previousLabel}</div>
+                    {
+                        labels.map(label => (
+                            <div key={i++} className={label === previousLabel ? 'nav-label nav-label-display' : 'nav-label'} >
+                                {label}
+                            </div>
+                        ))
+                    }
                     <div id="left-two" className="arrow" />
                 </div>
             </Link>
@@ -58,7 +66,13 @@ function Buttons(props) {
             >
                 <div className="arrow-wrapper">
                     <div id="right-one" className="arrow" />
-                    <div className="nav-label" >{nextLabel}</div>
+                    {
+                        labels.map(label => (
+                            <div key={i++} className={label === nextLabel ? 'nav-label nav-label-display' : 'nav-label'} >
+                                {label}
+                            </div>
+                        ))
+                    }
                     <div id="right-two" className="arrow" />
                 </div>
             </Link>
@@ -68,3 +82,18 @@ function Buttons(props) {
 }
 
 export default Buttons
+
+export function MoreButton(props) {
+    return (
+        <button id="MoreButton" onClick={props.toggleMore} >
+            <div className={props.more ? 'less-arrow' : 'more-arrow'}>
+                <div className="arrow" />
+                <div className="more-label">
+                    {props.more ? 'Less' : 'More'}
+                </div>
+                <div className="arrow" />
+            </div>
+        </button>
+    )
+}
+

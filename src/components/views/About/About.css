@@ -1,0 +1,25 @@
+.ellipsis {
+    line-height: 120%;
+    /* padding matches 1rem margin bottom of normal paragraphs, margin-top & padding-top cancel out */
+    margin-top: -0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.ellipsis:hover {
+    cursor: pointer;
+}
+
+.more {
+    overflow: hidden;
+    transition: max-height 1s cubic-bezier(.65,.15,0,1);
+}
+
+.show-more {
+    max-height: none;
+}
+
+.hide-more {
+    max-height: 1px;
+}

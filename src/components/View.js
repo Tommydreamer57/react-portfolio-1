@@ -14,7 +14,7 @@ class View extends Component {
         super(props)
         this.removeEventListeners = () => { }
         this.state = {
-            open: true // change back to false later
+            open: false
         }
     }
     toggleMenu = () => {

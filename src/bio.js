@@ -7,9 +7,11 @@ import redux from './components/assets/Redux.svg';
 let About = {
     greeting: "Hi, I'm Tommy Lowry",
     intro: "I am a full-stack web-developer, linguist, and artist.",
-    more: [
+    info: [
         "My programming specialties include React, Node, and plain vanilla JavaScript. Having lived across the United States and Germany, I am fluent in both English and German.",
         "My love for code is largely a branch off of my love for language. I studied German in high school and college, and have also studied Italian, Spanish, Polish, and Russian. I have found code and language to be similar in both their challenge and their creative ability.",
+    ],
+    more: [
         "Since completing a project on information theory in 8th grade, I have always taken interest in information and how it is transmitted and received in all its different forms - audible communication, words, connotations, body-language, ink on paper, or pixels on a screen.",
         "This project marked the beginning of my fascination with language and communication.",
         "In high school I studied German and developed a greater love for language. I continued studying German through high school, then spent two years in Germany before returning to America to continue my studies.",
