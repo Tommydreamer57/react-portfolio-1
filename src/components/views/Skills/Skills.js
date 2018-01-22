@@ -20,6 +20,7 @@ function IconSkill(skill) {
                     null
             }
             <h3>{skill.name}</h3>
+            <div className="slide" />
         </div>
     )
 }
@@ -27,7 +28,8 @@ function IconSkill(skill) {
 function Skill(skill) {
     return (
         <div key={i++} className="skill">
-            <h3>{skill.name}<div className="slide" /></h3>
+            {skill.name}
+            <div className="slide" />
         </div>
     )
 }
@@ -43,7 +45,7 @@ class Skills extends Component {
         return (
             <div className="content" id="Skills" >
                 <h1>My Skills</h1>
-                <div className="skills-section">
+                <div id="skills-main" className="skills-section">
                     {
                         bio.Skills.main.map(IconSkill)
                     }

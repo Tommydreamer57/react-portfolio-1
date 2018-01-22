@@ -37,7 +37,7 @@
 
 .slide-right {
     position: absolute;
-    top: 0rem;
+    top: 0;
     border-left: 2rem solid rgba(0,0,0,0);
     border-bottom: 6rem solid rgba(0,0,0,0.2);
     right: -35%;
@@ -45,7 +45,7 @@
 
 .slide-left {
     position: absolute;
-    bottom: 0rem;
+    bottom: 0;
     border-right: 2rem solid rgba(0,0,0,0);
     border-top: 6rem solid rgba(0,0,0,0.2);
     left: -35%;

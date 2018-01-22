@@ -90,7 +90,7 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: right .4s ease .8s, left .4s ease .8s;
+    transition: right .4s ease .5s, left .4s ease .5s;
 }
 
 .arrow-wrapper {
@@ -117,8 +117,9 @@ button:hover {
 
 .nav-label {
     position: absolute;
-    transition: left .4s ease, right .4s ease, opacity .4s ease;
-    opacity: 0;
+    transition: left .4s ease, right .4s ease, color .4s ease;
+    color: rgba(0, 0, 0, 0);
+    /* opacity: 0; */
 }
 
 #LeftButton .nav-label {
@@ -138,7 +139,7 @@ button:hover {
 }
 
 .nav-button:hover .nav-label-display {
-    opacity: 1;
+    color: rgba(85, 30, 140, 0.9);
 }
 
 #Buttons .left-away {
@@ -147,6 +148,11 @@ button:hover {
 
 #Buttons .right-away {
     right: -10vw;
+}
+
+#Buttons .left-away .arrow, #Buttons .right-away .arrow {
+    transform: rotate(0deg);
+    margin: 5px;
 }
 
 #LeftButton {
@@ -177,8 +183,8 @@ button:hover {
 
 .more-label {
     position: absolute;
-    opacity: 0;
-    transition: opacity .4s ease;
+    color: rgba(0, 0, 0, 0);
+    transition: color .4s ease;
 }
 
 #MoreButton:hover .arrow {
@@ -186,5 +192,5 @@ button:hover {
 }
 
 #MoreButton:hover .more-label {
-    opacity: 1;
+    color: rgba(85, 30, 140, 1);
 }

@@ -78,6 +78,7 @@ p {
 .current {
     left: 0;
     overflow: scroll;
+    -ms-overflow-style: none;
 }
 
 .next {

@@ -1,8 +1,16 @@
+
+#skills-main {
+    justify-content: space-around;
+    margin: 0;
+}
+
 .skills-section {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
+    margin-bottom: 1rem;
+    color: rgba(0,0,0,0.85);
 }
 
 .icon-skill {
@@ -13,8 +21,47 @@
     height: 9rem;
     width: 5rem;
     margin: 1rem;
+    position: relative;
+    overflow: hidden;
 }
 
 .icon-skill i {
     font-size: 4rem;
 }
+
+.skill {
+    position: relative;
+    padding: 0.25rem 0.5rem;
+    background: rgba(0255,0255,0255,0.4);
+    border-radius: 0.25rem;
+    font-size: 1.5rem;
+    margin: 0.5rem 1rem;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.skills-section .slide {
+    position: absolute;
+    bottom: 0;
+    right: -150%;
+    width: 100%;
+    height: 0;
+    opacity: 0.35;
+    transition: right 0.3s cubic-bezier(.65,.15,0,1);
+}
+
+.icon-skill .slide {
+    border-left: 3rem solid rgba(0,0,0,0);
+    border-top: 9rem solid #CCC;
+}
+
+.skill .slide {
+    border-left: 1rem solid rgba(0,0,0,0);
+    border-top: 3rem solid white;
+}
+
+.icon-skill:hover .slide, .skill:hover .slide {
+    right: 0;
+}
+
+
