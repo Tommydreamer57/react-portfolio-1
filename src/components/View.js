@@ -4,6 +4,7 @@ import Skills from './views/Skills/Skills';
 import Projects from './views/Projects/Projects';
 import Contact from './views/Contact/Contact';
 
+import logo from './assets/logo.svg';
 import Menu from './Menu/Menu';
 import Buttons from './Buttons/Buttons';
 
@@ -45,6 +46,11 @@ class View extends Component {
                     </div>
                     <div className={current === 'contact' ? 'current' : 'next'} >
                         <Contact />
+                    </div>
+                </div>
+                <div id="logo-wrapper">
+                    <div id="logo-circle">
+                        <img id="logo" src={logo} />
                     </div>
                 </div>
                 <Buttons

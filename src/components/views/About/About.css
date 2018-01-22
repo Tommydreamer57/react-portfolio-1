@@ -14,13 +14,13 @@
 
 .more {
     overflow: hidden;
-    transition: max-height 1s cubic-bezier(.65,.15,0,1);
+    transition: height 1s cubic-bezier(.65,.15,0,1);
 }
 
 .show-more {
-    max-height: none;
+    height: auto;
 }
 
 .hide-more {
-    max-height: 1px;
+    height: 1px;
 }

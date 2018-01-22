@@ -14,7 +14,7 @@ function addEventListeners() {
     scrollbar.style.right = '2px'
     scrollbar.style.top = '2px'
     scrollbar.style.borderRadius = '5px'
-    scrollbar.style.transition = 'height .4s'
+    scrollbar.style.transition = 'height .4s ease'
 
     function findTallestNode(nodes) {
         viewHeight = window.innerHeight;

@@ -46,17 +46,18 @@
     right: -150%;
     width: 100%;
     height: 0;
-    opacity: 0.35;
     transition: right 0.3s cubic-bezier(.65,.15,0,1);
 }
 
 .icon-skill .slide {
+    opacity: 0.35;
     border-left: 3rem solid rgba(0,0,0,0);
     border-top: 9rem solid #CCC;
 }
 
 .skill .slide {
-    border-left: 1rem solid rgba(0,0,0,0);
+    opacity: 0.5;
+    border-left: 2rem solid rgba(0,0,0,0);
     border-top: 3rem solid white;
 }
 

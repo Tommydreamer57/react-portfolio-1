@@ -3,6 +3,7 @@ import group from './components/assets/CodeWars Create page.png';
 import trivia from './components/assets/Trivia Trends Screenshot.PNG';
 import LinkedIn from './components/assets/iconmonstr-linkedin-3.svg';
 import redux from './components/assets/Redux.svg';
+import logo from './components/assets/logo.svg';
 
 let About = {
     greeting: "Hi, I'm Tommy Lowry",
@@ -113,6 +114,11 @@ let Contact = [
         icon: "devicon-github-plain",
         link: "http://github.com/tommydreamer57"
     },
+    // {
+    //     name: "minilao94@yahoo.com",
+    //     svg: logo,
+    //     link: "minilao94@yahoo.com"
+    // },
     {
         name: "LinkedIn",
         svg: LinkedIn,

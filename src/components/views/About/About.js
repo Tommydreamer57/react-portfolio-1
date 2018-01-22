@@ -24,6 +24,7 @@ class About extends Component {
         })
     }
     render() {
+        let moreHeight = '1000'
         return (
             <div id="About" className="content" >
                 <div id="about-wrapper">
@@ -32,7 +33,13 @@ class About extends Component {
                     {
                         bio.About.info.map(Paragraph)
                     }
-                    <div className={this.state.more ? 'more show-more' : 'more hide-more'}>
+                    <div
+                        className={this.state.more ? 'more show-more' : 'more hide-more'}
+                        style={{
+                            maxHeight: this.state.more ? moreHeight + 'px' : '1px',
+                            transition: 'max-height 0.4s'
+                        }}
+                    >
                         <div className="ellipsis" onClick={this.toggleMore} >...</div>
                         {
                             bio.About.more.map(Paragraph)

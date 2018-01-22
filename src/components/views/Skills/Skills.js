@@ -13,12 +13,6 @@ function IconSkill(skill) {
                     :
                     <i>&nbsp;</i>
             }
-            {
-                skill.svg ?
-                    skill.svg
-                    :
-                    null
-            }
             <h3>{skill.name}</h3>
             <div className="slide" />
         </div>

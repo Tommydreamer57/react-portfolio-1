@@ -27,6 +27,35 @@ a {
 
 /* THEME */
 
+#logo-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12.5vw;
+    height: 12.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo-circle {
+    height: 85px;
+    width: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.4);
+    /* background: rgba(15, 230, 255, 0.6); */
+    /* background: rgba(85, 25, 140, 0.6); */
+}
+
+#logo {
+    height: 75px;
+    margin-left: 4px;
+    opacity: 0.6;
+}
+
 h1 {
     font-size: 3rem;
 }
@@ -59,7 +88,7 @@ p {
 /* VIEW TRANSITIONS */
 
 .content {
-    margin: 6.25rem 22.5vw;
+    margin: 12.5vw 22.5vw;
 }
 
 .previous, .current, .next {

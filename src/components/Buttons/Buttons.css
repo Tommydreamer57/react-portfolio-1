@@ -20,6 +20,7 @@ button:hover {
 .arrow {
     width: 50px;
     height: 4px;
+    /* background: rgba(85, 25, 140, 0.6); */
     background: black;
     opacity: 0.25;
     border-radius: 3px;
