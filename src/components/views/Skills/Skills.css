@@ -40,6 +40,13 @@
     overflow: hidden;
 }
 
+.skill h3 {
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    cursor: default;
+}
+
 .skills-section .slide {
     position: absolute;
     bottom: 0;

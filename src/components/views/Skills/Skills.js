@@ -22,7 +22,7 @@ function IconSkill(skill) {
 function Skill(skill) {
     return (
         <div key={i++} className="skill">
-            {skill.name}
+            <h3>{skill.name}</h3>
             <div className="slide" />
         </div>
     )

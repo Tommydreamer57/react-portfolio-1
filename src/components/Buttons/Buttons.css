@@ -140,7 +140,8 @@ button:hover {
 }
 
 .nav-button:hover .nav-label-display {
-    color: rgba(85, 30, 140, 0.9);
+    color: white;
+    /* rgba(85, 30, 140, 0.9); */
 }
 
 #Buttons .left-away {
@@ -193,5 +194,6 @@ button:hover {
 }
 
 #MoreButton:hover .more-label {
-    color: rgba(85, 30, 140, 1);
+    color: white;
+    /* rgba(85, 30, 140, 1); */
 }

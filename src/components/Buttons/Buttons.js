@@ -49,12 +49,25 @@ function Buttons(props) {
                 <div className="arrow-wrapper">
                     <div id="left-one" className="arrow" />
                     {
-                        labels.map(label => (
-                            <div key={i++} className={label === previousLabel ? 'nav-label nav-label-display' : 'nav-label'} >
-                                {label}
-                            </div>
-                        ))
+                        // labels.map(label => (
+                        //     <div key={i++} className={label === previousLabel ? 'nav-label nav-label-display' : 'nav-label'} >
+                        //         {label}
+                        //     </div>
+                        // ))
                     }
+                    {
+                        // [].map() messes with DOM manipulation in react and prevents class-based transitions
+                        // so... I have to hard code the menu-links in
+                    }
+                    <div className={previousLabel === "About" ? 'nav-label nav-label-display' : 'nav-label'} >
+                        About
+                    </div>
+                    <div className={previousLabel === "Skills" ? 'nav-label nav-label-display' : 'nav-label'} >
+                        Skills
+                    </div>
+                    <div className={previousLabel === "Projects" ? 'nav-label nav-label-display' : 'nav-label'} >
+                        Projects
+                    </div>
                     <div id="left-two" className="arrow" />
                 </div>
             </Link>
@@ -67,12 +80,25 @@ function Buttons(props) {
                 <div className="arrow-wrapper">
                     <div id="right-one" className="arrow" />
                     {
-                        labels.map(label => (
-                            <div key={i++} className={label === nextLabel ? 'nav-label nav-label-display' : 'nav-label'} >
-                                {label}
-                            </div>
-                        ))
+                        // labels.map(label => (
+                        //     <div key={i++} className={label === nextLabel ? 'nav-label nav-label-display' : 'nav-label'} >
+                        //         {label}
+                        //     </div>
+                        // ))
                     }
+                    {
+                        // [].map() messes with DOM manipulation in react and prevents class-based transitions
+                        // so... I have to hard code the menu-links in
+                    }
+                    <div className={nextLabel === "Skills" ? 'nav-label nav-label-display' : 'nav-label'} >
+                        Skills
+                    </div>
+                    <div className={nextLabel === "Projects" ? 'nav-label nav-label-display' : 'nav-label'} >
+                        Projects
+                    </div>
+                    <div className={nextLabel === "Contact" ? 'nav-label nav-label-display' : 'nav-label'} >
+                        Contact
+                    </div>
                     <div id="right-two" className="arrow" />
                 </div>
             </Link>
