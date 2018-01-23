@@ -123,14 +123,15 @@ p {
     
     .content {
         margin: 10vw 50px;
+        font-family: calibri;
     }
 
-    #logo-wrapper {
+    #logo-wrapper, #scrollbar, .previous, .next {
         display: none;
     }
 
-    #scrollbar {
-        display: none;
+    .current {
+        position: static;
     }
 
 }
