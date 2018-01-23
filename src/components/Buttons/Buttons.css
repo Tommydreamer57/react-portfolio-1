@@ -37,7 +37,7 @@ button:hover {
     height: 12.5vw;
     /* responsive heights */
     min-width: 80px;
-    min-height: 80px;
+    min-height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,16 +45,8 @@ button:hover {
     z-index: 3;
 }
 
-/* #MenuButton:hover {
-    cursor: pointer;
-} */
-
 .open-menu .arrow {
     margin: 5px;
-}
-
-.open-menu:hover .arrow {
-    margin: 8.75px;
 }
 
 .close-menu .arrow {
@@ -73,14 +65,6 @@ button:hover {
 
 #MenuButton .arrow {
     transition: margin 0.5s ease, transform 0.8s cubic-bezier(.65,.15,0,1), opacity 0.6s ease, width 0.6s cubic-bezier(.65,.15,0,1);
-}
-
-.close-menu:hover #menu-one, .close-menu:hover #menu-three {
-    transform: rotate(-235deg);
-}
-
-.close-menu:hover #menu-two {
-    transform: rotate(235deg);
 }
 
 /* Navigation Buttons */
@@ -109,16 +93,6 @@ button:hover {
     margin: 5px;    
 }
 
-.nav-button:hover #left-one, .nav-button:hover #right-two {
-    transform: rotate(-45deg);
-    margin: 14.825px;        
-}
-
-.nav-button:hover #left-two, .nav-button:hover #right-one {
-    transform: rotate(45deg);
-    margin: 14.825px;    
-}
-
 .nav-label {
     position: absolute;
     transition: left .4s ease, right .4s ease, color .4s ease;
@@ -130,21 +104,8 @@ button:hover {
     left: 50%;
 }
 
-#LeftButton:hover .nav-label-display {
-    left: 100%;
-}
-
 #RightButton .nav-label {
     right: 50%;
-}
-
-#RightButton:hover .nav-label-display {
-    right: 100%;
-}
-
-.nav-button:hover .nav-label-display {
-    color: white;
-    /* rgba(85, 30, 140, 0.9); */
 }
 
 #Buttons .left-away {
@@ -192,23 +153,71 @@ button:hover {
     transition: color .4s ease;
 }
 
-#MoreButton:hover .arrow {
-    margin: 20px;
+
+@media(min-width: 500px) {
+
+    
+
+    /* #MenuButton:hover {
+        cursor: pointer;
+    } */
+
+    .open-menu:hover .arrow {
+        margin: 8.75px;
+    }
+
+    .close-menu:hover #menu-one, .close-menu:hover #menu-three {
+        transform: rotate(-235deg);
+    }
+
+    .close-menu:hover #menu-two {
+        transform: rotate(235deg);
+    }
+
+
+    .nav-button:hover #left-one, .nav-button:hover #right-two {
+        transform: rotate(-45deg);
+        margin: 14.825px;        
+    }
+
+    .nav-button:hover #left-two, .nav-button:hover #right-one {
+        transform: rotate(45deg);
+        margin: 14.825px;    
+    }
+
+    #LeftButton:hover .nav-label-display {
+        left: 100%;
+    }
+    
+    #RightButton:hover .nav-label-display {
+        right: 100%;
+    }
+
+    .nav-button:hover .nav-label-display {
+        color: white;
+        /* rgba(85, 30, 140, 0.9); */
+    }
+    
+    #MoreButton:hover .arrow {
+        margin: 20px;
+    }
+    
+    #MoreButton:hover .more-label {
+        color: white;
+        /* rgba(85, 30, 140, 1); */
+    }
+
 }
 
-#MoreButton:hover .more-label {
-    color: white;
-    /* rgba(85, 30, 140, 1); */
-}
 
 @media(max-width: 500px) {
 
-    #LeftButton {
+    #LeftButton, #RightButton {
         display: none;
     }
 
-    #RightButton {
-        display: none;
+    #MoreButton {
+        height: 5rem;
     }
 
 }

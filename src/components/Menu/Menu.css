@@ -107,3 +107,19 @@
 .open .menu-link:nth-of-type(4) {
     transition-delay: 0.05s;
 }
+
+@media(max-width: 500px) {
+
+    .menu-link {
+        margin: 0 7.5vw;
+    }
+
+    .menu-link .slide-left {
+        left: -25%;
+    }
+
+    .menu-link .slide-right {
+        right: -25%;
+    }
+
+}
