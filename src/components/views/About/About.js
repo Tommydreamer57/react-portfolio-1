@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import bio from '../../../bio';
 import './About.css';
 import { MoreButton } from '../../Buttons/Buttons';
+import logo from '../../assets/logo.svg';
 
 let i = 0
 
@@ -28,6 +29,11 @@ class About extends Component {
         return (
             <div id="About" className="content" >
                 <div id="about-wrapper">
+                    <div id="mobile-logo" className="mobile-only">
+                        <div id="mobile-logo-circle">
+                            <img src={logo} />
+                        </div>
+                    </div>
                     <h1>{bio.About.greeting}</h1>
                     <h3>{bio.About.intro}</h3>
                     {

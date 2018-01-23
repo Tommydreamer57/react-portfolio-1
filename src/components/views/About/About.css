@@ -24,3 +24,31 @@
 .hide-more {
     height: 1px;
 }
+
+@media(max-width: 500px) {
+
+    #mobile-logo {
+        width: calc(100% - 6rem);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 3rem;
+    }
+
+    #mobile-logo-circle {
+        height: 200px;
+        width: 200px;
+        border-radius: 100px;
+        background: rgba(255, 255, 255, 0.4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #mobile-logo-circle img {
+        height: 175px;
+        margin-left: 10px;
+        opacity: 0.7;
+    }
+
+}

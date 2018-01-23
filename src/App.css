@@ -1,6 +1,8 @@
 
 @import url("https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css");
 
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 
 html,
 body,
@@ -10,7 +12,7 @@ body,
     margin: 0;
     padding: 0;
     background: #CCC;
-    font-family: calibri;
+    font-family: Roboto;
 }
 
 * {
@@ -57,7 +59,7 @@ a {
 #logo {
     height: 75px;
     margin-left: 4px;
-    opacity: 0.6;
+    opacity: 0.7;
 }
 
 h1 {
@@ -119,6 +121,14 @@ p {
     overflow: hidden;
 }
 
+@media(min-width: 500px) {
+
+    .mobile-only {
+        display: none;
+    }
+
+}
+
 @media(max-width: 500px) {
 
     html, body #root {
@@ -126,8 +136,7 @@ p {
     }
     
     .content {
-        margin: 5rem 50px;
-        font-family: calibri;
+        margin: 3rem 2rem 5rem;
     }
 
     .current {
