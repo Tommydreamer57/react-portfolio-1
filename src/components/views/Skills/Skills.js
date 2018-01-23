@@ -38,29 +38,37 @@ class Skills extends Component {
     render() {
         return (
             <div className="content" id="Skills" >
-                <h1>My Skills</h1>
                 <div id="skills-main" className="skills-section">
-                    {
-                        bio.Skills.main.map(IconSkill)
-                    }
+                    <h1>My Skills</h1>
+                    <div className="skills-wrapper">
+                        {
+                            bio.Skills.main.map(IconSkill)
+                        }
+                    </div>
                 </div>
-                <h2>Front End</h2>
                 <div className="skills-section">
-                    {
-                        bio.Skills.front.map(Skill)
-                    }
+                    <h2>Front End</h2>
+                    <div className="skills-wrapper">
+                        {
+                            bio.Skills.front.map(Skill)
+                        }
+                    </div>
                 </div>
-                <h2>Back End</h2>
                 <div className="skills-section">
-                    {
-                        bio.Skills.back.map(Skill)
-                    }
+                    <h2>Back End</h2>
+                    <div className="skills-wrapper">
+                        {
+                            bio.Skills.back.map(Skill)
+                        }
+                    </div>
                 </div>
-                <h2>Other Technologies</h2>
                 <div className="skills-section">
-                    {
-                        bio.Skills.other.map(Skill)
-                    }
+                    <h2>Other Technologies</h2>
+                    <div className="skills-wrapper">
+                        {
+                            bio.Skills.other.map(Skill)
+                        }
+                    </div>
                 </div>
             </div>
         )

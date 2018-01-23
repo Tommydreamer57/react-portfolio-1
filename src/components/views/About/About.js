@@ -25,7 +25,7 @@ class About extends Component {
         })
     }
     render() {
-        let moreHeight = '1000'
+        let moreHeight = '1250'
         return (
             <div id="About" className="content" >
                 <div id="about-wrapper">

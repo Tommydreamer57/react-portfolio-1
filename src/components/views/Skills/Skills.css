@@ -1,15 +1,18 @@
 
-#skills-main {
+#skills-main .skills-wrapper {
     justify-content: space-around;
-    margin: 0;
 }
 
 .skills-section {
+    margin: 4rem 0;
+}
+
+.skills-wrapper {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     color: rgba(0,0,0,0.85);
 }
 
@@ -72,4 +75,10 @@
     right: 0;
 }
 
+@media(max-width: 500px) {
 
+    .skills-section {
+        margin: 2.5rem 0;
+    }
+
+}

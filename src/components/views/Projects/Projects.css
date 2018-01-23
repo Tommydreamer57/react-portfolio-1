@@ -1,6 +1,3 @@
-#Projects * {
-    /* border: 1px solid black; */
-}
 
 .project {
     margin: 4rem 0;
@@ -65,4 +62,12 @@
 
 .tech:hover .slide {
     right: 0;
+}
+
+@media(max-width: 500px) {
+
+    .project {
+        margin: 2.5rem 0;
+    }
+
 }

@@ -9,7 +9,12 @@ function Project(project) {
         <div key={i++} className="project">
             <h2>{project.title}</h2>
             <a href={project.github} alt={`GitHub Repository: ${project.github}`} ><h3>
-                &nbsp;--&nbsp;{project.subtitle}&nbsp;--&nbsp;
+                {
+                    window.innerWidth >= 500 ?
+                        ` -- ${project.subtitle} -- `
+                        :
+                        project.subtitle
+                }
             </h3></a>
             <div className="image">
                 <a href={project.url} >
