@@ -47,7 +47,7 @@
 
     #mobile-logo-circle img {
         height: 225px;
-        margin-left: 15px;
+        transform: translateX(6px) rotate(-2deg);
         opacity: 0.7;
     }
 

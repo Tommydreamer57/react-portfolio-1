@@ -28,7 +28,7 @@ function Menu(props) {
         }
     ]
     return (
-        <div id="Menu" className={props.open ? 'menu open' : 'menu closed'}>
+        <div id="Menu" className={props.open ? 'menu open' : 'menu closed'} >
             {
                 // links.map(link => (
                 //     <Link
