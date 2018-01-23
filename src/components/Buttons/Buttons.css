@@ -212,6 +212,10 @@ button:hover {
 
 @media(max-width: 500px) {
 
+    #MenuButton {
+        justify-content: flex-end;
+    }
+
     #LeftButton, #RightButton {
         display: none;
     }
