@@ -1,6 +1,6 @@
 
 .ellipsis {
-    line-height: 120%;
+    line-height: 130%;
     /* padding matches 1rem margin bottom of normal paragraphs, margin-top & padding-top cancel out */
     margin-top: -0.5rem;
     padding-top: 0.5rem;
@@ -28,17 +28,17 @@
 @media(max-width: 500px) {
 
     #mobile-logo {
-        width: calc(100% - 6rem);
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 3rem;
+        margin: 3rem 0;
     }
 
     #mobile-logo-circle {
-        height: 200px;
-        width: 200px;
-        border-radius: 100px;
+        height: 250px;
+        width: 250px;
+        border-radius: 200px;
         background: rgba(255, 255, 255, 0.4);
         display: flex;
         justify-content: center;
@@ -46,8 +46,8 @@
     }
 
     #mobile-logo-circle img {
-        height: 175px;
-        margin-left: 10px;
+        height: 225px;
+        margin-left: 15px;
         opacity: 0.7;
     }
 
