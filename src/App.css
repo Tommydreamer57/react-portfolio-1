@@ -120,18 +120,22 @@ p {
 }
 
 @media(max-width: 500px) {
+
+    html, body #root {
+        height: auto;
+    }
     
     .content {
         margin: 10vw 50px;
         font-family: calibri;
     }
 
-    #logo-wrapper, #scrollbar, .previous, .next {
-        display: none;
-    }
-
     .current {
         position: static;
+    }
+
+    #logo-wrapper, #scrollbar, .previous, .next {
+        display: none;
     }
 
 }
