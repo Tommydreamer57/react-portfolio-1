@@ -18,6 +18,10 @@
 .link i, .link img {
     font-size: 4.25rem;
     height: 4rem;
+}
+
+.link * {
     color: black;
+    opacity: 0.75;
     /* svg fill color located in svg file */
 }

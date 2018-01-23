@@ -29,7 +29,12 @@
 .menu-link-text {
     font-size: 2rem;
     position: relative;
+    transition: color 0.4s cubic-bezier(.65,.15,0,1);    
     z-index: 4;
+}
+
+.menu-link:hover .menu-link-text {
+    color: black;
 }
 
 .slide {
