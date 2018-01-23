@@ -1,33 +1,29 @@
 import React, { Component } from 'react';
 import bio from '../../../bio';
+import './Projects.css';
 
 let i = 200
 
 function Project(project) {
     return (
         <div key={i++} className="project">
-            <div className="info-wrapper">
-                <div className="info">
-                    <a href={project.url} ><h2>{project.title}</h2></a>
-                    <h3>{project.subtitle}</h3>
-                    {
-                        project.description.map(Desc)
-                    }
-                </div>
-                <div className="link">
-                    <a href={project.url} className="image">
-                        <img src={project.img} />
-                    </a>
-                    {/* <a className="visit" href={project.url} >
-                        Visit Site
-                    </a> */}
-                </div>
+            <h2>{project.title}</h2>
+            <a href={project.github} alt={`GitHub Repository: ${project.github}`} ><h3>
+                &nbsp;--&nbsp;{project.subtitle}&nbsp;--&nbsp;
+            </h3></a>
+            <div className="image">
+                <a href={project.url} >
+                    <img src={project.img} />
+                </a>
             </div>
             <div className="tech-list">
                 {
                     project.tech.map(Tech)
                 }
             </div>
+            {
+                // project.description.map(Desc)
+            }
         </div>
     )
 }
@@ -40,8 +36,9 @@ function Desc(desc) {
 
 function Tech(tech) {
     return (
-        <div key={i++} className="Tech">
-            <h4>{tech.name}<div className="slide" /></h4>
+        <div key={i++} className="tech">
+            <h4>{tech.name}</h4>
+            <div className="slide" />
         </div>
     )
 }

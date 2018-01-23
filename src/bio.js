@@ -57,6 +57,7 @@ let Projects = [
             "I built this project using React on Redux with the SlateJS text-editing library and Passport-Auth0 authentication. Users can navigate through posts and add comments, responses and favorites. Admins can login to create, edit, and publish new posts."
         ],
         img: personal,
+        github: "https://github.com/Tommydreamer57/personal-project",
         url: "http://personalproject.thomaslowry.me",
         tech: [
             { name: "React", icon: "devicon-react-original" },
@@ -78,6 +79,7 @@ let Projects = [
             "In conjunction with the testing functionality, I built the create page and the tests component."
         ],
         img: group,
+        github: "https://github.com/DevMtn-CodeWars/Group-Project",
         url: "http://groupproject.thomaslowry.me",
         tech: [
             { name: "React", icon: "devicon-react-original" },
@@ -100,6 +102,7 @@ let Projects = [
         ],
         img: trivia,
         url: "http://trivia.thomaslowry.me",
+        github: "https://github.com/Tommydreamer57/simulation-four",
         tech: [
             { name: "AngularJS", icon: "devicon-angularjs-plain" },
             { name: "Node", icon: "devicon-nodejs-plain" },
