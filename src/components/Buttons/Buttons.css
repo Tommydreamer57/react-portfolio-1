@@ -35,6 +35,9 @@ button:hover {
     right: 0;
     width: 12.5vw;
     height: 12.5vw;
+    /* responsive heights */
+    min-width: 80px;
+    min-height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -196,4 +199,16 @@ button:hover {
 #MoreButton:hover .more-label {
     color: white;
     /* rgba(85, 30, 140, 1); */
+}
+
+@media(max-width: 500px) {
+
+    #LeftButton {
+        display: none;
+    }
+
+    #RightButton {
+        display: none;
+    }
+
 }

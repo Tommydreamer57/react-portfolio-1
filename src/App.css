@@ -34,6 +34,9 @@ a {
     left: 0;
     width: 12.5vw;
     height: 12.5vw;
+    /* responsive heights */
+    min-width: 100px;
+    min-height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,4 +117,20 @@ p {
 .next {
     left: 200vw;
     overflow: hidden;
+}
+
+@media(max-width: 500px) {
+    
+    .content {
+        margin: 10vw 50px;
+    }
+
+    #logo-wrapper {
+        display: none;
+    }
+
+    #scrollbar {
+        display: none;
+    }
+
 }

@@ -1,5 +1,7 @@
 function addEventListeners() {
 
+    if (window.innerWidth <= 500) return
+
     let scrollTop = 0;
     let scrollbarTop = 0;
     let scrollbarHeight = 0;
