@@ -132,6 +132,8 @@ p {
 
     .current {
         position: static;
+        height: auto;
+        overflow: visible;
     }
 
     #logo-wrapper, #scrollbar, .previous, .next {
