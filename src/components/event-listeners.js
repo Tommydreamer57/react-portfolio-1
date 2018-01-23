@@ -1,6 +1,9 @@
 function addEventListeners() {
 
-    if (window.innerWidth <= 500) return
+    if (window.innerWidth <= 500) {
+        console.log('Mobile')
+        return () => { }
+    }
 
     let scrollTop = 0;
     let scrollbarTop = 0;
