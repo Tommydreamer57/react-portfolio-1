@@ -1,3 +1,4 @@
+import colors from './components/assets/Color Blender Screenshot.PNG';
 import personal from './components/assets/Personal Project Screenshot.PNG';
 import group from './components/assets/CodeWars Create page.png';
 import trivia from './components/assets/Trivia Trends Screenshot.PNG';
@@ -50,6 +51,19 @@ let Skills = {
 }
 
 let Projects = [
+    {
+        title: "Color Blender",
+        subtitle: "Calculator for Overlapping Colors",
+        description: [
+            "This is an Angular app that calculates the results of overlapping transparent colors."
+        ],
+        img: colors,
+        github: "http://github.com/Tommydreamer57/color-blender",
+        url: "http://colorblender.stream",
+        tech: [
+            { name: "AngularJS", icon: "devicon-angularjs-plain" }
+        ]
+    },
     {
         title: "Blog Template",
         subtitle: "DevMountain Personal Project",
