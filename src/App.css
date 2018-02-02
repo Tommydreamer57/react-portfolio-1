@@ -11,7 +11,7 @@ body,
     width: 100%;
     margin: 0;
     padding: 0;
-    background: rgb(0, 200, 255);
+    background: rgb(175, 200, 225);
     font-family: Roboto;
 }
 
@@ -51,7 +51,7 @@ a {
     justify-content: center;
     align-items: center;
     border-radius: 50px;
-    background: rgba(0, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.25);
     /* background: rgba(15, 230, 255, 0.6); */
     /* background: rgba(85, 25, 140, 0.6); */
 }
@@ -106,11 +106,11 @@ p {
 }
 
 .previous-left-margin, .current-left-margin, .next-left-margin {
-    background-image: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.5))
+    background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.325))
 }
 
 .previous-right-margin, .current-right-margin, .next-right-margin {
-    background-image: linear-gradient(90deg, rgba(0, 255, 255, 0.5), transparent)
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.325), transparent)
 }
 
 .current-left-margin {
@@ -122,19 +122,19 @@ p {
 }
 
 .previous-left-margin {
-    left: -200vw;
+    left: -150vw;
 }
 
 .previous-right-margin {
-    left: -122.5vw;
+    left: -72.5vw;
 }
 
 .next-left-margin {
-    left: 200vw;
+    left: 150vw;
 }
 
 .next-right-margin {
-    left: 277.5vw;
+    left: 227.5vw;
 }
 
 .content {
@@ -144,7 +144,7 @@ p {
     flex-direction: column;
     height: unset;
     min-height: calc(100vh - 25vw);
-    background: rgba(0, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.325);
 }
 
 .previous, .current, .next {
@@ -159,7 +159,7 @@ p {
 }
 
 .previous {
-    left: -200vw;
+    left: -150vw;
     overflow: hidden;
 }
 
@@ -170,7 +170,7 @@ p {
 }
 
 .next {
-    left: 200vw;
+    left: 150vw;
     overflow: hidden;
 }
 
