@@ -37,7 +37,7 @@ class Skills extends Component {
     }
     render() {
         return (
-            <div className="content" id="Skills" >
+            <div id="Skills" >
                 <div id="skills-main" className="skills-section">
                     <h1>My Skills</h1>
                     <div className="skills-wrapper">

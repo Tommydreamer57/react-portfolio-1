@@ -11,7 +11,7 @@ body,
     width: 100%;
     margin: 0;
     padding: 0;
-    background: #CCC;
+    background: rgb(0, 200, 255);
     font-family: Roboto;
 }
 
@@ -21,7 +21,7 @@ body,
 
 a {
     text-decoration: none;
-    color: white;
+    color: #FFF;
 }
 
 ::-webkit-scrollbar {
@@ -51,7 +51,7 @@ a {
     justify-content: center;
     align-items: center;
     border-radius: 50px;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(0, 255, 255, 0.25);
     /* background: rgba(15, 230, 255, 0.6); */
     /* background: rgba(85, 25, 140, 0.6); */
 }
@@ -94,8 +94,57 @@ p {
 
 /* VIEW TRANSITIONS */
 
+.previous-left-margin, .previous-right-margin, .current-left-margin, .current-right-margin, .next-left-margin, .next-right-margin {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 22.5vw;
+    min-width: 22.5vw;
+    height: 100vh;
+    /* background: rgba(0,0,0,0.25); */
+    transition: left 1s;
+}
+
+.previous-left-margin, .current-left-margin, .next-left-margin {
+    background-image: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.5))
+}
+
+.previous-right-margin, .current-right-margin, .next-right-margin {
+    background-image: linear-gradient(90deg, rgba(0, 255, 255, 0.5), transparent)
+}
+
+.current-left-margin {
+    left: 0;
+}
+
+.current-right-margin {
+    left: 77.5vw;
+}
+
+.previous-left-margin {
+    left: -200vw;
+}
+
+.previous-right-margin {
+    left: -122.5vw;
+}
+
+.next-left-margin {
+    left: 200vw;
+}
+
+.next-right-margin {
+    left: 277.5vw;
+}
+
 .content {
-    margin: 12.5vw 22.5vw;
+    padding: 10vw 0;
+    margin: 0 22.5vw;
+    display: flex;
+    flex-direction: column;
+    height: unset;
+    min-height: calc(100vh - 25vw);
+    background: rgba(0, 255, 255, 0.5);
 }
 
 .previous, .current, .next {
@@ -104,6 +153,9 @@ p {
     top: 0;
     width: 100vw;
     height: 100vh;
+    /* display: flex; */
+    /* align-content: stretch; */
+    /* justify-content: stretch; */
 }
 
 .previous {
@@ -132,12 +184,19 @@ p {
 
 @media(max-width: 500px) {
 
-    html, body #root {
+    html, body, #root {
         height: auto;
+        background: #CCC;
+    }
+
+    
+    .previous-left-margin, .previous-right-margin, .current-left-margin, .current-right-margin, .next-left-margin, .next-right-margin {
+        display: none
     }
     
     .content {
         margin: 3rem 2rem 5rem;
+        background: transparent;
     }
 
     .current {

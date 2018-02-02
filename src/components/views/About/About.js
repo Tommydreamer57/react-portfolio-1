@@ -27,7 +27,7 @@ class About extends Component {
     render() {
         let moreHeight = '1250'
         return (
-            <div id="About" className="content" >
+            <div id="About">
                 <div id="about-wrapper">
                     <div id="mobile-logo" className="mobile-only">
                         <div id="mobile-logo-circle">

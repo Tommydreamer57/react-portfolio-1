@@ -30,7 +30,7 @@ class Contact extends Component {
     }
     render = () => {
         return (
-            <div className="content" id="Contact" >
+            <div id="Contact" >
                 <h1>Contact Me</h1>
                 <div className="links">
                     {

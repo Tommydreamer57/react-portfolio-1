@@ -32,20 +32,37 @@ class View extends Component {
     }
     render = () => {
         let current = this.props.match.params.view
+
         return (
             <div id="View">
                 <div>
                     <div className={!current ? 'current' : 'previous'} >
-                        <About />
+                        <div className="content">
+                            <div className={!current ? 'current-left-margin' : 'previous-left-margin'} />
+                            <About />
+                            <div className={!current ? 'current-right-margin' : 'previous-right-margin'} />
+                        </div>
                     </div>
                     <div className={!current ? 'next' : current === 'skills' ? 'current' : 'previous'} >
-                        <Skills />
+                        <div className="content">
+                            <div className={!current ? 'next-left-margin' : current === 'skills' ? 'current-left-margin' : 'previous-left-margin'} />
+                            <Skills />
+                            <div className={!current ? 'next-right-margin' : current === 'skills' ? 'current-right-margin' : 'previous-right-margin'} />
+                        </div>
                     </div>
                     <div className={current === 'contact' ? 'previous' : current === 'projects' ? 'current' : 'next'} >
-                        <Projects />
+                        <div className="content">
+                            <div className={current === 'contact' ? 'previous-left-margin' : current === 'projects' ? 'current-left-margin' : 'next-left-margin'} />
+                            <Projects />
+                            <div className={current === 'contact' ? 'previous-right-margin' : current === 'projects' ? 'current-right-margin' : 'next-right-margin'} />
+                        </div>
                     </div>
                     <div className={current === 'contact' ? 'current' : 'next'} >
-                        <Contact />
+                        <div className="content">
+                            <div className={current === 'contact' ? 'current-left-margin' : 'next-left-margin'} />
+                            <Contact />
+                            <div className={current === 'contact' ? 'current-right-margin' : 'next-right-margin'} />
+                        </div>
                     </div>
                 </div>
                 <div id="logo-wrapper">

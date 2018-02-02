@@ -57,7 +57,7 @@ class Projects extends Component {
     }
     render = () => {
         return (
-            <div className="content" id="Projects" >
+            <div id="Projects" >
                 <h1>Projects</h1>
                 {
                     bio.Projects.map(Project)

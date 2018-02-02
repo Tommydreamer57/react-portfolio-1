@@ -62,6 +62,7 @@
 }
 
 .icon-skill .slide {
+    display: none; /* REMOVE LATER */
     opacity: 0.35;
     border-left: 4rem solid rgba(0,0,0,0);
     border-top: 12rem solid #CCC;
