@@ -3,6 +3,10 @@
     justify-content: space-around;
 }
 
+#skills-main {
+    margin-top: 0;
+}
+
 .skills-section {
     margin: 4rem 0;
 }

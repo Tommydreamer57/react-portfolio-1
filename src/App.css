@@ -11,7 +11,7 @@ body,
     width: 100%;
     margin: 0;
     padding: 0;
-    background: rgb(175, 200, 225);
+    background: rgb(155, 200, 215);
     font-family: Roboto;
 }
 
@@ -102,7 +102,7 @@ p {
     min-width: 22.5vw;
     height: 100vh;
     /* background: rgba(0,0,0,0.25); */
-    transition: left 1s;
+    transition: left 0.8s;
 }
 
 .previous-left-margin, .current-left-margin, .next-left-margin {
@@ -143,12 +143,12 @@ p {
     display: flex;
     flex-direction: column;
     height: unset;
-    min-height: calc(100vh - 25vw);
+    min-height: calc(100vh - 20vw);
     background: rgba(255, 255, 255, 0.325);
 }
 
 .previous, .current, .next {
-    transition: left 1s;
+    transition: left 0.8s;
     position: fixed;
     top: 0;
     width: 100vw;
@@ -186,7 +186,7 @@ p {
 
     html, body, #root {
         height: auto;
-        background: #CCC;
+        /* background: rgb(155, 200, 215); */
     }
 
     

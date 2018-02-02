@@ -15,15 +15,15 @@ function Paragraph(paragraph) {
 class About extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            more: false
-        }
+        // this.state = {
+        //     more: false
+        // }
     }
-    toggleMore = () => {
-        this.setState({
-            more: !this.state.more
-        })
-    }
+    // toggleMore = () => {
+    //     this.setState({
+    //         more: !this.state.more
+    //     })
+    // }
     render() {
         let moreHeight = '1250'
         return (
@@ -40,18 +40,18 @@ class About extends Component {
                         bio.About.info.map(Paragraph)
                     }
                     <div
-                        className={this.state.more ? 'more show-more' : 'more hide-more'}
+                        className={this.props.more ? 'more show-more' : 'more hide-more'}
                         style={{
-                            maxHeight: this.state.more ? moreHeight + 'px' : '1px',
+                            maxHeight: this.props.more ? moreHeight + 'px' : '1px',
                             transition: 'max-height 0.4s'
                         }}
                     >
-                        <div className="ellipsis" onClick={this.toggleMore} >...</div>
+                        <div className="ellipsis" onClick={() => this.props.toggleMore()} >...</div>
                         {
                             bio.About.more.map(Paragraph)
                         }
                     </div>
-                    <MoreButton more={this.state.more} toggleMore={this.toggleMore} />
+                    <MoreButton more={this.props.more} toggleMore={() => this.props.toggleMore()} />
                 </div>
             </div>
         )

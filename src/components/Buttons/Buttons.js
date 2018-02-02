@@ -46,7 +46,7 @@ function Buttons(props) {
                 id="LeftButton"
                 className={props.current ? 'nav-button' : 'nav-button left-away'}
             >
-                <div className="arrow-wrapper">
+                <div onClick={() => props.toggleMore(false)} className="arrow-wrapper">
                     <div id="left-one" className="arrow" />
                     {
                         // labels.map(label => (
@@ -77,7 +77,7 @@ function Buttons(props) {
                 id="RightButton"
                 className={props.current !== "contact" ? 'nav-button' : 'nav-button right-away'}
             >
-                <div className="arrow-wrapper">
+                <div onClick={() => props.toggleMore(false)} className="arrow-wrapper">
                     <div id="right-one" className="arrow" />
                     {
                         // labels.map(label => (
