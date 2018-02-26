@@ -41,7 +41,14 @@ class View extends Component {
     }
     render = () => {
         let current = this.props.match.params.view
-
+        const search = {}
+        this.props.location.search.split(/[\?\&]/g).forEach(item => {
+            if (!item) return
+            let arr = item.split(/=/)
+            search[arr[0]] = arr[1]
+        })
+        console.log(search)
+        console.log(this.props)
         return (
             <div id="View">
                 <div>
@@ -62,7 +69,7 @@ class View extends Component {
                     <div scrolltop={0} className={current === 'contact' ? 'previous' : current === 'projects' ? 'current' : 'next'} >
                         <div className="content">
                             <div className={current === 'contact' ? 'previous-left-margin' : current === 'projects' ? 'current-left-margin' : 'next-left-margin'} />
-                            <Projects />
+                            <Projects search={search} />
                             <div className={current === 'contact' ? 'previous-right-margin' : current === 'projects' ? 'current-right-margin' : 'next-right-margin'} />
                         </div>
                     </div>

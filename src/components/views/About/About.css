@@ -12,19 +12,6 @@
     cursor: pointer;
 }
 
-.more {
-    overflow: hidden;
-    transition: height 1s cubic-bezier(.65,.15,0,1);
-}
-
-.show-more {
-    height: auto;
-}
-
-.hide-more {
-    height: 1px;
-}
-
 @media(max-width: 500px) {
 
     #mobile-logo {

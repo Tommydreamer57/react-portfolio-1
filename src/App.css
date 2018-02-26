@@ -11,17 +11,19 @@ body,
     width: 100%;
     margin: 0;
     padding: 0;
-    background: rgb(155, 200, 215);
+    background: rgba(64, 152, 207, 1);
     font-family: Roboto;
 }
 
+/*
 * {
-    /* border: 1px solid black !important; */
+    border: 1px solid black !important;
 }
+*/
 
 a {
     text-decoration: none;
-    color: #FFF;
+    color: #000;
 }
 
 ::-webkit-scrollbar {

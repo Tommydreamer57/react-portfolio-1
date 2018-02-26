@@ -1,6 +1,13 @@
 
+.projects-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
 .project {
     margin: 4rem 0;
+    /* width: 45%; */
 }
 
 .project h3 {
@@ -13,12 +20,24 @@
     margin-bottom: 1.25rem;
 }
 
+.project .image {
+    position: relative;
+    z-index: 3;
+    margin-bottom: 1.75rem;
+    padding: 0;
+}
+
 .project .image, .image img {
     width: 100%;
 }
 
-.project .image {
-    margin-bottom: 1.75rem;
+.image a {
+    display: block;
+    height: 100%;
+}
+
+.project img {
+    box-shadow: 2.5px 3.25px 5px rgba(0, 0, 0, 0.125);
 }
 
 .tech-list {
@@ -58,6 +77,14 @@
     opacity: 0.5;
     border-left: 2rem solid rgba(0,0,0,0);
     border-top: 3rem solid white;
+}
+
+.selected-tech {
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.125);
+}
+
+.selected-tech .slide {
+    right: 0;
 }
 
 .tech:hover .slide {

@@ -8,9 +8,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-    background: rgba(175, 210, 225, 1);
+    background: rgba(95, 170, 215, 1);
     transition: top 0.3s cubic-bezier(0.65, 0.15, 0, 1);
     z-index: 2;
+}
+
+#Menu a {
+    color: #FFF;
 }
 
 .menu-link {

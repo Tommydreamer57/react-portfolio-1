@@ -22,32 +22,29 @@ let About = {
     ]
 }
 
+const HTML5 = { name: "HTML5", icon: "devicon-html5-plain" }
+const CSS3 = { name: "CSS3", icon: "devicon-css3-plain " }
+const ES6 = { name: "ES6", icon: "devicon-javascript-plain" }
+const REACT = { name: "React", icon: "devicon-react-original" }
+const REDUX = { name: "Redux", svg: redux }
+const SASS = { name: "Sass", icon: "devicon-sass-original" }
+const ANGULARJS = { name: "AngularJS", icon: "devicon-angularjs-plain" }
+const JQUERY = { name: "JQuery", icon: "devicon-jquery-plain" }
+const NODE = { name: "Node", icon: "devicon-nodejs-plain" }
+const POSTGRESQL = { name: "PostgreSQL", icon: "devicon-postgresql-plain" }
+const AUTH0 = { name: "Auth0", icon: "" }
+const HEROKU = { name: "Heroku", icon: "devicon-heroku-plain" }
+const SLATE = { name: "Slate", icon: "" }
+const ACE = { name: "Ace", icon: "" }
+const IFRAME = { name: "iframe", icon: "" }
+const JEST = { name: "Jest", icon: "" }
+const GIT = { name: "git", icon: "devicon-github-plain" }
+
 let Skills = {
-    main: [
-        { name: "HTML5", icon: "devicon-html5-plain" },
-        { name: "CSS3", icon: "devicon-css3-plain " },
-        { name: "ES6", icon: "devicon-javascript-plain" }
-    ],
-    front: [
-        { name: "React", icon: "devicon-react-original" },
-        { name: "Redux", svg: redux },
-        { name: "Sass", icon: "devicon-sass-original" },
-        { name: "AngularJS", icon: "devicon-angularjs-plain" },
-        { name: "JQuery", icon: "devicon-jquery-plain" }
-    ],
-    back: [
-        { name: "Node", icon: "devicon-nodejs-plain" },
-        { name: "PostgreSQL", icon: "devicon-postgresql-plain" },
-        { name: "Auth0", icon: "" },
-        { name: "Heroku", icon: "devicon-heroku-plain" }
-    ],
-    other: [
-        { name: "Slate", icon: "" },
-        { name: "Ace", icon: "" },
-        { name: "iframe", icon: "" },
-        { name: "Jest", icon: "" },
-        { name: "git", icon: "devicon-github-plain" }
-    ]
+    main: [ HTML5, CSS3, ES6 ],
+    front: [ REACT, REDUX, SASS, ANGULARJS, JQUERY ],
+    back: [ NODE, POSTGRESQL, AUTH0, HEROKU ],
+    other: [ SLATE, ACE, IFRAME, JEST, GIT ]
 }
 
 let Projects = [
@@ -61,7 +58,7 @@ let Projects = [
         github: "http://github.com/Tommydreamer57/color-blender",
         url: "http://colorblender.stream",
         tech: [
-            { name: "AngularJS", icon: "devicon-angularjs-plain" }
+            ANGULARJS
         ]
     },
     {
@@ -74,13 +71,13 @@ let Projects = [
         github: "https://github.com/Tommydreamer57/personal-project",
         url: "http://personalproject.thomaslowry.me",
         tech: [
-            { name: "React", icon: "devicon-react-original" },
-            { name: "Redux", icon: "" },
-            { name: "Sass", icon: "devicon-sass-original" },
-            { name: "Slate", icon: "" },
-            { name: "Node", icon: "devicon-nodejs-plain" },
-            { name: "Auth0", icon: "" },
-            { name: "PostgreSQL", icon: "devicon-postgresql-plain" }
+            REACT,
+            REDUX,
+            SASS,
+            SLATE,
+            NODE,
+            AUTH0,
+            POSTGRESQL
         ]
     },
     {
@@ -96,14 +93,14 @@ let Projects = [
         github: "https://github.com/DevMtn-CodeWars/Group-Project",
         url: "http://groupproject.thomaslowry.me",
         tech: [
-            { name: "React", icon: "devicon-react-original" },
-            { name: "Redux", icon: "" },
-            { name: "Sass", icon: "devicon-sass-original" },
-            { name: "Slate", icon: "" },
-            { name: "Ace", icon: "" },
-            { name: "Node", icon: "devicon-nodejs-plain" },
-            { name: "Auth0", icon: "" },
-            { name: "PostgreSQL", icon: "devicon-postgresql-plain" },
+            REACT,
+            REDUX,
+            SASS,
+            SLATE,
+            ACE,
+            NODE,
+            AUTH0,
+            POSTGRESQL
         ]
     },
     {
@@ -118,9 +115,9 @@ let Projects = [
         url: "http://trivia.thomaslowry.me",
         github: "https://github.com/Tommydreamer57/simulation-four",
         tech: [
-            { name: "AngularJS", icon: "devicon-angularjs-plain" },
-            { name: "Node", icon: "devicon-nodejs-plain" },
-            { name: "PostgreSQL", icon: "devicon-postgresql-plain" },
+            ANGULARJS,
+            NODE,
+            POSTGRESQL
         ]
     }
 ]

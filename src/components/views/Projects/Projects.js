@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import bio from '../../../bio';
 import './Projects.css';
 
@@ -7,15 +8,19 @@ let i = 200
 function Project(project) {
     return (
         <div key={i++} className="project">
-            <h2>{project.title}</h2>
-            <a href={project.github} alt={`GitHub Repository: ${project.github}`} ><h3>
-                {
-                    window.innerWidth >= 500 ?
-                        ` -- ${project.subtitle} -- `
-                        :
-                        project.subtitle
-                }
-            </h3></a>
+            <h2>
+                {project.title}
+            </h2>
+            <a href={project.github} alt={`GitHub Repository: ${project.github}`} >
+                <h3>
+                    {
+                        window.innerWidth >= 500 ?
+                            ` -- ${project.subtitle} -- `
+                            :
+                            project.subtitle
+                    }
+                </h3>
+            </a>
             <div className="image">
                 <a href={project.url} >
                     <img src={project.img} />
@@ -27,44 +32,63 @@ function Project(project) {
                 }
             </div>
             {
-                // project.description.map(Desc)
+                // project.description.map(desc => {
+                //     return (
+                //         <p key={i++} >{desc}</p>
+                //     )
+                // })
             }
         </div>
     )
 }
 
-function Desc(desc) {
-    return (
-        <p key={i++} >{desc}</p>
-    )
-}
-
 function Tech(tech) {
     return (
-        <div key={i++} className="tech">
+        <Link to={`/projects?skill=${tech.name}`} key={i++} className={`tech ${tech.selected ? 'selected-tech' : ''}`}>
             <h4>{tech.name}</h4>
             <div className="slide" />
-        </div>
+        </Link>
     )
 }
 
-class Projects extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
+function Projects({ search }) {
+    console.log(search)
 
-        }
+    function filter(project) {
+        return !search.skill || project.tech.some(tech => search.skill === tech.name)
     }
-    render = () => {
-        return (
-            <div id="Projects" >
-                <h1>Projects</h1>
+
+    const { main, front, back, other } = bio.Skills
+
+    const fullTechList = [...main, ...front, ...back, ...other].map(tech => {
+        if (!bio.Projects.some(project => project.tech.some(skill => skill === tech))) {
+            return
+        }
+        if (tech.name === search.skill) {
+            return Object.assign({ selected: true }, tech)
+        }
+        else {
+            return tech
+        }
+    }).filter(item => item)
+
+    console.log(fullTechList)
+
+    return (
+        <div id="Projects" >
+            <h1>Projects</h1>
+            <div className="tech-list">
                 {
-                    bio.Projects.map(Project)
+                    fullTechList.map(Tech)
                 }
             </div>
-        )
-    }
+            <div className="projects-wrapper">
+                {
+                    bio.Projects.filter(filter).map(Project)
+                }
+            </div>
+        </div>
+    )
 }
 
 export default Projects

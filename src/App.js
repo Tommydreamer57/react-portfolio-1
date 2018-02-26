@@ -14,7 +14,7 @@ class App extends Component {
           <Route path="/:view" component={View} />
         </Switch>
       </div>
-    );
+    )
   }
 }
 
