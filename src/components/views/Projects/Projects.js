@@ -7,7 +7,7 @@ let i = 200
 
 function Project(project) {
     return (
-        <div key={i++} className="project">
+        <div key={`Project ${project.title}`} className='project'>
             <h2>
                 {project.title}
             </h2>
@@ -44,7 +44,7 @@ function Project(project) {
 
 function Tech(tech) {
     return (
-        <Link to={`/projects?skill=${tech.name}`} key={i++} className={`tech ${tech.selected ? 'selected-tech' : ''}`}>
+        <Link to={tech.selected ? '/projects' : `/projects?skill=${tech.name}`} key={`Projects Tech ${tech.name}`} className={`tech ${tech.selected ? 'selected-tech' : ''}`}>
             <h4>{tech.name}</h4>
             <div className="slide" />
         </Link>

@@ -6,7 +6,7 @@
 }
 
 .project {
-    margin: 2rem 0;
+    margin: 2rem 0 1rem;
     width: 45%;
 }
 
@@ -58,13 +58,15 @@
     background: rgba(0255,0255,0255,0.4);
     border-radius: 0.25rem;
     margin-top: 0.375rem;
-    margin-right: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-right: 1.25rem;
+    margin-bottom: 1.25rem;
     overflow: hidden;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    transition: box-shadow 0.15s;
 }
 
 .tech h4 {
-    font-size: 1.375rem;
+    font-size: 1.25rem;
     margin: 0;
     position: relative;
     z-index: 1;
@@ -101,7 +103,12 @@
 @media(max-width: 500px) {
 
     .project {
-        margin: 2.5rem 0;
+        margin: 1rem 0;
+        width: 100%;
+    }
+
+    .project:first-of-type {
+        margin-top: 2rem;
     }
 
 }

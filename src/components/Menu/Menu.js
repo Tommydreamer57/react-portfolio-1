@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Menu.css';
 
+let i = 0;
+
 function Menu(props) {
     const links = [
         {

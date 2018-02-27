@@ -1,3 +1,4 @@
+import calendar from './components/assets/Calendar Screenshot.PNG';
 import colors from './components/assets/Color Blender Screenshot.PNG';
 import personal from './components/assets/Personal Project Screenshot.PNG';
 import group from './components/assets/CodeWars Create page.png';
@@ -27,10 +28,11 @@ const CSS3 = { name: "CSS3", icon: "devicon-css3-plain " }
 const ES6 = { name: "ES6", icon: "devicon-javascript-plain" }
 const REACT = { name: "React", icon: "devicon-react-original" }
 const REDUX = { name: "Redux", svg: redux }
-const SASS = { name: "Sass", icon: "devicon-sass-original" }
+const SCSS = { name: "Sass", icon: "devicon-sass-original" }
 const ANGULARJS = { name: "AngularJS", icon: "devicon-angularjs-plain" }
 const JQUERY = { name: "JQuery", icon: "devicon-jquery-plain" }
 const NODE = { name: "Node", icon: "devicon-nodejs-plain" }
+const EXPRESS = { name: 'Express', icon: "" }
 const POSTGRESQL = { name: "PostgreSQL", icon: "devicon-postgresql-plain" }
 const AUTH0 = { name: "Auth0", icon: "" }
 const HEROKU = { name: "Heroku", icon: "devicon-heroku-plain" }
@@ -41,13 +43,47 @@ const JEST = { name: "Jest", icon: "" }
 const GIT = { name: "git", icon: "devicon-github-plain" }
 
 let Skills = {
-    main: [ HTML5, CSS3, ES6 ],
-    front: [ REACT, REDUX, SASS, ANGULARJS, JQUERY ],
-    back: [ NODE, POSTGRESQL, AUTH0, HEROKU ],
-    other: [ SLATE, ACE, IFRAME, JEST, GIT ]
+    main: [
+        HTML5,
+        CSS3,
+        ES6
+    ],
+    front: [
+        REACT,
+        REDUX,
+        ANGULARJS,
+        JQUERY,
+        SCSS
+    ],
+    back: [
+        NODE,
+        EXPRESS,
+        POSTGRESQL,
+        AUTH0,
+        HEROKU
+    ],
+    other: [
+        SLATE,
+        ACE,
+        IFRAME,
+        JEST,
+        GIT
+    ]
 }
 
 let Projects = [
+    {
+        title: "Calendar",
+        subtitle: "Timeshare Week Selector",
+        description: [],
+        img: calendar,
+        github: "https://github.com/Calendar-App",
+        url: "http://calendar.thomaslowry.me",
+        tech: [
+            REACT,
+            SCSS
+        ]
+    },
     {
         title: "Color Blender",
         subtitle: "Calculator for Overlapping Colors",
@@ -55,7 +91,7 @@ let Projects = [
             "This is an Angular app that calculates the results of overlapping transparent colors."
         ],
         img: colors,
-        github: "http://github.com/Tommydreamer57/color-blender",
+        github: "https://github.com/Tommydreamer57/color-blender",
         url: "http://colorblender.stream",
         tech: [
             ANGULARJS
@@ -73,9 +109,10 @@ let Projects = [
         tech: [
             REACT,
             REDUX,
-            SASS,
+            SCSS,
             SLATE,
             NODE,
+            EXPRESS,
             AUTH0,
             POSTGRESQL
         ]
@@ -95,10 +132,11 @@ let Projects = [
         tech: [
             REACT,
             REDUX,
-            SASS,
+            SCSS,
             SLATE,
             ACE,
             NODE,
+            EXPRESS,
             AUTH0,
             POSTGRESQL
         ]
@@ -117,6 +155,7 @@ let Projects = [
         tech: [
             ANGULARJS,
             NODE,
+            EXPRESS,
             POSTGRESQL
         ]
     }
@@ -126,7 +165,7 @@ let Contact = [
     {
         name: "GitHub",
         icon: "devicon-github-plain",
-        link: "http://github.com/tommydreamer57"
+        link: "https://github.com/tommydreamer57"
     },
     // {
     //     name: "minilao94@yahoo.com",
