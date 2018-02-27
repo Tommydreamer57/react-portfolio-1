@@ -4,8 +4,8 @@ import bio from '../../../../bio';
 
 function Tech(tech) {
     return (
-        <div key={`Project Details Tech ${tech.name}`} className="skill">
-            <h3>{tech.name}</h3>
+        <div key={`Project Details Tech ${tech.name}`} className="tech">
+            <h4>{tech.name}</h4>
             <div className="slide" />
         </div>
     )
