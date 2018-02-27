@@ -6,18 +6,21 @@
 }
 
 .project {
-    margin: 4rem 0;
-    /* width: 45%; */
-}
-
-.project h3 {
-    font-style: italic;
-    color: black;
-    opacity: 0.625;
+    margin: 2rem 0;
+    width: 45%;
 }
 
 .project h2 {
-    margin-bottom: 1.25rem;
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.project h3 {
+    font-size: 1.125rem;
+    font-style: italic;
+    color: #000;
+    opacity: 0.625;
+    margin-bottom: 1rem;
 }
 
 .project .image {
@@ -38,6 +41,10 @@
 
 .project img {
     box-shadow: 2.5px 3.25px 5px rgba(0, 0, 0, 0.125);
+}
+
+.project .tech-list {
+    display: none;
 }
 
 .tech-list {

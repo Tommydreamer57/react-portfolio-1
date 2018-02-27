@@ -14,9 +14,9 @@ function Project(project) {
             <a href={project.github} alt={`GitHub Repository: ${project.github}`} >
                 <h3>
                     {
-                        window.innerWidth >= 500 ?
-                            ` -- ${project.subtitle} -- `
-                            :
+                        // window.innerWidth >= 500 ?
+                        //     ` -- ${project.subtitle} -- `
+                        //     :
                             project.subtitle
                     }
                 </h3>

@@ -150,7 +150,7 @@ p {
 }
 
 .previous, .current, .next {
-    transition: left 0.8s;
+    transition: left 0.8s, width 0.8s;
     position: fixed;
     top: 0;
     width: 100vw;
