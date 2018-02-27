@@ -25,12 +25,12 @@ function About(props) {
                 <div
                     className="more"
                     style={{
-                        maxHeight: props.more ? '1250px' : '1px',
-                        transition: 'max-height 0.4s',
-                        overflow: 'hidden'
+                        // maxHeight: props.more ? '1250px' : '1px',
+                        // transition: 'max-height 0.4s',
+                        // overflow: 'hidden'
                     }}
                 >
-                    <div className="ellipsis" onClick={() => props.toggleMore()} >...</div>
+                    {/* <div className="ellipsis" onClick={() => props.toggleMore()} >...</div> */}
                     {
                         bio.About.more.map(paragraph => {
                             return (
@@ -39,7 +39,7 @@ function About(props) {
                         })
                     }
                 </div>
-                <MoreButton more={props.more} toggleMore={() => props.toggleMore()} />
+                {/* <MoreButton more={props.more} toggleMore={() => props.toggleMore()} /> */}
             </div>
         </div>
     )

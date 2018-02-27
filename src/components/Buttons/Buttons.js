@@ -30,6 +30,12 @@ function Buttons(props) {
     let next = links[current + 1]
     let nextLabel = labels[current + 1]
     console.log(previous, links[current], next)
+    if (props.project) {
+        previous = '/projects'
+        previousLabel = 'Projects'
+        next = ""
+        nextLabel = ""
+    }
     return (
         <div id="Buttons">
 
@@ -42,13 +48,13 @@ function Buttons(props) {
             <Link
                 to={previous}
                 id="LeftButton"
-                className={props.current ? 'nav-button' : 'nav-button left-away'}
+                className={props.project ? 'nav-button' : props.current ? 'nav-button' : 'nav-button left-away'}
             >
                 <div onClick={() => props.toggleMore(false)} className="arrow-wrapper">
                     <div id="left-one" className="arrow" />
                     {
-                        labels.map(label => (
-                            <div key={`Left Button ${label}`} className={label === previousLabel ? 'nav-label nav-label-display' : 'nav-label'} >
+                        labels.map((label, i) => (
+                            <div key={`Left Button ${label} ${i}`} className={label === previousLabel ? 'nav-label nav-label-display' : 'nav-label'} >
                                 {label}
                             </div>
                         ))
@@ -60,13 +66,13 @@ function Buttons(props) {
             <Link
                 to={next || "/contact"}
                 id="RightButton"
-                className={props.current !== "contact" ? 'nav-button' : 'nav-button right-away'}
+                className={props.project ? 'nav-button right-away' : props.current !== "contact" ? 'nav-button' : 'nav-button right-away'}
             >
                 <div onClick={() => props.toggleMore(false)} className="arrow-wrapper">
                     <div id="right-one" className="arrow" />
                     {
-                        labels.map(label => (
-                            <div key={`Right Button ${label}`} className={label === nextLabel ? 'nav-label nav-label-display' : 'nav-label'} >
+                        labels.map((label, i) => (
+                            <div key={`Right Button ${label} ${i}`} className={label === nextLabel ? 'nav-label nav-label-display' : 'nav-label'} >
                                 {label}
                             </div>
                         ))

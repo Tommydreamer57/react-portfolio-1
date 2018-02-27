@@ -2,7 +2,11 @@
 @import url("https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css");
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+@import url('https://fonts.googleapis.com/css?family=Mukta+Mahee');
+@import url('https://fonts.googleapis.com/css?family=Cousine');
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono');
 
 html,
 body,
@@ -12,7 +16,7 @@ body,
     margin: 0;
     padding: 0;
     background: rgba(64, 152, 207, 1);
-    font-family: Roboto;
+    font-family: 'Mukta Mahee', Cousine, 'Fira Mono', 'Ubuntu Mono', Roboto;
 }
 
 /*
@@ -61,7 +65,7 @@ a {
 #logo {
     height: 75px;
     transform: translateX(3px) rotate(-2deg);
-    opacity: 0.7;
+    opacity: 0.75;
 }
 
 h1 {

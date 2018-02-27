@@ -1,4 +1,8 @@
 
+.more {
+    margin-top: 5rem;
+}
+
 .ellipsis {
     line-height: 130%;
     /* padding matches 1rem margin bottom of normal paragraphs, margin-top & padding-top cancel out */

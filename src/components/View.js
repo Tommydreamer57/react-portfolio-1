@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import About from './views/About/About';
 import Skills from './views/Skills/Skills';
 import Projects from './views/Projects/Projects';
+import ProjectDetails from './views/Projects/ProjectDetails/ProjectDetails';
 import Contact from './views/Contact/Contact';
+
+import bio from '../bio';
 
 import logo from './assets/logo.svg';
 import Menu from './Menu/Menu';
@@ -27,7 +30,7 @@ class View extends Component {
     toggleMore = more => { // FOR THE ABOUT PAGE ONLY
         console.log(more)
         if (more === undefined) more = !this.state.more
-        console.log(more)        
+        console.log(more)
         this.setState({
             more: more
         })
@@ -41,7 +44,8 @@ class View extends Component {
     }
     render = () => {
         let current = this.props.match.params.view
-        const search = {}
+        let project = this.props.match.params.project
+        let search = {}
         this.props.location.search.split(/[\?\&]/g).forEach(item => {
             if (!item) return
             let arr = item.split(/=/)
@@ -52,28 +56,47 @@ class View extends Component {
         return (
             <div id="View">
                 <div>
-                    <div scrolltop={0} className={!current ? 'current' : 'previous'} >
+                    {/* ABOUT */}
+                    <div className={!current ? 'current' : 'previous'} >
                         <div className="content">
                             <div className={!current ? 'current-left-margin' : 'previous-left-margin'} />
                             <About more={this.state.more} toggleMore={this.toggleMore} />
                             <div className={!current ? 'current-right-margin' : 'previous-right-margin'} />
                         </div>
                     </div>
-                    <div scrolltop={0} className={!current ? 'next' : current === 'skills' ? 'current' : 'previous'} >
+                    {/* SKILLS */}
+                    <div className={!current ? 'next' : current === 'skills' ? 'current' : 'previous'} >
                         <div className="content">
                             <div className={!current ? 'next-left-margin' : current === 'skills' ? 'current-left-margin' : 'previous-left-margin'} />
                             <Skills />
                             <div className={!current ? 'next-right-margin' : current === 'skills' ? 'current-right-margin' : 'previous-right-margin'} />
                         </div>
                     </div>
-                    <div scrolltop={0} className={current === 'contact' ? 'previous' : current === 'projects' ? 'current' : 'next'} >
+                    {/* PROJECTS */}
+                    <div className={project ? 'previous' : current === 'contact' ? 'previous' : current === 'projects' ? 'current' : 'next'} >
                         <div className="content">
-                            <div className={current === 'contact' ? 'previous-left-margin' : current === 'projects' ? 'current-left-margin' : 'next-left-margin'} />
+                            <div className={project ? 'previous-left-margin' : current === 'contact' ? 'previous-left-margin' : current === 'projects' ? 'current-left-margin' : 'next-left-margin'} />
                             <Projects search={search} />
-                            <div className={current === 'contact' ? 'previous-right-margin' : current === 'projects' ? 'current-right-margin' : 'next-right-margin'} />
+                            <div className={project ? 'previous-right-margin' : current === 'contact' ? 'previous-right-margin' : current === 'projects' ? 'current-right-margin' : 'next-right-margin'} />
                         </div>
                     </div>
-                    <div scrolltop={0} className={current === 'contact' ? 'current' : 'next'} >
+                    {/* PROJECT DETAILS */}
+                    {
+                        bio.Projects.map(item => {
+                            return (
+                                <div className={project === item.title ? 'current' : 'next'} key={`Project Details ${item.title}`} >
+                                    <div className="content">
+                                        <div className={project === item.title ? 'current-left-margin' : 'next-left-margin'} />
+                                        <ProjectDetails project={item.title} />
+                                        <div className={project === item.title ? 'current-right-margin' : 'next-right-margin'} />
+                                    </div>
+                                </div>
+
+                            )
+                        })
+                    }
+                    {/* CONTACT */}
+                    <div className={current === 'contact' ? 'current' : 'next'} >
                         <div className="content">
                             <div className={current === 'contact' ? 'current-left-margin' : 'next-left-margin'} />
                             <Contact />
@@ -88,6 +111,7 @@ class View extends Component {
                 </div>
                 <Buttons
                     current={current}
+                    project={project}
                     open={this.state.open}
                     toggleMenu={this.toggleMenu}
                     toggleMore={this.toggleMore}

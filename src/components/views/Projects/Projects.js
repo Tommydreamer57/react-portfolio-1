@@ -8,20 +8,22 @@ let i = 200
 function Project(project) {
     return (
         <div key={`Project ${project.title}`} className='project'>
-            <h2>
-                {project.title}
-            </h2>
+            <Link to={`/details/${project.title}`}>
+                <h2>
+                    {project.title}
+                </h2>
+            </Link>
             <a href={project.github} alt={`GitHub Repository: ${project.github}`} >
                 <h3>
                     {
                         // window.innerWidth >= 500 ?
                         //     ` -- ${project.subtitle} -- `
                         //     :
-                            project.subtitle
+                        project.subtitle
                     }
                 </h3>
             </a>
-            <div className="image">
+            <div className="image" >
                 <a href={project.url} >
                     <img src={project.img} />
                 </a>
@@ -51,7 +53,7 @@ function Tech(tech) {
     )
 }
 
-function Projects({ search }) {
+function Projects({ search, history }) {
     console.log(search)
 
     function filter(project) {
