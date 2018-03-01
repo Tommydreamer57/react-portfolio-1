@@ -155,9 +155,7 @@ button:hover {
 }
 
 
-@media(min-width: 500px) {
-
-    
+@media(min-width: 769px) {
 
     /* #MenuButton:hover {
         cursor: pointer;
@@ -211,7 +209,7 @@ button:hover {
 }
 
 
-@media(max-width: 500px) {
+@media(max-width: 768px) {
 
     #MenuButton {
         /* justify-content: flex-end; */

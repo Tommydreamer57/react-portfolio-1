@@ -31,11 +31,7 @@ function ProjectDetails(props) {
                 </a>
             </div>
             {
-                project.description.map(desc => {
-                    return (
-                        <p key={desc} >{desc}</p>
-                    )
-                })
+                project.description.map(desc => <p key={desc} >{desc}</p>)
             }
         </div>
     )

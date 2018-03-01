@@ -68,36 +68,6 @@ a {
     opacity: 0.75;
 }
 
-h1 {
-    font-size: 3rem;
-}
-
-h2 {
-
-    font-size: 2.25rem;
-}
-
-h3 {
-    font-size: 1.5rem;
-}
-
-h4 {
-    font-size: 1.5rem;
-}
-
-h1, h2, h3, h4 {
-    margin-bottom: 1.75rem;
-    line-height: 130%
-}
-
-p {
-    font-size: 1.175rem;
-    line-height: 145%;
-    margin-bottom: 1rem;
-}
-
-
-
 /* VIEW TRANSITIONS */
 
 .previous-left-margin, .previous-right-margin, .current-left-margin, .current-right-margin, .next-left-margin, .next-right-margin {
@@ -108,7 +78,7 @@ p {
     min-width: 22.5vw;
     height: 100vh;
     /* background: rgba(0,0,0,0.25); */
-    transition: left 0.8s;
+    /* transition: left 0.8s; */
 }
 
 .previous-left-margin, .current-left-margin, .next-left-margin {
@@ -154,7 +124,7 @@ p {
 }
 
 .previous, .current, .next {
-    transition: left 0.8s, width 0.8s;
+    /* transition: left 0.8s, width 0.8s; */
     position: fixed;
     top: 0;
     width: 100vw;
@@ -180,15 +150,62 @@ p {
     overflow: hidden;
 }
 
-@media(min-width: 500px) {
+/*
+
+fully responsive css values:
+
+property: calc( minimum px + range * (viewport width - minimum screen width px) / max screen width);
+font-size: calc(20px + 10 * (100vw - 769px) / 2048);
+
+font-size starts at 20px at vewport width of 769px and ranges to 30px at viewport width 2048px
+
+*/
+
+@media(min-width: 769px) {
 
     .mobile-only {
         display: none;
     }
 
+    /* RESPONSIVE DESKTOP FONT SIZES */
+
+    h1 {
+        /* font-size: 3rem; */
+        font-size: calc(48px + 32 * (100vw - 769px) / 2048);
+    }
+
+    h2 {
+        /* font-size: 2.25rem; */
+        font-size: calc(36px + 12 * (100vw - 769px) / 2048);
+    }
+
+    h3 {
+        /* font-size: 1.5rem; */
+        font-size: calc(20px + 10 * (100vw - 769px) / 2048);
+    }
+
+    h4 {
+        /* font-size: 1.25rem; */
+        font-size: calc(18px + 8 * (100vw - 769px) / 2048);
+    } 
+
+    h1, h2, h3, h4 {
+        /* margin-bottom: 1.75rem; */
+        margin-bottom: calc(28px + 32 * (100vw - 769px) / 2048);
+        line-height: 130%
+    }
+
+    p {
+        /* font-size: 1.175rem; */
+        font-size: calc(16px + 6 * (100vw - 769px) / 2048);;
+        line-height: 145%;
+        /* margin-bottom: 1rem; */
+        margin-bottom: calc(12px + 10 * (100vw - 769px) / 2048);
+    }
+
 }
 
-@media(max-width: 500px) {
+@media(max-width: 768px) {
 
     html, body {
         height: auto;
@@ -204,7 +221,11 @@ p {
     }
     
     .content {
-        margin: 0rem 2rem 5rem;
+        /* margin: 0rem 2rem 5rem; */
+        margin-top: 0;
+        margin-left: calc(16px + 48 * (100vw - 360px) / 768);
+        margin-right: calc(16px + 48 * (100vw - 360px) / 768);
+        margin-bottom: 5rem;
         background: transparent;
     }
 
@@ -217,5 +238,35 @@ p {
     #logo-wrapper, #scrollbar, .previous, .next {
         display: none;
     }
+
+    /* RESPONSIVE FONT SIZES */
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.25rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    h1, h2, h3, h4 {
+        margin-bottom: 1.75rem;
+        line-height: 130%
+    }
+
+    p {
+        font-size: 1.175rem;
+        line-height: 145%;
+        margin-bottom: 1rem;
+    }
+
 
 }

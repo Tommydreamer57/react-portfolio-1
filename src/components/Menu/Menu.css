@@ -99,7 +99,7 @@
     transition-delay: 0.05s;
 }
 
-@media(min-width: 500px) {
+@media(min-width: 769px) {
 
     .menu-link:hover .menu-link-text {
         color: black;
@@ -117,7 +117,7 @@
 
 }
 
-@media(max-width: 500px) {
+@media(max-width: 768px) {
 
     .menu-link {
         margin: 0 7.5vw;
