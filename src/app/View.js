@@ -5,11 +5,11 @@ import Projects from './views/Projects/Projects';
 import ProjectDetails from './views/Projects/ProjectDetails/ProjectDetails';
 import Contact from './views/Contact/Contact';
 
-import bio from '../bio';
+import bio from '../bio/bio';
 
-import logo from './assets/logo.svg';
-import Menu from './Menu/Menu';
-import Buttons from './Buttons/Buttons';
+import logo from '../assets/logo.svg';
+import Menu from './components/Menu/Menu';
+import Buttons from './components/Buttons/Buttons';
 
 import addEventListeners from './event-listeners';
 
@@ -73,11 +73,13 @@ class View extends Component {
                         </div>
                     </div>
                     {/* PROJECTS */}
-                    <div className={project ? 'previous' : current === 'contact' ? 'previous' : current === 'projects' ? 'current' : 'next'} >
+                    <div className={current === 'contact' ? 'previous' : current === 'projects' || current === 'details' ? 'current' : 'next'} >
                         <div className="content">
-                            <div className={project ? 'previous-left-margin' : current === 'contact' ? 'previous-left-margin' : current === 'projects' ? 'current-left-margin' : 'next-left-margin'} />
+                            {/* */}
+                            <div className={current === 'contact' ? 'previous-left-margin' : current === 'projects' || current === 'details' ? 'current-left-margin' : 'next-left-margin'} />
                             <Projects search={search} />
-                            <div className={project ? 'previous-right-margin' : current === 'contact' ? 'previous-right-margin' : current === 'projects' ? 'current-right-margin' : 'next-right-margin'} />
+                            {/*  */}
+                            <div className={current === 'contact' ? 'previous-right-margin' : current === 'projects' || current === 'details' ? 'current-right-margin' : 'next-right-margin'} />
                         </div>
                     </div>
                     {/* PROJECT DETAILS */}
@@ -85,8 +87,9 @@ class View extends Component {
                         bio.Projects.map(item => {
                             return (
                                 <div className={project === item.title ? 'current' : 'next'} key={`Project Details ${item.title}`} >
-                                    <div className="content">
-                                        <div className={project === item.title ? 'current-left-margin' : 'next-left-margin'} />
+                                    <div className="content details-content">
+                                        <div className={`details-left-left-margin ${project === item.title ? 'current-left-margin' : 'previous-left-margin'}`} />
+                                        <div className={`details-left-margin ${project === item.title ? 'current-left-margin' : 'next-left-margin'}`} />
                                         <ProjectDetails project={item.title} />
                                         <div className={`details-right-margin ${project === item.title ? 'current-right-margin' : 'next-right-margin'}`} />
                                     </div>

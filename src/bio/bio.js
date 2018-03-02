@@ -1,11 +1,11 @@
-import calendar from './components/assets/Calendar Screenshot.PNG';
-import colors from './components/assets/Color Blender Screenshot.PNG';
-import personal from './components/assets/Personal Project Screenshot.PNG';
-import group from './components/assets/CodeWars Create page.png';
-import trivia from './components/assets/Trivia Trends Screenshot.PNG';
-import LinkedIn from './components/assets/iconmonstr-linkedin-3.svg';
-import redux from './components/assets/Redux.svg';
-import logo from './components/assets/logo.svg';
+import calendar from '../assets/Calendar Screenshot.PNG';
+import colors from '../assets/Color Blender Screenshot.PNG';
+import personal from '../assets/Personal Project Screenshot.PNG';
+import group from '../assets/CodeWars Create page.png';
+import trivia from '../assets/Trivia Trends Screenshot.PNG';
+import LinkedIn from '../assets/iconmonstr-linkedin-3.svg';
+import redux from '../assets/Redux.svg';
+import logo from '../assets/logo.svg';
 
 let About = {
     greeting: "Hi, I'm Tommy Lowry",
@@ -23,6 +23,16 @@ let About = {
     ]
 }
 
+// TAGS
+const FULL_STACK = { name: "Full-Stack" }
+const FRONT_END = { name: "Front End" }
+const BACK_END = { name: "Back End" }
+const GROUP = { name: "Group Project" }
+const PERSONAL = { name: "Personal Project" }
+const DEVMOUNTAIN = { name: "DevMountain Project" }
+const RESPONSIVE = { name: "Responsive design" }
+
+// SKILLS
 const HTML5 = { name: "HTML5", icon: "devicon-html5-plain" }
 const CSS3 = { name: "CSS3", icon: "devicon-css3-plain " }
 const ES6 = { name: "ES6", icon: "devicon-javascript-plain" }
@@ -82,6 +92,11 @@ let Projects = [
         tech: [
             REACT,
             SCSS
+        ],
+        tags: [
+            FRONT_END,
+            GROUP,
+            DEVMOUNTAIN
         ]
     },
     {
@@ -95,6 +110,10 @@ let Projects = [
         url: "http://colorblender.stream",
         tech: [
             ANGULARJS
+        ],
+        tags: [
+            FRONT_END,
+            PERSONAL
         ]
     },
     {
@@ -115,6 +134,14 @@ let Projects = [
             EXPRESS,
             AUTH0,
             POSTGRESQL
+        ],
+        tags: [
+            FULL_STACK,
+            FRONT_END,
+            BACK_END,
+            PERSONAL,
+            DEVMOUNTAIN,
+            RESPONSIVE
         ]
     },
     {
@@ -132,6 +159,7 @@ let Projects = [
         tech: [
             REACT,
             REDUX,
+            JEST,
             SCSS,
             SLATE,
             ACE,
@@ -139,6 +167,13 @@ let Projects = [
             EXPRESS,
             AUTH0,
             POSTGRESQL
+        ],
+        tags: [
+            FULL_STACK,
+            FRONT_END,
+            BACK_END,
+            GROUP,
+            DEVMOUNTAIN
         ]
     },
     {
@@ -157,6 +192,13 @@ let Projects = [
             NODE,
             EXPRESS,
             POSTGRESQL
+        ],
+        tags: [
+            FULL_STACK,
+            FRONT_END,
+            BACK_END,
+            GROUP,
+            DEVMOUNTAIN
         ]
     }
 ]

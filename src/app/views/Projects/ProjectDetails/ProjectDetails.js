@@ -1,5 +1,5 @@
 import React from 'react';
-import bio from '../../../../bio';
+import bio from '../../../../bio/bio';
 // import './ProjectDetails.css';
 
 function Tech(tech) {

@@ -1,8 +1,8 @@
 import React from 'react';
-import bio from '../../../bio';
+import bio from '../../../bio/bio';
 import './About.css';
-import { MoreButton } from '../../Buttons/Buttons';
-import logo from '../../assets/logo.svg';
+// import { MoreButton } from '../../components/Buttons/Buttons';
+import logo from '../../../assets/logo.svg';
 
 function About(props) {
     return (

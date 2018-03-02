@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import bio from '../../../bio';
+import bio from '../../../bio/bio';
 import './Skills.css';
 
 let i = 100

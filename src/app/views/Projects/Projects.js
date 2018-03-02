@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import bio from '../../../bio';
+import bio from '../../../bio/bio';
 import './Projects.css';
 
 let i = 200
@@ -28,11 +28,11 @@ function Project(project) {
                     <img src={project.img} />
                 </a>
             </div>
-            <div className="tech-list">
+            {/* <div className="tech-list">
                 {
                     project.tech.map(Tech)
                 }
-            </div>
+            </div> */}
             {
                 // project.description.map(desc => {
                 //     return (
@@ -62,19 +62,18 @@ function Projects({ search, history }) {
 
     const { main, front, back, other } = bio.Skills
 
-    const fullTechList = [...main, ...front, ...back, ...other].map(tech => {
-        if (!bio.Projects.some(project => project.tech.some(skill => skill === tech))) {
-            return
-        }
-        if (tech.name === search.skill) {
-            return Object.assign({ selected: true }, tech)
-        }
-        else {
-            return tech
-        }
-    }).filter(item => item)
+    const fullTechList = [...main, ...front, ...back, ...other]
+        .map(tech => {
+            if (!bio.Projects.some(project => project.tech.some(skill => skill === tech)))
+                return
+            if (tech.name === search.skill)
+                return Object.assign({ selected: true }, tech)
+            else
+                return tech
+        })
+        .filter(item => item)
 
-    console.log(fullTechList)
+    // console.log(fullTechList)
 
     return (
         <div id="Projects" >

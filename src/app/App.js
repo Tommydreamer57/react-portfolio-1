@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './components/assets/logo.svg';
+import logo from '../assets/logo.svg';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 
-import View from './components/View';
+import View from './View';
 
 class App extends Component {
   render = () => {

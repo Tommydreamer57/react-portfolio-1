@@ -38,10 +38,6 @@
     box-shadow: 2.5px 3.25px 5px rgba(0, 0, 0, 0.125);
 }
 
-.project .tech-list {
-    display: none;
-}
-
 .tech-list {
     display: flex;
     flex-flow: row wrap;
