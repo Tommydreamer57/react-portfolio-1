@@ -5,7 +5,7 @@ import './Skills.css';
 
 let i = 100
 
-function MainSkill(skill) {
+function IconSkill(skill) {
     return (
         <div key={i++} className="icon-skill">
             {
@@ -14,7 +14,7 @@ function MainSkill(skill) {
                     :
                     <i>&nbsp;</i>
             }
-            <h3>{skill.name}</h3>
+            <h4>{skill.name}</h4>
             <div className="slide" />
         </div>
     )
@@ -23,7 +23,7 @@ function MainSkill(skill) {
 function Skill(skill) {
     return (
         <Link to={`/projects?skill=${skill.name}`} key={i++} className="skill">
-            <h3>{skill.name}</h3>
+            <h4>{skill.name}</h4>
             <div className="slide" />
         </Link>
     )
@@ -36,7 +36,7 @@ function Skills() {
                 <h1>My Skills</h1>
                 <div className="skills-wrapper">
                     {
-                        bio.Skills.main.map(MainSkill)
+                        bio.Skills.main.map(IconSkill)
                     }
                 </div>
             </div>

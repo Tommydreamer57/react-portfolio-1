@@ -27,6 +27,8 @@ function Menu(props) {
             selected: props.current === 'contact'
         }
     ]
+    console.log(props.current)
+    console.log(links)
     return (
         <div id="Menu" className={props.open ? 'menu open' : 'menu closed'} >
             {
@@ -39,9 +41,9 @@ function Menu(props) {
                     >
                         <div className="slide slide-left" />
                         <div className="slide slide-right" />
-                        <div className="menu-link-text">
+                        <h3 className="menu-link-text">
                             {link.label}
-                        </div>
+                        </h3>
                     </Link>
                 ))
             }

@@ -9,22 +9,22 @@ function Project(project) {
     return (
         <div key={`Project ${project.title}`} className='project'>
             <Link to={`/details/${project.title}`}>
-                <h2>
-                    {project.title}
-                </h2>
-            </Link>
-            <a href={project.github} alt={`GitHub Repository: ${project.github}`} >
                 <h3>
+                    {project.title}
+                </h3>
+            </Link>
+            <a href={project.github} target="_blank" alt={`GitHub Repository: ${project.github}`} >
+                <h4>
                     {
-                        // window.innerWidth >= 500 ?
+                        // window.innerWidth >= 769 ?
                         //     ` -- ${project.subtitle} -- `
                         //     :
                         project.subtitle
                     }
-                </h3>
+                </h4>
             </a>
             <div className="image" >
-                <a href={project.url} >
+                <a href={project.url} target="_blank" >
                     <img src={project.img} />
                 </a>
             </div>
@@ -47,7 +47,7 @@ function Project(project) {
 function Tech(tech) {
     return (
         <Link to={tech.selected ? '/projects' : `/projects?skill=${tech.name}`} key={`Projects Tech ${tech.name}`} className={`tech ${tech.selected ? 'selected-tech' : ''}`}>
-            <h4>{tech.name}</h4>
+            <h5>{tech.name}</h5>
             <div className="slide" />
         </Link>
     )

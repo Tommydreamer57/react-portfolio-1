@@ -51,8 +51,10 @@ a {
 }
 
 #logo-circle {
-    height: 85px;
-    width: 85px;
+    /* height: 85px; */
+    /* width: 85px; */
+    height: calc(84px + 24 * (100vw - 769px) / 2048);
+    width: calc(84px + 24 * (100vw - 769px) / 2048);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,8 +65,9 @@ a {
 }
 
 #logo {
-    height: 75px;
-    transform: translateX(3px) rotate(-2deg);
+    /* height: 75px; */
+    height: calc(72px + 24 * (100vw - 769px) / 2048);
+    transform: translateX(2px) rotate(-2deg);
     opacity: 0.75;
 }
 
@@ -78,7 +81,7 @@ a {
     min-width: 22.5vw;
     height: 100vh;
     /* background: rgba(0,0,0,0.25); */
-    /* transition: left 0.8s; */
+    transition: left 0.8s;
 }
 
 .previous-left-margin, .current-left-margin, .next-left-margin {
@@ -87,6 +90,11 @@ a {
 
 .previous-right-margin, .current-right-margin, .next-right-margin {
     background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.325), transparent)
+}
+
+.details-right-margin {
+    background-image: none;
+    background: rgba(255, 255, 255, 0.325);
 }
 
 .current-left-margin {
@@ -124,7 +132,7 @@ a {
 }
 
 .previous, .current, .next {
-    /* transition: left 0.8s, width 0.8s; */
+    transition: left 0.8s, width 0.8s;
     position: fixed;
     top: 0;
     width: 100vw;
@@ -180,16 +188,20 @@ font-size starts at 20px at vewport width of 769px and ranges to 30px at viewpor
     }
 
     h3 {
+        font-size: calc(28px + 11 * (100vw - 769px) / 2048);
+    }
+
+    h4 {
         /* font-size: 1.5rem; */
         font-size: calc(20px + 10 * (100vw - 769px) / 2048);
     }
 
-    h4 {
+    h5 {
         /* font-size: 1.25rem; */
         font-size: calc(18px + 8 * (100vw - 769px) / 2048);
-    } 
+    }
 
-    h1, h2, h3, h4 {
+    h1, h2, h3, h4, h5 {
         /* margin-bottom: 1.75rem; */
         margin-bottom: calc(28px + 32 * (100vw - 769px) / 2048);
         line-height: 130%

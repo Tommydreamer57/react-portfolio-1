@@ -30,6 +30,10 @@
     overflow: hidden;
 }
 
+.icon-skill h4 {
+    margin: 0;
+}
+
 .skill {
     position: relative;
     padding: 0.25rem 0.5rem;
@@ -40,7 +44,7 @@
     overflow: hidden;
 }
 
-.skill h3 {
+.skill h4 {
     margin: 0;
     position: relative;
     z-index: 1;
@@ -79,8 +83,8 @@
     }
 
     .icon-skill {
-        margin-top: calc(8px + 8 * (100vw - 769px) / 2048);
-        margin-bottom: calc(8px + 8 * (100vw - 769px) / 2048);
+        margin-top: calc(16px + 8 * (100vw - 769px) / 2048);
+        margin-bottom: calc(54px + 58 * (100vw - 769px) / 2048);
     }
 
     .icon-skill i {
@@ -92,11 +96,12 @@
 
     .skill {
         margin-left: calc(20px + 20 * (100vw - 769px) / 2048);
-        margin-bottom: calc(36px + 24 * (100vw - 769px) / 2048);
+        margin-bottom: calc(68px + 72 * (100vw - 769px) / 2048);
     }
 
-    .skill:first-of-type {
-        margin-left: calc(30px + 30 * (100vw - 769px) / 2048);
+    .skills-wrapper {
+        padding-left: calc(18px + 8 * (100vw - 769px) / 2048);
+        padding-right: calc(18px + 8 * (100vw - 769px) / 2048);        
     }
 
 }

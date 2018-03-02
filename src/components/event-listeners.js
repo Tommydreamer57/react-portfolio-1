@@ -16,10 +16,10 @@ function addEventListeners() {
     scrollbar.style.width = '7.5px'
     scrollbar.style.background = 'rgba(255, 255, 255, 0.5)'
     scrollbar.style.position = 'fixed'
-    scrollbar.style.right = '2px'
-    scrollbar.style.top = '2px'
+    scrollbar.style.right = 'calc(2px + 4 * (100vw - 769px) / 2048)'
+    scrollbar.style.top = 'calc(2px + 4 * (100vw - 769px) / 2048)'
     scrollbar.style.borderRadius = '5px'
-    scrollbar.style.transition = 'height .4s ease'
+    scrollbar.style.transition = 'height .4s ease, top .4s ease'
 
     function findTallestNode(nodes) {
         viewHeight = window.innerHeight;
@@ -35,19 +35,26 @@ function addEventListeners() {
     function setHeight() {
         contentHeight = 0;
         findTallestNode(document.getElementsByClassName('current'))
-        if (contentHeight <= viewHeight + 4) {
+        if (contentHeight <= viewHeight + 6) {
             scrollbarHeight = 0
             console.log('no scrollbar')
         }
         else {
-            scrollbarHeight = (viewHeight - 4) * viewHeight / contentHeight
+            scrollbarHeight = (viewHeight - 6) * viewHeight / contentHeight
         }
-        scrollbar.style.height = scrollbarHeight + 'px'
+        if (~~scrollbar.style.height.replace(/px/, "") != ~~scrollbarHeight) {
+            console.log(`changing scrollbar height from ${scrollbar.style.height} to ${scrollbarHeight}`)
+            scrollbar.style.transition = 'height .4s ease, top .4s ease'
+            setTimeout(() => {
+                scrollbar.style.transition = 'height .4s ease'
+            }, 401)
+        }
+        scrollbar.style.height = ~~scrollbarHeight + 'px'
     }
 
     function setTop() {
         scrollTop = current.scrollTop
-        scrollbarTop = scrollTop * (viewHeight - 4) / contentHeight + 2
+        scrollbarTop = scrollTop * (viewHeight - 6) / contentHeight + 3
         scrollbar.style.top = scrollbarTop + 'px'
     }
 

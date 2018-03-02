@@ -88,7 +88,7 @@ class View extends Component {
                                     <div className="content">
                                         <div className={project === item.title ? 'current-left-margin' : 'next-left-margin'} />
                                         <ProjectDetails project={item.title} />
-                                        <div className={project === item.title ? 'current-right-margin' : 'next-right-margin'} />
+                                        <div className={`details-right-margin ${project === item.title ? 'current-right-margin' : 'next-right-margin'}`} />
                                     </div>
                                 </div>
 
