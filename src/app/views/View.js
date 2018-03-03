@@ -1,37 +1,44 @@
 import React, { Component } from 'react';
+// view wrappers
+import Wrapper, { DetailWrapper } from './Wrapper';
+// primary views
 import About from './About/About';
 import Skills from './Skills/Skills';
 import Projects from './Projects/Projects';
-import ProjectDetails from './Projects/ProjectDetails/ProjectDetails';
 import Contact from './Contact/Contact';
-
+// secondary view
+import ProjectDetails from './Projects/ProjectDetails/ProjectDetails';
+// data
 import bio from '../../bio/bio';
-
+// fixed components
 import logo from '../../assets/logo.svg';
 import Menu from '../components/Menu/Menu';
 import Buttons from '../components/Buttons/Buttons';
-
-import Wrapper, { DetailWrapper } from './Wrapper';
-
+// scrollbar controller
 import addEventListeners from '../event-listeners';
 
 class View extends Component {
     constructor(props) {
         super(props)
-        this.removeEventListeners = () => { }
+        this.scrollbar = {
+            addEventListeners,
+            removeEventListeners() { },
+            resetTransition() { }
+        }
         this.state = {
             open: false
         }
     }
     toggleMenu = () => {
-        this.setState(({ open }) => ({ open: !open }))
+        this.setState({
+            open: !this.state.open
+        })
     }
     componentDidMount = () => {
-        this.removeEventListeners = addEventListeners()
+        this.scrollbar = this.scrollbar.addEventListeners().resetTransition()
     }
     componentDidUpdate = () => {
-        this.removeEventListeners()
-        this.componentDidMount()
+        this.scrollbar = this.scrollbar.removeEventListeners().addEventListeners()      
     }
     render = () => {
         let history = this.props.history
@@ -55,37 +62,35 @@ class View extends Component {
 
         return (
             <div id="View">
-                <div>
-                    {/* PRIMARY VIEWS */}
-                    {/* ABOUT */}
-                    <Wrapper position={aboutPosition} >
-                        <About />
-                    </Wrapper>
-                    {/* SKILLS */}
-                    <Wrapper position={skillsPosition} >
-                        <Skills />
-                    </Wrapper>
-                    {/* PROJECTS */}
-                    <Wrapper position={projectsPosition} >
-                        <Projects search={search} />
-                    </Wrapper>
-                    {/* CONTACT */}
-                    <Wrapper position={contactPosition} >
-                        <Contact />
-                    </Wrapper>
-                    {/* SECONDARY VIEWS */}
-                    {/* PROJECT DETAILS */}
-                    {
-                        bio.Projects.map(item => {
-                            let detailPosition = project === item.title ? 'current' : 'next'
-                            return (
-                                <DetailWrapper position={detailPosition} key={`Project Details ${item.title}`} >
-                                    <ProjectDetails project={item.title} />
-                                </DetailWrapper>
-                            )
-                        })
-                    }
-                </div>
+                {/* PRIMARY VIEWS */}
+                {/* ABOUT */}
+                <Wrapper position={aboutPosition} >
+                    <About />
+                </Wrapper>
+                {/* SKILLS */}
+                <Wrapper position={skillsPosition} >
+                    <Skills />
+                </Wrapper>
+                {/* PROJECTS */}
+                <Wrapper position={projectsPosition} >
+                    <Projects search={search} />
+                </Wrapper>
+                {/* CONTACT */}
+                <Wrapper position={contactPosition} >
+                    <Contact />
+                </Wrapper>
+                {/* SECONDARY VIEWS */}
+                {/* PROJECT DETAILS */}
+                {
+                    bio.Projects.map(item => {
+                        let detailPosition = project === item.title ? 'current' : 'next'
+                        return (
+                            <DetailWrapper position={detailPosition} key={`Project Details ${item.title}`} >
+                                <ProjectDetails project={item.title} />
+                            </DetailWrapper>
+                        )
+                    })
+                }
                 {/* LOGO */}
                 <div id="logo-wrapper">
                     <div id="logo-circle">
@@ -101,6 +106,7 @@ class View extends Component {
                 />
                 {/* MENU  */}
                 <Menu
+                    open={this.state.open}
                     current={current}
                     toggleMenu={this.toggleMenu}
                 />
