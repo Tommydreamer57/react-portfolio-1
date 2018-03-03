@@ -4,7 +4,7 @@ import './About.css';
 // import { MoreButton } from '../../components/Buttons/Buttons';
 import logo from '../../../assets/logo.svg';
 
-function About(props) {
+function About() {
     return (
         <div id="About">
             <div id="about-wrapper">
@@ -22,15 +22,7 @@ function About(props) {
                         )
                     })
                 }
-                <div
-                    className="more"
-                    style={{
-                        // maxHeight: props.more ? '1250px' : '1px',
-                        // transition: 'max-height 0.4s',
-                        // overflow: 'hidden'
-                    }}
-                >
-                    {/* <div className="ellipsis" onClick={() => props.toggleMore()} >...</div> */}
+                <div className="more" >
                     {
                         bio.About.more.map(paragraph => {
                             return (
@@ -39,7 +31,6 @@ function About(props) {
                         })
                     }
                 </div>
-                {/* <MoreButton more={props.more} toggleMore={() => props.toggleMore()} /> */}
             </div>
         </div>
     )

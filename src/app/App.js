@@ -3,7 +3,7 @@ import logo from '../assets/logo.svg';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 
-import View from './View';
+import View from './views/View';
 
 class App extends Component {
   render = () => {

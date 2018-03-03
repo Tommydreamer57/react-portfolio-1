@@ -20,7 +20,7 @@ let labels = [
     ''
 ]
 
-function Buttons(props) {
+export default function Buttons(props) {
     let current = links.indexOf('/' + props.current)
     if (!props.current) {
         current = 1
@@ -47,10 +47,16 @@ function Buttons(props) {
 
             <Link
                 to={previous}
+                onClick={e => {
+                    if (props.project) {
+                        e.preventDefault();
+                        props.history.goBack()
+                    }
+                }}
                 id="LeftButton"
                 className={props.project ? 'nav-button' : props.current ? 'nav-button' : 'nav-button left-away'}
             >
-                <div onClick={() => props.toggleMore(false)} className="arrow-wrapper">
+                <div className="arrow-wrapper">
                     <div id="left-one" className="arrow" />
                     {
                         labels.map((label, i) => (
@@ -68,7 +74,7 @@ function Buttons(props) {
                 id="RightButton"
                 className={props.project ? 'nav-button right-away' : props.current !== "contact" ? 'nav-button' : 'nav-button right-away'}
             >
-                <div onClick={() => props.toggleMore(false)} className="arrow-wrapper">
+                <div className="arrow-wrapper">
                     <div id="right-one" className="arrow" />
                     {
                         labels.map((label, i) => (
@@ -84,20 +90,3 @@ function Buttons(props) {
         </div>
     )
 }
-
-export default Buttons
-
-export function MoreButton(props) {
-    return (
-        <button id="MoreButton" onClick={props.toggleMore} >
-            <div className="arrow-wrapper">
-                <div className="arrow" />
-                <div className="more-label">
-                    {props.more ? 'Less' : 'More'}
-                </div>
-                <div className="arrow" />
-            </div>
-        </button>
-    )
-}
-
