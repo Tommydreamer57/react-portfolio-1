@@ -11,9 +11,7 @@ function Tech(tech) {
     )
 }
 
-function ProjectDetails(props) {
-    console.log(props)
-    let { project } = props
+function ProjectDetails({ project }) {
     project = bio.Projects.find(item => item.title === project)
     if (!project) return null
     return (

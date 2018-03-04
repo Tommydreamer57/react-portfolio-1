@@ -4,39 +4,39 @@ import './Menu.css';
 
 let i = 0;
 
-function Menu(props) {
+function Menu({ current, open, toggleMenu }) {
     const links = [
         {
             to: '/',
             label: 'About',
-            selected: !props.current
+            selected: !current
         },
         {
             to: '/skills',
             label: 'Skills',
-            selected: props.current === 'skills'
+            selected: current === 'skills'
         },
         {
             to: '/projects',
             label: 'Projects',
-            selected: props.current === 'projects'
+            selected: current === 'projects'
         },
         {
             to: '/contact',
             label: 'Contact',
-            selected: props.current === 'contact'
+            selected: current === 'contact'
         }
     ]
-    console.log(props.current)
+    console.log(current)
     console.log(links)
     return (
-        <div id="Menu" className={props.open ? 'menu open' : 'menu closed'} >
+        <div id="Menu" className={open ? 'menu open' : 'menu closed'} >
             {
                 links.map(link => (
                     <Link
                         to={link.to}
                         key={`Menu Item ${link.label}`}
-                        onClick={props.toggleMenu}
+                        onClick={toggleMenu}
                         className={link.selected ? 'menu-link selected' : 'menu-link'}
                     >
                         <div className="slide slide-left" />

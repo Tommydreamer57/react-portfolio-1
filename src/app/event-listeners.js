@@ -1,12 +1,18 @@
+
+// FIND HEIGHT OF CURRENT VIEW
+
+function findTallestNode(contentHeight = 0, nodes) {
+    for (let i = nodes.length - 1; i >= 0; i--) {
+        if (nodes[i].scrollHeight && nodes[i].clientHeight) {
+            let elHeight = Math.max(nodes[i].scrollHeight, nodes[i].clientHeight)
+            contentHeight = Math.max(contentHeight, elHeight);
+        }
+        if (nodes[i].childNodes.length) contentHeight = findTallestNode(contentHeight, nodes[i].childNodes);
+    }
+    return contentHeight
+}
+
 function addEventListeners() {
-
-    // INITIAL VARIABLES / PROPERTIES
-
-    let scrollTop = 0;
-    let scrollbarTop = 0;
-    let scrollbarHeight = 0;
-    let contentHeight = 0;
-    let viewHeight = 0;
 
     // SCROLLBAR
 
@@ -17,55 +23,49 @@ function addEventListeners() {
     let currentArr = document.getElementsByClassName('current')
     let current = currentArr[currentArr.length - 1]
 
-    console.log(current)
+    // OTHER VIEWS
+    let nonCurrentArr = [...document.getElementsByClassName('previous'), ...document.getElementsByClassName('next')]
 
-    // INITIAL SCROLLBAR STYLES
+    // INITIAL VARIABLES / PROPERTIES
 
-    scrollbar.style.width = '7.5px'
-    scrollbar.style.background = 'rgba(255, 255, 255, 0.5)'
-    scrollbar.style.position = 'fixed'
-    scrollbar.style.right = 'calc(2px + 4 * (100vw - 769px) / 2048)'
-    scrollbar.style.top = 'calc(2px + 4 * (100vw - 769px) / 2048)'
-    scrollbar.style.borderRadius = '5px'
-    scrollbar.style.transition = 'height .4s ease, top .4s ease'
-
-    // FIND HEIGHT OF CURRENT VIEW
-
-    function findTallestNode(nodes) {
-        viewHeight = window.innerHeight;
-        for (let i = nodes.length - 1; i >= 0; i--) {
-            if (nodes[i] !== scrollbar && (nodes[i].scrollHeight && nodes[i].clientHeight)) {
-                let elHeight = Math.max(nodes[i].scrollHeight, nodes[i].clientHeight)
-                contentHeight = Math.max(contentHeight, elHeight);
-            }
-            if (nodes[i].childNodes.length) findTallestNode(nodes[i].childNodes);
-        }
-    }
-
-    // RESET SCROLLBAR TRANSITION
-
-    function resetTransition() {
-        scrollbar.style.transition = 'height .4s ease'
-    }
+    let scrollTop = 0;
+    let scrollbarTop = 0;
+    let scrollbarHeight = 0;
+    let contentHeight = 0;
+    let viewHeight = 0;
 
     // SET SCROLLBAR HEIGHT
 
+    let timeoutList = []
+
     function setHeight() {
-        contentHeight = 0;
-        findTallestNode([current])
+        viewHeight = window.innerHeight
+        contentHeight = findTallestNode(null, [current])
+        // NO OVERFLOW = NO SCROLLBAR
         if (contentHeight <= viewHeight + 6) {
             scrollbarHeight = 0
-            console.log('no scrollbar')
         }
+        // SET SCROLLBAR HEIGHT VARIABLE
         else {
             scrollbarHeight = (viewHeight - 6) * viewHeight / contentHeight
         }
+        // IF SCROLLBAR HEIGHT CHANGES
         if (~~scrollbar.style.height.replace(/px/, "") != ~~scrollbarHeight) {
             console.log(`changing scrollbar height from ${scrollbar.style.height} to ${scrollbarHeight}`)
+            // SET TRANSITION TOP FOR HEIGHT CHANGE
+            console.log('adding top to scrollbar transition')
             scrollbar.style.transition = 'height .4s ease, top .4s ease'
-            setTimeout(resetTransition, 401)
+            let timeout = setTimeout(function resetTransition() {
+                console.log('resetting scrollbar transition')
+                // REMOVE TRANSITION TOP AFTER HEIGHT CHANGE
+                scrollbar.style.transition = 'height .4s ease'
+            }, 401)
+            // KEEP TRACK OF TIMEOUTS SO THEY DON'T INTERFERE WITH EACH OTHER
+            timeoutList.forEach(clearTimeout)
+            timeoutList.push(timeout)
+            // CHANGE SCROLLBAR HEIGHT
+            scrollbar.style.height = ~~scrollbarHeight + 'px'
         }
-        scrollbar.style.height = ~~scrollbarHeight + 'px'
     }
 
     // SET SCROLLBAR TOP
@@ -76,40 +76,49 @@ function addEventListeners() {
         scrollbar.style.top = scrollbarTop + 'px'
     }
 
+    // RESET SCROLLTOP OF ALL NON-CURRENT VIEWS
+
+    function resetScrollTop() {
+        for (let i = 0; i < nonCurrentArr.length; i++) {
+            let view = nonCurrentArr[i]
+            setTimeout(function () {
+                if (view.className !== 'current')
+                    view.scrollTop = 0
+            }, 800)
+        }
+    }
+
     // EVENT LISTENER
 
     function eventListener() {
         setHeight()
         setTop()
+        resetScrollTop()
     }
+
+    eventListener()
 
     // ADDING EVENT LISTENER
 
     current.addEventListener('scroll', eventListener)
     window.addEventListener('resize', eventListener)
-    window.addEventListener('click', eventListener)
-
-    eventListener()
 
     // RETURN OBJECT
 
-    let methodChainer = {
+    let eventReset = {
         addEventListeners,
         removeEventListeners
     }
-
-    // RETURNED METHODS
 
     // REMOVE EVENT LISTENERS
 
     function removeEventListeners() {
         current.removeEventListener('scroll', eventListener)
         window.removeEventListener('resize', eventListener)
-        window.removeEventListener('click', eventListener)
-        return methodChainer
+        return eventReset
     }
 
-    return methodChainer
+    return eventReset
 
 }
 

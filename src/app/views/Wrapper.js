@@ -1,7 +1,6 @@
 import React from 'react';
 
-export default function Wrapper(props) {
-    let { position } = props
+export default function Wrapper({ position, children }) {
     let leftMargin, rightMargin
     switch (position) {
         case "previous":
@@ -21,25 +20,26 @@ export default function Wrapper(props) {
         <div className={position} >
             <div className="content">
                 <div className={leftMargin} />
-                {props.children}
+                {children}
                 <div className={rightMargin} />
             </div>
         </div>
     )
 }
 
-export function DetailWrapper(props) {
-    let { position } = props
+export function DetailWrapper({ position, children }) {
     let leftLeftMargin = "details-left-left-margin"
     let leftMargin = "details-left-margin"
     let rightMargin = "details-right-margin"
     switch (position) {
         case "current":
+            position += " current-details"
             leftLeftMargin += " current-left-margin"
             leftMargin += " current-left-margin"
             rightMargin += " current-right-margin"
             break;
         case "next":
+            position += " next-details"
             leftLeftMargin += " next-left-margin"
             leftMargin += " next-left-margin"
             rightMargin += " next-right-margin"
@@ -50,7 +50,7 @@ export function DetailWrapper(props) {
             <div className="content details-content">
                 <div className={leftLeftMargin} />
                 <div className={leftMargin} />
-                {props.children}
+                {children}
                 <div className={rightMargin} />
             </div>
         </div>

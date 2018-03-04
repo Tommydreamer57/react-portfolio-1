@@ -3,61 +3,32 @@ import { Link } from 'react-router-dom';
 import bio from '../../../bio/bio';
 import './Projects.css';
 
-let i = 200
-
 function Project(project) {
+    let key = `Project ${project.title}`
+    let to = `/details/${project.title}`
+    let alt = `GitHub Repository: ${project.github}`
     return (
-        <div key={`Project ${project.title}`} className='project'>
-            <Link to={`/details/${project.title}`}>
-                <h3>
-                    {project.title}
-                </h3>
+        <div key={key} className='project'>
+            <Link to={to}>
+                <h3>{project.title}</h3>
             </Link>
-            <a href={project.github} target="_blank" alt={`GitHub Repository: ${project.github}`} >
-                <h4>
-                    {
-                        // window.innerWidth >= 769 ?
-                        //     ` -- ${project.subtitle} -- `
-                        //     :
-                        project.subtitle
-                    }
-                </h4>
+            <a href={project.github} target="_blank" alt={alt} >
+                <h4>{project.subtitle}</h4>
             </a>
             <div className="image" >
                 <a href={project.url} target="_blank" >
                     <img src={project.img} />
                 </a>
             </div>
-            {/* <div className="tech-list">
-                {
-                    project.tech.map(Tech)
-                }
-            </div> */}
-            {
-                // project.description.map(desc => {
-                //     return (
-                //         <p key={i++} >{desc}</p>
-                //     )
-                // })
-            }
         </div>
     )
 }
 
-function Tech(tech) {
-    return (
-        <Link to={tech.selected ? '/projects' : `/projects?skill=${tech.name}`} key={`Projects Tech ${tech.name}`} className={`tech ${tech.selected ? 'selected-tech' : ''}`}>
-            <h5>{tech.name}</h5>
-            <div className="slide" />
-        </Link>
-    )
-}
-
 export default class Projects extends Component {
-    constructor(props) {
-        super(props)
+    constructor({ search }) {
+        super({ search })
         this.state = {
-            search: props.search
+            search
         }
     }
     componentWillReceiveProps = ({ search, current }) => {
@@ -73,8 +44,43 @@ export default class Projects extends Component {
 
         console.log(search)
 
+        function Tech(tech) {
+            let to = ""
+            // NO SEARCH
+            if (!search.skill || search.skill === 'any') {
+                to = `/projects?skill=${tech.name}`
+            }
+            // ONE SEARCH
+            else if (!Array.isArray(search.skill)) {
+                to = tech.selected ? '/projects?skill=any' : `/projects?skill=${search.skill}&skill=${tech.name}`
+            }
+            // MULTIPLE SEARCHES    
+            else {
+                let other = search.skill.filter(skill => skill !== tech.name)
+                if (tech.selected) {
+                    to = [`/projects?skill=${other[0]}`, ...other.slice(1)].join("&skill=")
+                }
+                else {
+                    to = [`/projects?skill=${other[0]}`, ...other.slice(1), tech.name].join("&skill=")
+                }
+            }
+            console.log(to)
+            let key = `Projects Tech ${tech.name}`
+            let className = `tech ${tech.selected ? 'selected-tech' : ''}`
+            return (
+                <Link to={to} key={key} className={className}>
+                    <h5>{tech.name}</h5>
+                    <div className="slide" />
+                </Link>
+            )
+        }
+
         function filter(project) {
-            return !search.skill || project.tech.some(tech => search.skill === tech.name)
+            if (!search.skill || search.skill === "any") return true
+            if (Array.isArray(search.skill))
+                return search.skill.every(skill => project.tech.some(tech => skill.includes(tech.name)))
+            else
+                return project.tech.some(tech => search.skill.includes(tech.name))
         }
 
         const { main, front, back, other } = bio.Skills
@@ -83,7 +89,7 @@ export default class Projects extends Component {
             .map(tech => {
                 if (!bio.Projects.some(project => project.tech.some(skill => skill === tech)))
                     return
-                if (tech.name === search.skill)
+                if (search.skill && search.skill.includes(tech.name))
                     return Object.assign({ selected: true }, tech)
                 else
                     return tech
@@ -103,6 +109,9 @@ export default class Projects extends Component {
                 <div className="projects-wrapper">
                     {
                         bio.Projects.filter(filter).map(Project)
+                    }
+                    {
+                        
                     }
                 </div>
             </div>

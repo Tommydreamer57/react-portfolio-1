@@ -17,13 +17,14 @@ import Buttons from '../components/Buttons/Buttons';
 // scrollbar controller
 import addEventListeners from '../event-listeners';
 
+let i = 10
+
 class View extends Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
         this.scrollbar = {
             addEventListeners,
-            removeEventListeners() { },
-            resetTransition() { }
+            removeEventListeners: () => { return this.scrollbar }
         }
         this.state = {
             open: false
@@ -35,24 +36,49 @@ class View extends Component {
         })
     }
     componentDidMount = () => {
-        setTimeout(function () {
-            this.scrollbar = this.scrollbar.addEventListeners()//.resetTransition()
-        }.bind(this), 50)
+        setTimeout(this.componentDidUpdate, 50)
     }
     componentDidUpdate = () => {
+        console.log('updating View')
         this.scrollbar = this.scrollbar.removeEventListeners().addEventListeners()      
+    }
+    componentWillMount = () => {
+
+        let history = this.props.history
+        let current = this.props.match.params.view
+        let allowedViews = ['skills', 'projects', 'details', 'contact']
+
+        if (current && !allowedViews.includes(current)) {
+            if (i > 0) {
+                history.push("/")
+                i--
+            }
+        }
     }
     render = () => {
 
         let history = this.props.history
         let current = this.props.match.params.view
-        let project = this.props.match.params.project
+        let project = this.props.match.params.project        
+
         let search = {}
 
         this.props.location.search.split(/[\?\&]/g).forEach(item => {
             if (!item) return
             let arr = item.split(/=/)
-            search[arr[0]] = arr[1]
+            let key = arr[0]
+            let val = arr[1]
+            if (search.hasOwnProperty(key)) {
+                if (Array.isArray(search[key])) {
+                    search[key] = [...search[key], val]
+                }
+                else {
+                    search[key] = [search[key], val]
+                }
+            }
+            else {
+                search[key] = val
+            }
         })
 
         // console.log(search)
