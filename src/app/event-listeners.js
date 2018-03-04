@@ -1,18 +1,25 @@
 function addEventListeners() {
 
-    if (window.innerWidth <= 500) {
-        console.log('Mobile')
-        return () => { }
-    }
+    // INITIAL VARIABLES / PROPERTIES
 
     let scrollTop = 0;
     let scrollbarTop = 0;
     let scrollbarHeight = 0;
     let contentHeight = 0;
     let viewHeight = 0;
+
+    // SCROLLBAR
+
     let scrollbar = document.getElementById('scrollbar')
+
+    // CURRENT VIEW
+
     let currentArr = document.getElementsByClassName('current')
     let current = currentArr[currentArr.length - 1]
+
+    console.log(current)
+
+    // INITIAL SCROLLBAR STYLES
 
     scrollbar.style.width = '7.5px'
     scrollbar.style.background = 'rgba(255, 255, 255, 0.5)'
@@ -21,6 +28,8 @@ function addEventListeners() {
     scrollbar.style.top = 'calc(2px + 4 * (100vw - 769px) / 2048)'
     scrollbar.style.borderRadius = '5px'
     scrollbar.style.transition = 'height .4s ease, top .4s ease'
+
+    // FIND HEIGHT OF CURRENT VIEW
 
     function findTallestNode(nodes) {
         viewHeight = window.innerHeight;
@@ -33,9 +42,17 @@ function addEventListeners() {
         }
     }
 
+    // RESET SCROLLBAR TRANSITION
+
+    function resetTransition() {
+        scrollbar.style.transition = 'height .4s ease'
+    }
+
+    // SET SCROLLBAR HEIGHT
+
     function setHeight() {
         contentHeight = 0;
-        findTallestNode(document.getElementsByClassName('current'))
+        findTallestNode([current])
         if (contentHeight <= viewHeight + 6) {
             scrollbarHeight = 0
             console.log('no scrollbar')
@@ -51,16 +68,22 @@ function addEventListeners() {
         scrollbar.style.height = ~~scrollbarHeight + 'px'
     }
 
+    // SET SCROLLBAR TOP
+
     function setTop() {
         scrollTop = current.scrollTop
         scrollbarTop = scrollTop * (viewHeight - 6) / contentHeight + 3
         scrollbar.style.top = scrollbarTop + 'px'
     }
 
+    // EVENT LISTENER
+
     function eventListener() {
         setHeight()
         setTop()
     }
+
+    // ADDING EVENT LISTENER
 
     current.addEventListener('scroll', eventListener)
     window.addEventListener('resize', eventListener)
@@ -68,16 +91,16 @@ function addEventListeners() {
 
     eventListener()
 
+    // RETURN OBJECT
+
     let methodChainer = {
         addEventListeners,
-        removeEventListeners,
-        resetTransition
+        removeEventListeners
     }
 
-    function resetTransition() {
-        scrollbar.style.transition = 'height .4s ease'
-        return methodChainer
-    }
+    // RETURNED METHODS
+
+    // REMOVE EVENT LISTENERS
 
     function removeEventListeners() {
         current.removeEventListener('scroll', eventListener)

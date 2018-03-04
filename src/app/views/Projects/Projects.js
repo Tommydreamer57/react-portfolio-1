@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import bio from '../../../bio/bio';
 import './Projects.css';
@@ -53,43 +53,60 @@ function Tech(tech) {
     )
 }
 
-function Projects({ search, history }) {
-    console.log(search)
-
-    function filter(project) {
-        return !search.skill || project.tech.some(tech => search.skill === tech.name)
+export default class Projects extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            search: props.search
+        }
     }
+    componentWillReceiveProps = ({ search, current }) => {
+        console.log(search, current)
+        if (search.skill || (current !== 'projects' && current !== 'details')) {
+            this.setState({
+                search
+            })
+        }
+    }
+    render = () => {
+        let { search } = this.state
 
-    const { main, front, back, other } = bio.Skills
+        console.log(search)
 
-    const fullTechList = [...main, ...front, ...back, ...other]
-        .map(tech => {
-            if (!bio.Projects.some(project => project.tech.some(skill => skill === tech)))
-                return
-            if (tech.name === search.skill)
-                return Object.assign({ selected: true }, tech)
-            else
-                return tech
-        })
-        .filter(item => item)
+        function filter(project) {
+            return !search.skill || project.tech.some(tech => search.skill === tech.name)
+        }
 
-    // console.log(fullTechList)
+        const { main, front, back, other } = bio.Skills
 
-    return (
-        <div id="Projects" >
-            <h1>Projects</h1>
-            <div className="tech-list">
-                {
-                    fullTechList.map(Tech)
-                }
+        const fullTechList = [...main, ...front, ...back, ...other]
+            .map(tech => {
+                if (!bio.Projects.some(project => project.tech.some(skill => skill === tech)))
+                    return
+                if (tech.name === search.skill)
+                    return Object.assign({ selected: true }, tech)
+                else
+                    return tech
+            })
+            .filter(item => item)
+
+        // console.log(fullTechList)
+
+        return (
+            <div id="Projects" >
+                <h1>Projects</h1>
+                <div className="tech-list">
+                    {
+                        fullTechList.map(Tech)
+                    }
+                </div>
+                <div className="projects-wrapper">
+                    {
+                        bio.Projects.filter(filter).map(Project)
+                    }
+                </div>
             </div>
-            <div className="projects-wrapper">
-                {
-                    bio.Projects.filter(filter).map(Project)
-                }
-            </div>
-        </div>
-    )
+        )
+
+    }
 }
-
-export default Projects

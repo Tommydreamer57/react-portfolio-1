@@ -35,12 +35,15 @@ class View extends Component {
         })
     }
     componentDidMount = () => {
-        this.scrollbar = this.scrollbar.addEventListeners().resetTransition()
+        setTimeout(function () {
+            this.scrollbar = this.scrollbar.addEventListeners()//.resetTransition()
+        }.bind(this), 50)
     }
     componentDidUpdate = () => {
         this.scrollbar = this.scrollbar.removeEventListeners().addEventListeners()      
     }
     render = () => {
+
         let history = this.props.history
         let current = this.props.match.params.view
         let project = this.props.match.params.project
@@ -73,7 +76,7 @@ class View extends Component {
                 </Wrapper>
                 {/* PROJECTS */}
                 <Wrapper position={projectsPosition} >
-                    <Projects search={search} />
+                    <Projects current={current} search={search} />
                 </Wrapper>
                 {/* CONTACT */}
                 <Wrapper position={contactPosition} >
