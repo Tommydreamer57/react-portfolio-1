@@ -8,19 +8,13 @@ function Project(project) {
     let to = `/details/${project.title}`
     let alt = `GitHub Repository: ${project.github}`
     return (
-        <div key={key} className='project'>
-            <Link to={to}>
-                <h3>{project.title}</h3>
-            </Link>
-            <a href={project.github} target="_blank" alt={alt} >
-                <h4>{project.subtitle}</h4>
-            </a>
+        <Link to={to} key={key} className='project'>
+            <h3>{project.title}</h3>
+            <h4>{project.subtitle}</h4>
             <div className="image" >
-                <a href={project.url} target="_blank" >
-                    <img src={project.img} />
-                </a>
+                <img src={project.img} />
             </div>
-        </div>
+        </Link>
     )
 }
 
@@ -111,7 +105,7 @@ export default class Projects extends Component {
                         bio.Projects.filter(filter).map(Project)
                     }
                     {
-                        
+
                     }
                 </div>
             </div>

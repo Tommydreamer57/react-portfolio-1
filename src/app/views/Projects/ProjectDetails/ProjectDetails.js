@@ -1,6 +1,6 @@
 import React from 'react';
 import bio from '../../../../bio/bio';
-// import './ProjectDetails.css';
+import './ProjectDetails.css';
 
 function Tech(tech) {
     return (
@@ -15,22 +15,28 @@ function ProjectDetails({ project }) {
     project = bio.Projects.find(item => item.title === project)
     if (!project) return null
     return (
-        <div id="ProjectDetails">
+        <div className="project-details">
             <h1>{project.title}</h1>
-            <h2>{project.subtitle}</h2>
+            <h3>{project.subtitle}</h3>
             <div className="tech-list" >
                 {
                     project.tech.map(Tech)
                 }
+            </div>
+            <div className="description">
+                {
+                    project.description.map(desc => <p key={desc} >{desc}</p>)
+                }
+            </div>
+            <div className="description">
+                <p>Click <a href={project.github} target="_blank" >here</a> to see this project on GitHub</p>
+                <p>Click the image to view the hosted project</p>
             </div>
             <div className="image">
                 <a href={project.url}>
                     <img src={project.img} />
                 </a>
             </div>
-            {
-                project.description.map(desc => <p key={desc} >{desc}</p>)
-            }
         </div>
     )
 }
