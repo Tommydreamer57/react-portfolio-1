@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import bio from '../../../bio/bio';
 import './Projects.css';
 
+// PROJECT
 function Project(project) {
     let key = `Project ${project.title}`
     let to = `/details/${project.title}`
@@ -38,15 +39,33 @@ export default class Projects extends Component {
 
         console.log(search)
 
+        // TAG
+        function Tag(tag) {
+            let to = "/projects"
+            // NO SEARCH TAG
+            if (!search.tag || search.tag === 'any') {
+                to = `/projects?tag=${tag.name}`
+            }
+            // ONE SEARCH
+            if (!Array.isArray(search.tag))
+                return (
+                    <Link to={to} className="tech tag" >
+                        <h5>{tag.name}</h5>
+                        <div className="slide" />
+                    </Link>
+                )
+        }
+
+        // TECH
         function Tech(tech) {
-            let to = ""
+            let to = "/projects"
             // NO SEARCH
-            if (!search.skill || search.skill === 'any') {
+            if ((!search.skill || !search.skill[0]) || search.skill[0] === 'any') {
                 to = `/projects?skill=${tech.name}`
             }
             // ONE SEARCH
-            else if (!Array.isArray(search.skill)) {
-                to = tech.selected ? '/projects?skill=any' : `/projects?skill=${search.skill}&skill=${tech.name}`
+            else if (search.skill.length === 1 && tech.selected) {
+                to = '/projects?skill=any'
             }
             // MULTIPLE SEARCHES    
             else {
@@ -69,16 +88,15 @@ export default class Projects extends Component {
             )
         }
 
+        // FILTER PROJECTS
         function filter(project) {
-            if (!search.skill || search.skill === "any") return true
-            if (Array.isArray(search.skill))
-                return search.skill.every(skill => project.tech.some(tech => skill.includes(tech.name)))
-            else
-                return project.tech.some(tech => search.skill.includes(tech.name))
+            if ((!search.skill || !search.skill[0]) || search.skill[0] === 'any') return true
+            else return search.skill.every(skill => project.tech.some(tech => skill.includes(tech.name)))
         }
 
         const { main, front, back, other } = bio.Skills
 
+        // FILTER TECH
         const fullTechList = [...main, ...front, ...back, ...other]
             .map(tech => {
                 if (!bio.Projects.some(project => project.tech.some(skill => skill === tech)))
@@ -92,20 +110,41 @@ export default class Projects extends Component {
 
         // console.log(fullTechList)
 
+        let projects = bio.Projects.filter(filter)
+
         return (
             <div id="Projects" >
                 <h1>Projects</h1>
                 <div className="tech-list">
+                    {
+                        bio.Tags.map(Tag)
+                    }
+                    {/* </div>
+                <div className="tech-list"> */}
                     {
                         fullTechList.map(Tech)
                     }
                 </div>
                 <div className="projects-wrapper">
                     {
-                        bio.Projects.filter(filter).map(Project)
+                        projects.map(Project)
                     }
                     {
-
+                        !projects.length ?
+                            <h4 id="no-projects">
+                                No project uses
+                                {search.skill.length === 2 ? " both " : " "}
+                                {search.skill.map((skill, i, arr) => {
+                                    return (
+                                        [
+                                            <span>{skill}</span>,
+                                            i < arr.length - 2 ? ", " : i === arr.length - 2 ? " and " : ""
+                                        ]
+                                    )
+                                })}
+                            </h4>
+                            :
+                            null
                     }
                 </div>
             </div>

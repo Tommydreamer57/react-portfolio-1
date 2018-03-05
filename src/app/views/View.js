@@ -40,7 +40,7 @@ class View extends Component {
     }
     componentDidUpdate = () => {
         console.log('updating View')
-        this.scrollbar = this.scrollbar.removeEventListeners().addEventListeners()      
+        this.scrollbar = this.scrollbar.removeEventListeners().addEventListeners().removeEventListeners().addEventListeners()
     }
     componentWillMount = () => {
 
@@ -59,7 +59,7 @@ class View extends Component {
 
         let history = this.props.history
         let current = this.props.match.params.view
-        let project = this.props.match.params.project        
+        let project = this.props.match.params.project
 
         let search = {}
 
@@ -68,25 +68,13 @@ class View extends Component {
             let arr = item.split(/=/)
             let key = arr[0]
             let val = arr[1]
-            if (search.hasOwnProperty(key)) {
-                if (Array.isArray(search[key])) {
-                    search[key] = [...search[key], val]
-                }
-                else {
-                    search[key] = [search[key], val]
-                }
-            }
-            else {
-                search[key] = val
-            }
+            if (!search[key]) search[key] = [val]
+            else search[key] = [...search[key], val]
         })
-
-        // console.log(search)
-        // console.log(this.props)
 
         let aboutPosition = !current ? 'current' : 'previous'
         let skillsPosition = !current ? 'next' : current === 'skills' ? 'current' : 'previous'
-        let projectsPosition = current === 'contact' ? 'previous' : current === 'projects' || current === 'details' ? 'current' : 'next'
+        let projectsPosition = current === 'contact' ? 'previous' : current === 'projects' ? 'current' : current === 'details' ? 'current current-beneath' : 'next'
         let contactPosition = current === 'contact' ? 'current' : 'next'
 
         return (

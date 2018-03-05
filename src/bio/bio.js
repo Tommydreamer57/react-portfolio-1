@@ -27,10 +27,20 @@ let About = {
 const FULL_STACK = { name: "Full-Stack" }
 const FRONT_END = { name: "Front End" }
 const BACK_END = { name: "Back End" }
-const GROUP = { name: "Group Project" }
-const PERSONAL = { name: "Personal Project" }
-const DEVMOUNTAIN = { name: "DevMountain Project" }
-const RESPONSIVE = { name: "Responsive design" }
+const GROUP = { name: "Group" }
+const PERSONAL = { name: "Personal" }
+const DEVMOUNTAIN = { name: "DevMountain" }
+const RESPONSIVE = { name: "Responsive" }
+
+let Tags = [
+    FULL_STACK,
+    FRONT_END,
+    BACK_END,
+    GROUP,
+    PERSONAL,
+    DEVMOUNTAIN,
+    RESPONSIVE
+]
 
 // SKILLS
 const HTML5 = { name: "HTML5", icon: "devicon-html5-plain" }
@@ -226,5 +236,6 @@ export default {
     About,
     Skills,
     Projects,
+    Tags,
     Contact
 }

@@ -33,7 +33,7 @@ function ProjectDetails({ project }) {
                 <p>Click the image to view the hosted project</p>
             </div>
             <div className="image">
-                <a href={project.url}>
+                <a href={project.url} target="_blank" >
                     <img src={project.img} />
                 </a>
             </div>

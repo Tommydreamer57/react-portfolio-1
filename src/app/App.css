@@ -228,7 +228,7 @@ font-size starts at 20px at vewport width of 769px and ranges to 30px at viewpor
 
     h5 {
         /* font-size: 1.25rem; */
-        font-size: calc(18px + 8 * (100vw - 769px) / 2048);
+        font-size: calc(16px + 10 * (100vw - 769px) / 2048);
     }
 
     h1, h2, h3, h4, h5 {
@@ -275,6 +275,10 @@ font-size starts at 20px at vewport width of 769px and ranges to 30px at viewpor
         position: static;
         height: auto;
         overflow: visible;
+    }
+
+    .current-beneath {
+        display: none;
     }
 
     #logo-wrapper, #scrollbar, .previous, .next {

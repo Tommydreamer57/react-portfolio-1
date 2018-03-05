@@ -8,6 +8,7 @@ export default function Wrapper({ position, children }) {
             rightMargin = "previous-right-margin"
             break;
         case "current":
+        case "current current-beneath":    
             leftMargin = "current-left-margin"
             rightMargin = "current-right-margin"
             break;
