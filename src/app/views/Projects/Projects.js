@@ -19,96 +19,71 @@ function Project(project) {
     )
 }
 
+function Tech(item) {
+    return (
+        <Link to={item.to} key={item.key} className={item.className} >
+            <h5>{item.name}</h5>
+            <div className="slide" />
+        </Link>
+    )
+}
+
 export default class Projects extends Component {
-    constructor({ search }) {
-        super({ search })
+    constructor({ search, searchString, current }) {
+        super({ search, searchString, current })
         this.state = {
-            search
+            search,
+            searchString
         }
     }
-    componentWillReceiveProps = ({ search, current }) => {
+    componentWillReceiveProps = ({ search, searchString, current }) => {
         console.log(search, current)
         if (search.skill || (current !== 'projects' && current !== 'details')) {
             this.setState({
-                search
+                search,
+                searchString
             })
         }
     }
     render = () => {
-        let { search } = this.state
+        let { search, searchString } = this.state
 
-        console.log(search)
+        console.log(search, searchString)
 
-        // TAG
-        function Tag(tag) {
-            let to = "/projects"
-            // NO SEARCH TAG
-            if (!search.tag || search.tag === 'any') {
-                to = `/projects?tag=${tag.name}`
-            }
-            // ONE SEARCH
-            if (!Array.isArray(search.tag))
-                return (
-                    <Link to={to} className="tech tag" >
-                        <h5>{tag.name}</h5>
-                        <div className="slide" />
-                    </Link>
-                )
-        }
+        const { front, back, other } = bio.Skills
 
-        // TECH
-        function Tech(tech) {
-            let to = "/projects"
-            // NO SEARCH
-            if ((!search.skill || !search.skill[0]) || search.skill[0] === 'any') {
-                to = `/projects?skill=${tech.name}`
-            }
-            // ONE SEARCH
-            else if (search.skill.length === 1 && tech.selected) {
-                to = '/projects?skill=any'
-            }
-            // MULTIPLE SEARCHES    
-            else {
-                let other = search.skill.filter(skill => skill !== tech.name)
-                if (tech.selected) {
-                    to = [`/projects?skill=${other[0]}`, ...other.slice(1)].join("&skill=")
-                }
-                else {
-                    to = [`/projects?skill=${other[0]}`, ...other.slice(1), tech.name].join("&skill=")
-                }
-            }
+        const techList = [...front, ...back, ...other].map(item => ({ ...item, type: "skill" }))
+        const tagList = bio.Tags.map(item => ({ ...item, type: "tag" }))
+
+        const fullList = [...tagList, ...techList].map(item => {
+
+            if (!bio.Projects.some(project => project.tech.some(skill => skill.name === item.name) || project.tags.some(tag => tag.name === item.name))) return
+
+            let key = `Projects ${item.type} ${item.name}`
+            let selected = search[item.type].includes(item.name)
+            let className = `tech ${item.type === 'tag' ? 'tag' : ''} ${selected ? 'selected-tech' : ''}`
+
+            let to = '/projects'
+            to += selected ? searchString.replace(`?${item.type}=${item.name}&`, "?").replace(`?${item.type}=${item.name}`, "").replace(`&${item.type}=${item.name}`, "") : searchString.includes('?') ? `${searchString}&${item.type}=${item.name}` : `${searchString}?${item.type}=${item.name}`
+
             console.log(to)
-            let key = `Projects Tech ${tech.name}`
-            let className = `tech ${tech.selected ? 'selected-tech' : ''}`
-            return (
-                <Link to={to} key={key} className={className}>
-                    <h5>{tech.name}</h5>
-                    <div className="slide" />
-                </Link>
-            )
-        }
+
+            return { ...item, key, to, className, selected }
+
+        }).filter(item => item)
+
+
 
         // FILTER PROJECTS
         function filter(project) {
-            if ((!search.skill || !search.skill[0]) || search.skill[0] === 'any') return true
-            else return search.skill.every(skill => project.tech.some(tech => skill.includes(tech.name)))
+            if (!search.skill && !search.tag) return true
+            if (!search.skill.length && !search.tag.length) return true
+            if (search.tag[0] === 'any' || search.skill[0] === 'any') return true
+            else
+                return search.skill.every(skill => project.tech.some(tech => skill.includes(tech.name)))
+                    &&
+                    search.tag.every(stag => project.tags.some(tag => stag.includes(tag.name)))
         }
-
-        const { main, front, back, other } = bio.Skills
-
-        // FILTER TECH
-        const fullTechList = [...main, ...front, ...back, ...other]
-            .map(tech => {
-                if (!bio.Projects.some(project => project.tech.some(skill => skill === tech)))
-                    return
-                if (search.skill && search.skill.includes(tech.name))
-                    return Object.assign({ selected: true }, tech)
-                else
-                    return tech
-            })
-            .filter(item => item)
-
-        // console.log(fullTechList)
 
         let projects = bio.Projects.filter(filter)
 
@@ -117,12 +92,7 @@ export default class Projects extends Component {
                 <h1>Projects</h1>
                 <div className="tech-list">
                     {
-                        bio.Tags.map(Tag)
-                    }
-                    {/* </div>
-                <div className="tech-list"> */}
-                    {
-                        fullTechList.map(Tech)
+                        fullList.map(Tech)
                     }
                 </div>
                 <div className="projects-wrapper">

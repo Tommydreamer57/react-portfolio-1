@@ -61,13 +61,18 @@ class View extends Component {
         let current = this.props.match.params.view
         let project = this.props.match.params.project
 
-        let search = {}
+        let searchString = this.props.location.search.replace(/%20/g, " ")
 
-        this.props.location.search.split(/[\?\&]/g).forEach(item => {
+        let search = {
+            skill: [],
+            tag: []
+        }
+
+        searchString.split(/[\?\&]/g).forEach(item => {
             if (!item) return
             let arr = item.split(/=/)
             let key = arr[0]
-            let val = arr[1]
+            let val = arr[1].replace(/%20/g, " ")
             if (!search[key]) search[key] = [val]
             else search[key] = [...search[key], val]
         })
@@ -90,7 +95,7 @@ class View extends Component {
                 </Wrapper>
                 {/* PROJECTS */}
                 <Wrapper position={projectsPosition} >
-                    <Projects current={current} search={search} />
+                    <Projects current={current} search={search} searchString={searchString} />
                 </Wrapper>
                 {/* CONTACT */}
                 <Wrapper position={contactPosition} >

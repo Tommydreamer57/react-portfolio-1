@@ -28,7 +28,7 @@ const FULL_STACK = { name: "Full-Stack" }
 const FRONT_END = { name: "Front End" }
 const BACK_END = { name: "Back End" }
 const GROUP = { name: "Group" }
-const PERSONAL = { name: "Personal" }
+const INDIVIDUAL = { name: "Individual" }
 const DEVMOUNTAIN = { name: "DevMountain" }
 const RESPONSIVE = { name: "Responsive" }
 
@@ -37,7 +37,7 @@ let Tags = [
     FRONT_END,
     BACK_END,
     GROUP,
-    PERSONAL,
+    INDIVIDUAL,
     DEVMOUNTAIN,
     RESPONSIVE
 ]
@@ -123,7 +123,7 @@ let Projects = [
         ],
         tags: [
             FRONT_END,
-            PERSONAL
+            INDIVIDUAL
         ]
     },
     {
@@ -149,7 +149,7 @@ let Projects = [
             FULL_STACK,
             FRONT_END,
             BACK_END,
-            PERSONAL,
+            INDIVIDUAL,
             DEVMOUNTAIN,
             RESPONSIVE
         ]
