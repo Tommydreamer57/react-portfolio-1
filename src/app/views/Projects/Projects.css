@@ -130,6 +130,8 @@
         right: 0;
     }
 
+}
+
     .tech {
         margin-right: calc(5px + 5 * (100vw - 769px) / 2048);
         margin-bottom: calc(7.5px + 5 * (100vw - 769px) / 2048);
@@ -137,7 +139,7 @@
         /* margin-bottom: 7.5px; */
     }
 
-}
+/* } */
 
 @media(max-width: 768px) {
 
@@ -148,6 +150,10 @@
 
     .project:first-of-type {
         /* margin-top: 2rem; */
+    }
+
+    #projects .slide {
+        transition: none;
     }
 
 }

@@ -5,6 +5,7 @@
 
 #skills-main {
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .skills-section {
@@ -76,7 +77,7 @@
 
 
 
-@media(min-width: 769px) {
+/* @media(min-width: 769px) { */
 
     .icon-skill:hover .slide, .skill:hover .slide {
         right: 0;
@@ -96,15 +97,20 @@
 
     .skill {
         margin-left: calc(20px + 20 * (100vw - 769px) / 2048);
-        margin-bottom: calc(68px + 72 * (100vw - 769px) / 2048);
+        margin-bottom: calc(20px + 20 * (100vw - 769px) / 2048);
     }
-
+    
     .skills-wrapper {
         padding-left: calc(18px + 8 * (100vw - 769px) / 2048);
         padding-right: calc(18px + 8 * (100vw - 769px) / 2048);        
+        margin-bottom: calc(68px + 72 * (100vw - 769px) / 2048);
     }
 
-}
+    #skills-main .skills-wrapper {
+        margin-bottom: 0;
+    }
+
+/* } */
 
 @media(max-width: 768px) {
 
