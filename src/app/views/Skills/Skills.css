@@ -118,4 +118,8 @@
         /* margin: 2.5rem 0; */
     }
 
+    .icon-skill i {
+        font-size: calc(64px + 28 * (100vw - 360px) / 768);
+    }
+
 }

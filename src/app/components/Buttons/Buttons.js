@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Buttons.css';
 
-export default function Buttons({ open, current, project, history, toggleMenu }) {
+export default function Buttons({ open, current, details, history, toggleMenu }) {
 
     let previous, previousLabel, next, nextLabel
 
@@ -27,7 +27,7 @@ export default function Buttons({ open, current, project, history, toggleMenu })
     }
 
     function leftClick(e) {
-        if (project) {
+        if (details) {
             e.preventDefault();
             history.goBack()
         }
@@ -58,8 +58,8 @@ export default function Buttons({ open, current, project, history, toggleMenu })
     }
 
     let menuClass = open ? 'close-menu' : 'open-menu'
-    let leftClass = project || current ? 'nav-button' : 'nav-button left-away'
-    let rightClass = !project && current !== "contact" ? 'nav-button' : 'nav-button right-away'
+    let leftClass = details || current ? 'nav-button' : 'nav-button left-away'
+    let rightClass = !details && current !== "contact" ? 'nav-button' : 'nav-button right-away'
 
     let links = ['About', 'Skills', 'Projects', 'Contact']
     let left = links.slice(0, 3)

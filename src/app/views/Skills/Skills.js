@@ -23,6 +23,7 @@ function IconSkill(skill) {
 function Skill(skill) {
     return (
         <Link to={`/projects?skill=${skill.name}`} key={i++} className="skill">
+        {/* <Link to={`/details/${skill.name}`} key={i++} className="skill"> */}
             <h4>{skill.name}</h4>
             <div className="slide" />
         </Link>

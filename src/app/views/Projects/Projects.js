@@ -19,6 +19,7 @@ function Project(project) {
     )
 }
 
+// TECH
 function Tech(item) {
     return (
         <Link to={item.to} key={item.key} className={item.className} >
@@ -28,25 +29,24 @@ function Tech(item) {
     )
 }
 
+// VIEW
 export default class Projects extends Component {
     constructor({ search, searchString, current }) {
         super({ search, searchString, current })
+        this.current = current
         this.state = {
             search,
-            searchString
+            searchString,
+            current
         }
     }
-    componentWillReceiveProps = ({ search, searchString, current }) => {
-        console.log(search, current)
-        if (search.skill || (current !== 'projects' && current !== 'details')) {
-            this.setState({
-                search,
-                searchString
-            })
-        }
+    shouldComponentUpdate = ({ current, search, searchString }) => {
+        // do not update when navigating from projects to another screen
+        if (this.props.current === 'projects' && current !== 'projects') return false
+        else return true
     }
     render = () => {
-        let { search, searchString } = this.state
+        let { search, searchString } = this.props
 
         console.log(search, searchString)
 
@@ -63,8 +63,19 @@ export default class Projects extends Component {
             let selected = search[item.type].includes(item.name)
             let className = `tech ${item.type === 'tag' ? 'tag' : ''} ${selected ? 'selected-tech' : ''}`
 
+            // console.log(searchString.replace(new RegExp(`(\\?{0,1})(${item.type}=${item.name})(&){0,1}|(&{0,1})(${item.type}=${item.name})`), "$1"))
+
             let to = '/projects'
-            to += selected ? searchString.replace(`?${item.type}=${item.name}&`, "?").replace(`?${item.type}=${item.name}`, "").replace(`&${item.type}=${item.name}`, "") : searchString.includes('?') ? `${searchString}&${item.type}=${item.name}` : `${searchString}?${item.type}=${item.name}`
+            // to += selected ? searchString.replace(`?${item.type}=${item.name}&`, "?").replace(`?${item.type}=${item.name}`, "").replace(`&${item.type}=${item.name}`, "") : searchString.includes('?') ? `${searchString}&${item.type}=${item.name}` : `${searchString}?${item.type}=${item.name}`
+
+            let regex = new RegExp(`(\\?{0,1})(&{0,1})(${item.type}=${item.name})(&{0,1})`)
+
+            function replace(match, p1, p2, p3, p4, offset, string) {
+                if (p4) return p1 + p2
+                else return ''
+            }
+
+            to += selected ? searchString.replace(regex, replace) : searchString.includes('?') ? `${searchString}&${item.type}=${item.name}` : `${searchString}?${item.type}=${item.name}`
 
             console.log(to)
 
@@ -74,51 +85,63 @@ export default class Projects extends Component {
 
 
 
-        // FILTER PROJECTS
-        function filter(project) {
+        // FILTERED PROJECTS
+        let projects = bio.Projects.filter(project => {
             if (!search.skill && !search.tag) return true
             if (!search.skill.length && !search.tag.length) return true
             if (search.tag[0] === 'any' || search.skill[0] === 'any') return true
-            else
-                return search.skill.every(skill => project.tech.some(tech => skill.includes(tech.name)))
-                    &&
-                    search.tag.every(stag => project.tags.some(tag => stag.includes(tag.name)))
-        }
+            else return search.skill.every(skill => project.tech.some(tech => skill.includes(tech.name)))
+                &&
+                search.tag.every(stag => project.tags.some(tag => stag.includes(tag.name)))
+        })
 
-        let projects = bio.Projects.filter(filter)
+        // 
+        let noProjectsHeader = (
+            <h4 id="no-projects">
+                {
+
+                }
+                No
+                {search.tag.map((tag, i, arr) => {
+                    return (
+                        <span key={`No Projects ${tag}`} > {tag.toLowerCase()} </span>
+                    )
+                })}
+                project uses
+                {search.skill.length === 2 ? " both " : " "}
+                {search.skill.map((skill, i, arr) => {
+                    return (
+                        [
+                            <span key={`No Projects ${skill}`} >{skill}</span>,
+                            i < arr.length - 2 ? ", " : i === arr.length - 2 ? " and " : ""
+                        ]
+                    )
+                })}
+            </h4>
+        )
 
         return (
             <div id="Projects" >
+                {/* TITLE */}
                 <h1>Projects</h1>
+                {/* LIST */}
                 <div className="tech-list">
                     {
                         fullList.map(Tech)
                     }
                 </div>
+                {/* PROJECTS */}
                 <div className="projects-wrapper">
                     {
-                        projects.map(Project)
-                    }
-                    {
-                        !projects.length ?
-                            <h4 id="no-projects">
-                                No project uses
-                                {search.skill.length === 2 ? " both " : " "}
-                                {search.skill.map((skill, i, arr) => {
-                                    return (
-                                        [
-                                            <span>{skill}</span>,
-                                            i < arr.length - 2 ? ", " : i === arr.length - 2 ? " and " : ""
-                                        ]
-                                    )
-                                })}
-                            </h4>
+                        projects.length ?
+                            // PROJECTS
+                            projects.map(Project)
                             :
-                            null
+                            // NO PROJECTS
+                            noProjectsHeader
                     }
                 </div>
             </div>
         )
-
     }
 }

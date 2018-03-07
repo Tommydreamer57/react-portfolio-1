@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 // view wrappers
 import Wrapper, { DetailWrapper } from './Wrapper';
 // primary views
@@ -7,6 +8,7 @@ import Skills from './Skills/Skills';
 import Projects from './Projects/Projects';
 import Contact from './Contact/Contact';
 // secondary view
+import SkillDetails from './Skills/SkillDetails/SkillDetails';
 import ProjectDetails from './Projects/ProjectDetails/ProjectDetails';
 // data
 import bio from '../../bio/bio';
@@ -51,7 +53,7 @@ class View extends Component {
         if (current && !allowedViews.includes(current)) {
             if (i > 0) {
                 history.push("/")
-                i--
+                i-- // infinite loop protection
             }
         }
     }
@@ -59,7 +61,7 @@ class View extends Component {
 
         let history = this.props.history
         let current = this.props.match.params.view
-        let project = this.props.match.params.project
+        let details = this.props.match.params.details // project or skill
 
         let searchString = this.props.location.search.replace(/%20/g, " ")
 
@@ -82,6 +84,9 @@ class View extends Component {
         let projectsPosition = current === 'contact' ? 'previous' : current === 'projects' ? 'current' : current === 'details' ? 'current current-beneath' : 'next'
         let contactPosition = current === 'contact' ? 'current' : 'next'
 
+        let { main, front, back, other } = bio.Skills
+        let allSkills = [...main, ...front, ...back, ...other]
+
         return (
             <div id="View">
                 {/* PRIMARY VIEWS */}
@@ -103,9 +108,20 @@ class View extends Component {
                 </Wrapper>
                 {/* SECONDARY VIEWS */}
                 {/* PROJECT DETAILS */}
+                {/* SKILL DETAILS */}
+                {
+                    // allSkills.map(item => {
+                    //     let detailPosition = details === item.name ? 'current' : 'next'
+                    //     return (
+                    //         <DetailWrapper position={detailPosition} key={`Skill Details ${item.name}`} >
+                    //             <SkillDetails skill={item.name} />
+                    //         </DetailWrapper>
+                    //     )
+                    // })
+                }
                 {
                     bio.Projects.map(item => {
-                        let detailPosition = project === item.title ? 'current' : 'next'
+                        let detailPosition = details === item.title ? 'current' : 'next'
                         return (
                             <DetailWrapper position={detailPosition} key={`Project Details ${item.title}`} >
                                 <ProjectDetails project={item.title} />
@@ -114,16 +130,16 @@ class View extends Component {
                     })
                 }
                 {/* LOGO */}
-                <div id="logo-wrapper">
+                <Link to="/" id="logo-wrapper">
                     <div id="logo-circle">
                         <img id="logo" src={logo} />
                     </div>
-                </div>
+                </Link>
                 {/* BUTTONS */}
                 <Buttons
                     history={history}
                     current={current}
-                    project={project}
+                    details={details}
                     toggleMenu={this.toggleMenu}
                 />
                 {/* MENU  */}
