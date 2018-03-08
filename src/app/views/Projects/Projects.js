@@ -48,7 +48,7 @@ export default class Projects extends Component {
     render = () => {
         let { search, searchString } = this.props
 
-        console.log(search, searchString)
+        // console.log(search, searchString)
 
         const { front, back, other } = bio.Skills
 
@@ -77,7 +77,7 @@ export default class Projects extends Component {
 
             to += selected ? searchString.replace(regex, replace) : searchString.includes('?') ? `${searchString}&${item.type}=${item.name}` : `${searchString}?${item.type}=${item.name}`
 
-            console.log(to)
+            // console.log(to)
 
             return { ...item, key, to, className, selected }
 

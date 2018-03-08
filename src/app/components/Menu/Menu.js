@@ -27,8 +27,8 @@ function Menu({ current, open, toggleMenu }) {
             selected: current === 'contact'
         }
     ]
-    console.log(current)
-    console.log(links)
+    // console.log(current)
+    // console.log(links)
     return (
         <div id="Menu" className={open ? 'menu open' : 'menu closed'} >
             {

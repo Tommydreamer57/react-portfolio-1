@@ -30,7 +30,8 @@ class View extends Component {
         }
         this.state = {
             open: false,
-            slidePosition: 0
+            slidePosition: 0,
+            slideDirection: ''
         }
         let currentView = props.match.params.view
         let allowedViews = ['skills', 'projects', 'details', 'contact']
@@ -46,7 +47,7 @@ class View extends Component {
         setTimeout(this.componentDidUpdate, 50)
     }
     componentDidUpdate = () => {
-        console.log('updating View')
+        // console.log('updating View')
         this.scrollbar = this.scrollbar.removeEventListeners().addEventListeners().removeEventListeners().addEventListeners()
     }
     toggleMenu = () => {
@@ -55,8 +56,10 @@ class View extends Component {
         })
     }
     swipe = (direction, distance) => {
+        console.log(direction, distance)
         this.setState({
-            slidePosition: distance
+            slidePosition: distance,
+            slideDirection: direction
         })
     }
     render = () => {
@@ -102,6 +105,7 @@ class View extends Component {
                     id={aboutId}
                     position={aboutPosition}
                     slidePosition={this.state.slidePosition}
+                    slideDirection={this.state.slideDirection}
                     swipe={this.swipe}
                     child={About}
                 />
@@ -110,6 +114,7 @@ class View extends Component {
                     id={skillsId}
                     position={skillsPosition}
                     slidePosition={this.state.slidePosition}
+                    slideDirection={this.state.slideDirection}
                     swipe={this.swipe}
                     child={Skills}
                 />
@@ -118,6 +123,7 @@ class View extends Component {
                     id={projectsId}
                     position={projectsPosition}
                     slidePosition={this.state.slidePosition}
+                    slideDirection={this.state.slideDirection}
                     swipe={this.swipe}
                     child={Projects}
                     childProps={{ current, search, searchString }}
@@ -127,21 +133,11 @@ class View extends Component {
                     id={contactId}
                     position={contactPosition}
                     slidePosition={this.state.slidePosition}
+                    slideDirection={this.state.slideDirection}
                     swipe={this.swipe}
                     child={Contact}
                 />
                 {/* SECONDARY VIEWS */}
-                {/* SKILL DETAILS */}
-                {
-                    // allSkills.map(item => {
-                    //     let detailPosition = details === item.name ? 'current' : 'next'
-                    //     return (
-                    //         <DetailWrapper position={detailPosition} key={`Skill Details ${item.name}`} >
-                    //             <SkillDetails skill={item.name} />
-                    //         </DetailWrapper>
-                    //     )
-                    // })
-                }
                 {/* PROJECT DETAILS */}
                 {
                     bio.Projects.map(item => {

@@ -45,15 +45,15 @@ export default class Wrapper extends Component {
             let slope = changeY / changeX
 
             // CHECK IF INITIAL TOUCH WAS ON THE SIDE OF THE SCREEN
-            let side = undefined
+            let direction = undefined
 
-            if (initialTouch.clientX < window.innerWidth / 4) side = 'left'
-            if (initialTouch.clientX > window.innerWidth * 3 / 4) side = 'right'
+            if (initialTouch.clientX < window.innerWidth / 4) direction = 'right'
+            if (initialTouch.clientX > window.innerWidth * 3 / 4) direction = 'left'
 
-            console.log(Math.abs(slope), initialTouch.navigating, side)
+            // console.log(Math.abs(slope), initialTouch.navigating, direction)
 
             // IF INITIAL CONDITIONS MET, NAVIGATION IS SET ONCE FOR EACH TOUCH
-            if (side && (Math.abs(slope) < 0.75 && initialTouch.navigating !== false)) {
+            if (direction && (Math.abs(slope) < 0.75 && initialTouch.navigating !== false)) {
                 initialTouch.navigating = true
             }
             else {
@@ -63,7 +63,8 @@ export default class Wrapper extends Component {
             // AFTER NAVIGATION HAS BEEN SET, WE CAN DO THE NAVIGATION
             if (initialTouch.navigating) {
                 // update the 'left' property of the previous or next view through props
-                this.props.slide()
+                let distance = Math.abs(initialTouch.clientX - currentTouch.clientX)
+                this.props.swipe(direction, distance)
             }
         }
         this.setState({
@@ -73,13 +74,16 @@ export default class Wrapper extends Component {
     onTouchEnd = ({ touches }) => {
         touches = [...touches]
         let initialTouches = this.state.initialTouches.filter(touch => touches.some(otherTouch => otherTouch.id === touch.id))
+        if (this.state.touches.length === 1) {
+            this.props.swipe(this.props.slideDirection, 0)
+        }
         this.setState({
             touches,
             initialTouches
         })
     }
     render() {
-        let { position, child: Child, childProps } = this.props
+        let { id, position, slidePosition, slideDirection, child: Child, childProps } = this.props
         let leftMargin, rightMargin
         switch (position) {
             case "previous":
@@ -96,9 +100,32 @@ export default class Wrapper extends Component {
                 rightMargin = "next-right-margin"
                 break;
         }
-        console.log(this.state.initialTouches)
+
+        let left = undefined
+        let right = undefined
+
+        if (id === 'next-view' && slideDirection === 'left') {
+            left = slidePosition
+        }
+        else if (id === 'previous-view' && slideDirection === 'right') {
+            right = slidePosition
+        }
+        else if (id === 'next-view') {
+            left = '100vw'
+        }
+        else if (id === 'previous-view') {
+            right = '100vw'
+        }
+
+        let style = {
+            position: 'fixed',
+            top: 0,
+            left,
+            right
+        }
+        // console.log(this.state.initialTouches)
         return (
-            <div id={this.props.id} className={position} onTouchStart={this.onTouchStart} onTouchMove={this.onTouchMove} onTouchEnd={this.onTouchEnd} >
+            <div id={id} className={position} style={style} onTouchStart={this.onTouchStart} onTouchMove={this.onTouchMove} onTouchEnd={this.onTouchEnd} >
                 <div className="content">
                     <div className={leftMargin} />
                     {this.state.touches.map(Touch)}
