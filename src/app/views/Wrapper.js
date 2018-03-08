@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
 
 // TOUCH
-function Touch(touch) {
+function Touch({ clientX, clientY, radiusX, radiusY, force }) {
     let style = {
-        top: touch.clientY - touch.radiusY * 1.5 * (touch.force || 1),
-        left: touch.clientX - touch.radiusX * 1.5 * (touch.force || 1),
-        width: touch.radiusX * 3 * (touch.force || 1),
-        height: touch.radiusY * 3 * (touch.force || 1),
+        top: clientY - radiusY / 2 * 3,
+        left: clientX - radiusX / 2 * 3,
+        width: radiusX * 3,
+        height: radiusY * 3,
     }
     return (
-        <div className="touch" style={style} />
+        [
+            <div className="touch" style={style} />,
+            // <div className="touch-description" style={{
+            //     position: 'fixed',
+            //     top: 0,
+            //     left: 0
+            // }}>X: {~~clientX}, Y: {~~clientY}, RADIUS: {~~radiusX} x {~~radiusY}, FORCE: {~~force}</div>,
+            // <div className="touch-description" style={{
+            //     position: 'fixed',
+            //     top: '1.5rem',
+            //     left: 0,
+            //     maxWidth: '100vw',
+            // }}>STYLE: {JSON.stringify(style)}</div>
+        ]
     )
 }
 
@@ -47,14 +60,20 @@ export default class Wrapper extends Component {
             // CHECK IF INITIAL TOUCH WAS ON THE SIDE OF THE SCREEN
             let direction = undefined
 
-            if (initialTouch.clientX < window.innerWidth / 4) direction = 'right'
-            if (initialTouch.clientX > window.innerWidth * 3 / 4) direction = 'left'
+            if (initialTouch.clientX < window.innerWidth / 3) direction = 'right'
+            if (initialTouch.clientX > window.innerWidth * 2 / 3) direction = 'left'
 
             // console.log(Math.abs(slope), initialTouch.navigating, direction)
 
-            // IF INITIAL CONDITIONS MET, NAVIGATION IS SET ONCE FOR EACH TOUCH
-            if (direction && (Math.abs(slope) < 0.75 && initialTouch.navigating !== false)) {
+            // IF INITIAL CONDITIONS MET
+            if (direction && (Math.abs(slope) < 0.66 && initialTouch.navigating !== false)) {
+                // NAVIGATION IS SET ONCE FOR EACH TOUCH
                 initialTouch.navigating = true
+                // DIRECTION IS SET ONCE FOR EACH TOUCH
+                if (!initialTouch.direction) {
+                    console.log('setting direction to ' + direction)
+                    initialTouch.direction = direction
+                }
             }
             else {
                 initialTouch.navigating = false
@@ -64,7 +83,7 @@ export default class Wrapper extends Component {
             if (initialTouch.navigating) {
                 // update the 'left' property of the previous or next view through props
                 let distance = Math.abs(initialTouch.clientX - currentTouch.clientX)
-                this.props.swipe(direction, distance)
+                this.props.swipe(initialTouch.direction, distance)
             }
         }
         this.setState({
@@ -75,7 +94,27 @@ export default class Wrapper extends Component {
         touches = [...touches]
         let initialTouches = this.state.initialTouches.filter(touch => touches.some(otherTouch => otherTouch.id === touch.id))
         if (this.state.touches.length === 1) {
-            this.props.swipe(this.props.slideDirection, 0)
+
+            let initialTouch = this.state.initialTouches[0]
+            let currentTouch = this.state.touches[0]
+
+            if (initialTouch.navigating) {
+                let { history, path } = this.props
+                let views = ['/', '/skills', '/projects', '/contact']
+                let previousView = views[views.indexOf(path) - 1] || '/'
+                let nextView = views[views.indexOf(path) + 1] || '/contact'
+                console.log('previous: "' + previousView, '", next: "' + nextView + '"')
+                if (initialTouch.direction === 'left' && currentTouch.clientX < window.innerWidth / 2) {
+                    console.log('pushing to ', nextView)
+                    history.push(nextView)
+                }
+                else if (initialTouch.direction === 'right' && currentTouch.clientX > window.innerWidth / 2) {
+                    console.log('pushing to ', previousView)
+                    history.push(previousView)
+                }
+            }
+
+            this.props.swipe(null, 0)
         }
         this.setState({
             touches,
@@ -101,35 +140,57 @@ export default class Wrapper extends Component {
                 break;
         }
 
-        let left = undefined
-        let right = undefined
+        let translateX = 0
 
         if (id === 'next-view' && slideDirection === 'left') {
-            left = slidePosition
+            translateX = -slidePosition
         }
         else if (id === 'previous-view' && slideDirection === 'right') {
-            right = slidePosition
+            translateX = slidePosition
         }
         else if (id === 'next-view') {
-            left = '100vw'
+
         }
         else if (id === 'previous-view') {
-            right = '100vw'
+
+        }
+
+        else if (position === 'current' && slideDirection === 'right') {
+            translateX = slidePosition
+        }
+        else if (position === 'current' && slideDirection === 'left') {
+            translateX = -slidePosition
         }
 
         let style = {
-            position: 'fixed',
-            top: 0,
-            left,
-            right
+            position: position === 'current' && !slideDirection ? 'static' : 'fixed',
+            top: position === 'current' ? undefined : 0,
+            transform: `translateX(${translateX}px)`,
+            transition: 'none' //'0.5s'
         }
-        // console.log(this.state.initialTouches)
+
+        if (window.innerWidth > 768) {
+            style = {}
+        }
+
+        let outerProps = {
+            id,
+            className: position,
+            style,
+            onTouchStart: this.onTouchStart,
+            onTouchMove: this.onTouchMove,
+            onTouchEnd: this.onTouchEnd
+        }
+
         return (
-            <div id={id} className={position} style={style} onTouchStart={this.onTouchStart} onTouchMove={this.onTouchMove} onTouchEnd={this.onTouchEnd} >
+            <div {...outerProps} >
                 <div className="content">
                     <div className={leftMargin} />
-                    {this.state.touches.map(Touch)}
+                    {/* {this.state.touches.map(Touch)} */}
                     <Child {...childProps} />
+                    {/* {
+                        <div className="" style={{ position: 'fixed', top: 0, left: 0, display: position === 'current' ? 'static' : 'none' }} >slidePosition: {slidePosition}</div>
+                    } */}
                     <div className={rightMargin} />
                 </div>
             </div>

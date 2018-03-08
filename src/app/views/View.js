@@ -98,43 +98,51 @@ class View extends Component {
         let allSkills = [...main, ...front, ...back, ...other]
 
         return (
-            <div id="View">
+            <div id="View" >
                 {/* PRIMARY VIEWS */}
                 {/* ABOUT */}
                 <Wrapper
+                    path="/"
                     id={aboutId}
                     position={aboutPosition}
                     slidePosition={this.state.slidePosition}
                     slideDirection={this.state.slideDirection}
                     swipe={this.swipe}
+                    history={history}
                     child={About}
                 />
                 {/* SKILLS */}
                 <Wrapper
+                    path="/skills"
                     id={skillsId}
                     position={skillsPosition}
                     slidePosition={this.state.slidePosition}
                     slideDirection={this.state.slideDirection}
                     swipe={this.swipe}
+                    history={history}
                     child={Skills}
                 />
                 {/* PROJECTS */}
                 <Wrapper
+                    path="/projects"
                     id={projectsId}
                     position={projectsPosition}
                     slidePosition={this.state.slidePosition}
                     slideDirection={this.state.slideDirection}
                     swipe={this.swipe}
+                    history={history}
                     child={Projects}
                     childProps={{ current, search, searchString }}
                 />
                 {/* CONTACT */}
                 <Wrapper
+                    path="/contact"
                     id={contactId}
                     position={contactPosition}
                     slidePosition={this.state.slidePosition}
                     slideDirection={this.state.slideDirection}
                     swipe={this.swipe}
+                    history={history}
                     child={Contact}
                 />
                 {/* SECONDARY VIEWS */}
