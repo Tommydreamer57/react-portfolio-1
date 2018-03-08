@@ -123,25 +123,25 @@ a {
 .previous-left-margin {
     /* left: -150vw; */
     left: 0;
-    transform: translateX(-150vw);
+    /* transform: translateX(-150vw); */
 }
 
 .previous-right-margin {
     /* left: -72.5vw; */
-    left: 0;
-    transform: translateX(-72.5vw);
+    right: 0;
+    /* transform: translateX(-72.5vw); */
 }
 
 .next-left-margin {
     /* left: 150vw; */
     left: 0;
-    transform: translateX(150vw);
+    /* transform: translateX(150vw); */
 }
 
 .next-right-margin {
     /* left: 227.5vw; */
-    left: 0;
-    transform: translateX(227.5vw);
+    right: 0;
+    /* transform: translateX(227.5vw); */
 }
 
 .details-left-left-margin {
@@ -168,8 +168,8 @@ a {
 
 .current-right-margin {
     /* left: 77.5vw; */
-    left: 0;
-    transform: translateX(77.5vw);
+    right: 0;
+    /* transform: translateX(77.5vw); */
 }
 
 .content {
@@ -195,13 +195,13 @@ a {
 }
 
 .details-left-margin, .details-right-margin, .current-details, .next-details {
-    transition: left .6s, width .6s, transform 0.8s;
+    transition: left .6s, width .6s, transform 0.6s;
 }
 
 .previous {
     /* left: -150vw; */
     left: 0;
-    transform: translateX(-150vw);
+    transform: translateX(-162.5vw);
     overflow: hidden;
 }
 
@@ -215,7 +215,7 @@ a {
 .next {
     /* left: 150vw; */
     left: 0;
-    transform: translateX(150vw);
+    transform: translateX(162.5vw);
     overflow: hidden;
 }
 
