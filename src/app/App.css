@@ -29,9 +29,53 @@ body,
     width: 100vw;
     margin: 0;
     padding: 0;
-    background: rgba(64, 152, 207, 1);
+    /* background: rgba(64, 152, 207, 1); */
     /* background: rgba(126, 186, 223, 1); */
     font-family: 'Mukta Mahee', Cousine, 'Fira Mono', 'Ubuntu Mono', Roboto;
+    /* color: white; */
+}
+
+body {
+
+}
+
+#backdrop-filter {
+    /* KEY CHAIN */
+    background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t1.0-9/14657272_10211163308427971_696942991272845300_n.jpg?oh=c6ce706327e1e01f46fa5ffc735b9e40&oe=5B3CDF8B);
+    /* TREES & GRASS */
+    background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t1.0-9/14915191_10211238130898486_3141073830935842358_n.jpg?oh=0e61a0dbfc31aa4f82f9da84b167a4b0&oe=5B42FDA0);
+    /* LAKE */
+    /* background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t1.0-9/14956545_10211287699057659_797311144434314151_n.jpg?oh=0a05f3d098e1941d9e0e5e9eafca01ef&oe=5B09C3CD); */
+    /* ROAD */
+    /* background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t31.0-8/20901335_10214133008188609_1641634066272711721_o.jpg?oh=46e915650cd74c88f749e01a0ef79436&oe=5B070312); */
+    /* SKY */
+    /* background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t1.0-9/15134824_10211370206520294_1213367688941087975_n.jpg?oh=f20bdf16c71a9207cf8a98afba7dc583&oe=5B49484A); */
+    /* MEADOW */
+    /* background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t1.0-9/11800610_10207523258148989_8586288223078164359_n.jpg?oh=1fadbf46e790ecb083d0023b2bb7fbc7&oe=5B0284E9); */
+    /* TIMP */
+    /* background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t1.0-9/11836836_10207523257468972_8426094492630959740_n.jpg?oh=0c19ff7ff662fb23c21008380423ee8e&oe=5B0C270C); */
+    /* background-image: url(https://images.unsplash.com/photo-1479030160180-b1860951d696?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fbee86d97118ec6673c8d850c31787ef&auto=format&fit=crop&w=1050&q=80); */
+    /* DESERT */
+    background-image: url(https://images.unsplash.com/photo-1502790671504-542ad42d5189?ixlib=rb-0.3.5&s=da4d3b0a41041f60ee409664746ca2d6&auto=format&fit=crop&w=600&q=60);
+    background-size: 100%;
+    /* background-position: 95% 25%; */
+    /* background-position: center 20%; */
+    /* background-position: 57.5%; */
+    background-position: center;
+    filter: blur(8px);
+    position: fixed;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    z-index: -1;
+}
+
+#root {
+    /* filter: blur(0); */
+    /* backdrop-filter: blur(5px); */
+    /* -webkit-backdrop-filter: blur(5px);     */
+    background: rgba(255, 255, 255, 0.125);
 }
 
 ::-webkit-scrollbar {
@@ -109,13 +153,14 @@ a {
     width: 100vw;
     height: 100vh;
     /* background: rgba(255, 255, 255, 0.325); */
-    background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.325) 22.5%, rgba(255, 255, 255, 0.325) 77.5%, transparent);    
+    /* background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.325), transparent 22.5%, transparent 77.5%, rgba(255, 255, 255, 0.325));     */
     transition: left 0.8s, width 0.8s, transform 0.8s;
 }
 
 .current-details, .next-details {
     /* background: rgba(64, 152, 207, 1); */
-    background-image: linear-gradient(90deg, transparent, rgba(64, 152, 207, 1) 11.25%);
+    /* background-image: linear-gradient(90deg, transparent, rgba(64, 152, 207, 1) 11.25%); */
+    background-image: linear-gradient(90deg, transparent, rgba(215, 215, 215, 1) 11.25%);    
 }
 
 .previous {
@@ -206,6 +251,13 @@ font-size starts at 20px at vewport width of 769px and ranges to 30px at viewpor
 
     html, body {
         height: auto;
+    }
+
+    #backdrop-filter {
+        /* background-position: 75%; */
+        background-size: cover;
+        /* background-position: 67.5% top; */
+        background-position: left;
     }
     
     #root {
