@@ -123,22 +123,6 @@ export default class Wrapper extends Component {
     }
     render() {
         let { id, position, slidePosition, slideDirection, child: Child, childProps } = this.props
-        let leftMargin, rightMargin
-        switch (position) {
-            case "previous":
-                leftMargin = "previous-left-margin"
-                rightMargin = "previous-right-margin"
-                break;
-            case "current":
-            case "current current-beneath":
-                leftMargin = "current-left-margin"
-                rightMargin = "current-right-margin"
-                break;
-            case "next":
-                leftMargin = "next-left-margin"
-                rightMargin = "next-right-margin"
-                break;
-        }
 
         let translateX = 0
 
@@ -163,7 +147,7 @@ export default class Wrapper extends Component {
         }
 
         let style = {
-            position: position === 'current' && !slideDirection ? 'static' : 'fixed',
+            // position: position === 'current' && !slideDirection ? 'static' : 'fixed',
             top: position === 'current' ? undefined : 0,
             transform: `translateX(${translateX}px)`,
             transition: 'none' //'0.5s'
@@ -185,13 +169,11 @@ export default class Wrapper extends Component {
         return (
             <div {...outerProps} >
                 <div className="content">
-                    <div className={leftMargin} />
                     {/* {this.state.touches.map(Touch)} */}
                     <Child {...childProps} />
                     {/* {
                         <div className="" style={{ position: 'fixed', top: 0, left: 0, display: position === 'current' ? 'static' : 'none' }} >slidePosition: {slidePosition}</div>
                     } */}
-                    <div className={rightMargin} />
                 </div>
             </div>
         )
@@ -208,31 +190,18 @@ export class DetailWrapper extends Wrapper {
     }
     render() {
         let { position, children } = this.props
-        let leftLeftMargin = "details-left-left-margin"
-        let leftMargin = "details-left-margin"
-        let rightMargin = "details-right-margin"
         switch (position) {
             case "current":
                 position += " current-details"
-                leftLeftMargin += " current-left-margin"
-                leftMargin += " current-left-margin"
-                rightMargin += " current-right-margin"
                 break;
             case "next":
                 position += " next-details"
-                leftLeftMargin += " next-left-margin"
-                leftMargin += " next-left-margin"
-                rightMargin += " next-right-margin"
                 break;
         }
         return (
             <div className={position} onTouchStart={this.onTouchStart} onTouchMove={this.onTouchMove} onTouchEnd={this.onTouchEnd} >
                 <div className="content details-content">
-                    <div className={leftLeftMargin} />
-                    <div className={leftMargin} />
-                    {this.state.touches.map(Touch)}
                     {children}
-                    <div className={rightMargin} />
                 </div>
             </div>
         )

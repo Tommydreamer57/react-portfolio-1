@@ -20,11 +20,32 @@ function addEventListeners() {
 
     // CURRENT VIEW
 
-    let currentArr = document.getElementsByClassName('current')
-    let current = currentArr[currentArr.length - 1]
+    let currentViews = document.getElementsByClassName('current')
+    let current = currentViews[currentViews.length - 1]
 
     // OTHER VIEWS
-    let nonCurrentArr = [...document.getElementsByClassName('previous'), ...document.getElementsByClassName('next')]
+    let nonCurrentViews = [...document.getElementsByClassName('previous'), ...document.getElementsByClassName('next')]
+
+    // ALL VIEWS
+    let allViews = [...currentViews, ...nonCurrentViews]
+
+    // RESET SCROLLTOP OF ALL NON-CURRENT VIEWS
+
+    function resetScrollTop() {
+        for (let i = 0; i < nonCurrentViews.length; i++) {
+            let view = nonCurrentViews[i]
+            setTimeout(function () {
+                if (view.className !== 'current')
+                    view.scrollTop = 0
+            }, 800)
+        }
+        // if (window.innerWidth < 769) {
+        //     for (let i = 0; i < allViews.length; i++) {
+        //         let view = allViews[i]
+        //         view.scrollTop = 0
+        //     }
+        // }
+    }
 
     // INITIAL VARIABLES / PROPERTIES
 
@@ -74,18 +95,6 @@ function addEventListeners() {
         scrollTop = current.scrollTop
         scrollbarTop = scrollTop * (viewHeight - 6) / contentHeight + 3
         scrollbar.style.top = scrollbarTop + 'px'
-    }
-
-    // RESET SCROLLTOP OF ALL NON-CURRENT VIEWS
-
-    function resetScrollTop() {
-        for (let i = 0; i < nonCurrentArr.length; i++) {
-            let view = nonCurrentArr[i]
-            setTimeout(function () {
-                if (view.className !== 'current')
-                    view.scrollTop = 0
-            }, 800)
-        }
     }
 
     // EVENT LISTENER
