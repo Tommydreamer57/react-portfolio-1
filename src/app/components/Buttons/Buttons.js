@@ -26,12 +26,12 @@ export default function Buttons({ open, current, details, history, toggleMenu })
         )
     }
 
-    function leftClick(e) {
-        if (details) {
-            e.preventDefault();
-            history.goBack()
-        }
-    }
+    // function leftClick(e) {
+    //     if (details) {
+    //         e.preventDefault();
+    //         history.goBack()
+    //     }
+    // }
 
     switch (current) {
         case undefined:
@@ -74,7 +74,7 @@ export default function Buttons({ open, current, details, history, toggleMenu })
                 <div id="menu-three" className="arrow" />
             </button>
 
-            <Link to={previous || "/"} onClick={leftClick} id="LeftButton" className={leftClass} >
+            <Link to={previous || "/"} id="LeftButton" className={leftClass} >
                 <div className="arrow-wrapper">
                     <div id="left-one" className="arrow" />
                     {

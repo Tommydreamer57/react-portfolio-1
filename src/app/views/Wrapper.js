@@ -122,7 +122,7 @@ export default class Wrapper extends Component {
         })
     }
     render() {
-        let { id, position, slidePosition, slideDirection, child: Child, childProps } = this.props
+        let { current, id, position, slidePosition, slideDirection, child: Child, childProps } = this.props
 
         let translateX = 0
 
@@ -166,6 +166,11 @@ export default class Wrapper extends Component {
             style.marginTop = `calc(110vh + ${scrollTop}px)`
         }
 
+        if (position.includes('current') && current === 'details') {
+            let scrollTop = document.getElementsByClassName('current')[0].scrollTop || 0
+            style.marginTop = `calc(110vh + ${scrollTop}px)`
+        }
+
         let outerProps = {
             id,
             className: position,
@@ -182,6 +187,7 @@ export default class Wrapper extends Component {
                 <div className="content">
                     {/* {this.state.touches.map(Touch)} */}
                     <Child {...childProps} />
+                    <div className="bottom-padding" />
                     {/* {
                         <div className="" style={{ position: 'fixed', top: 0, left: 0, display: position === 'current' ? 'static' : 'none' }} >slidePosition: {slidePosition}</div>
                     } */}

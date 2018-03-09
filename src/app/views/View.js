@@ -86,12 +86,12 @@ class View extends Component {
 
         let aboutPosition = !current ? 'current' : 'previous'
         let skillsPosition = !current ? 'next' : current === 'skills' ? 'current' : 'previous'
-        let projectsPosition = current === 'contact' ? 'previous' : current === 'projects' ? 'current' : current === 'details' ? 'current current-beneath' : 'next'
+        let projectsPosition = current === 'contact' ? 'previous' : current === 'projects' ? 'current' : current === 'details' ? 'current current-away' : 'next'
         let contactPosition = current === 'contact' ? 'current' : 'next'
 
         let aboutId = current === 'skills' ? 'previous-view' : ''
         let skillsId = !current ? 'next-view' : current === 'projects' ? 'previous-view' : ''
-        let projectsId = current === 'skills' ? 'next-view' : current === 'contact' ? 'previous-view' : ''
+        let projectsId = current === 'skills' ? 'next-view' : current === 'contact' || current === 'details' ? 'previous-view' : ''
         let contactId = current === 'projects' ? 'next-view' : ''
 
         let { main, front, back, other } = bio.Skills
@@ -128,6 +128,7 @@ class View extends Component {
                 <Wrapper
                     open={this.state.open}
                     path="/projects"
+                    current={current}
                     id={projectsId}
                     position={projectsPosition}
                     slidePosition={this.state.slidePosition}

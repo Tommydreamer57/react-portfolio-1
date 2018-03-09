@@ -64,8 +64,19 @@
 
 .tag .slide {
     /* display: none; */
-    opacity: 0.25;
+    opacity: 0.175;
     border-top: 3rem solid #000;
+}
+
+.tech-reset {
+    background: rgba(200, 0, 0, 0.25);
+}
+
+.tech-reset .slide {
+    opacity: 0.25;
+    border-top: 3rem solid #A00;
+    /* left: 0; */
+    /* transform: rotate(180deg); */
 }
 
 .projects-wrapper {
@@ -131,8 +142,16 @@
         width: 45%;
     }
 
+    .tech:hover {
+        cursor: default;
+    }
+
     .tech:hover .slide {
         right: 0;
+    }
+
+    .tech-reset:hover .slide {
+        /* left: -150%; */
     }
 
 }

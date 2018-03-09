@@ -120,6 +120,15 @@ export default class Projects extends Component {
             </h4>
         )
 
+        const RESET = {
+            name: "Reset",
+            type: "reset",
+            className: "tech tech-reset",
+            key: "Project Tech Reset",
+            selected: false,
+            to: "/projects"
+        }
+
         return (
             <div id="Projects" >
                 {/* TITLE */}
@@ -128,6 +137,9 @@ export default class Projects extends Component {
                 <div className="tech-list">
                     {
                         fullList.map(Tech)
+                    }
+                    {
+                        Tech(RESET)
                     }
                 </div>
                 {/* PROJECTS */}
