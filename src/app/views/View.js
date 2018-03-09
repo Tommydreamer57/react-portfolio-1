@@ -169,6 +169,7 @@ class View extends Component {
                 </Link>
                 {/* BUTTONS */}
                 <Buttons
+                    open={this.state.open}
                     history={history}
                     current={current}
                     details={details}

@@ -117,7 +117,17 @@ button:hover {
     right: -10vw;
 }
 
-#Buttons .left-away .arrow-wrapper .arrow, #Buttons .right-away .arrow-wrapper .arrow {
+.buttons-away #LeftButton {
+    left: -10vw;
+    transition: right .4s ease 0s, left .4s ease 0s;
+}
+
+.buttons-away #RightButton {
+    width: -10vw;
+    transition: right .4s ease 0s, left .4s ease 0s;
+}
+
+.buttons-away #LeftButton .arrow, .buttons-away #RightButton .arrow, #Buttons .left-away .arrow-wrapper .arrow, #Buttons .right-away .arrow-wrapper .arrow {
     transform: rotate(0deg);
     margin: 5px;
 }

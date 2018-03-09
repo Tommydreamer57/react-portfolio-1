@@ -58,15 +58,15 @@ export default function Buttons({ open, current, details, history, toggleMenu })
     }
 
     let menuClass = open ? 'close-menu' : 'open-menu'
-    let leftClass = details || current ? 'nav-button' : 'nav-button left-away'
-    let rightClass = !details && current !== "contact" ? 'nav-button' : 'nav-button right-away'
+    let leftClass = (details || current) && !open ? 'nav-button' : 'nav-button left-away'
+    let rightClass = (!details && current !== "contact") && !open ? 'nav-button' : 'nav-button right-away'
 
     let links = ['About', 'Skills', 'Projects', 'Contact']
     let left = links.slice(0, 3)
     let right = links.slice(1)
 
     return (
-        <div id="Buttons">
+        <div id="Buttons" className={open ? "buttons-away" : ""}>
 
             <button id="MenuButton" className={menuClass} onClick={toggleMenu} >
                 <div id="menu-one" className="arrow" />

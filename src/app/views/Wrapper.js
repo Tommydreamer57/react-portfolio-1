@@ -150,19 +150,20 @@ export default class Wrapper extends Component {
         if (window.innerWidth < 769) {
             style.top = position === 'current' ? undefined : 0
             style.transform = `translateX(${translateX}px)`
-            style.transition = 'padding-top .3s'            
+            style.transition = 'margin-top .3s'            
         }
         else {
             if (position !== 'current') {
-                style.transition = 'transform .8s, padding-top .3s 1s'
+                style.transition = 'transform .8s, margin-top .3s 1s'
             }
             else {
-                style.transition = 'transform .8s, padding-top .3s'
+                style.transition = 'transform .8s, margin-top .3s'
             }
         }
 
         if (this.props.open) {
-            style.paddingTop = '110vh'
+            let scrollTop = document.getElementsByClassName('current')[0].scrollTop || 0
+            style.marginTop = `calc(110vh + ${scrollTop}px)`
         }
 
         let outerProps = {
