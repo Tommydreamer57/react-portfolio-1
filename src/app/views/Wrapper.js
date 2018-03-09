@@ -146,15 +146,23 @@ export default class Wrapper extends Component {
             translateX = -slidePosition
         }
 
-        let style = {
-            // position: position === 'current' && !slideDirection ? 'static' : 'fixed',
-            top: position === 'current' ? undefined : 0,
-            transform: `translateX(${translateX}px)`,
-            transition: 'none' //'0.5s'
+        let style = {}
+        if (window.innerWidth < 769) {
+            style.top = position === 'current' ? undefined : 0
+            style.transform = `translateX(${translateX}px)`
+            style.transition = 'padding-top .3s'            
+        }
+        else {
+            if (position !== 'current') {
+                style.transition = 'transform .8s, padding-top .3s 1s'
+            }
+            else {
+                style.transition = 'transform .8s, padding-top .3s'
+            }
         }
 
-        if (window.innerWidth > 768) {
-            style = {}
+        if (this.props.open) {
+            style.paddingTop = '110vh'
         }
 
         let outerProps = {
@@ -165,6 +173,8 @@ export default class Wrapper extends Component {
             onTouchMove: this.onTouchMove,
             onTouchEnd: this.onTouchEnd
         }
+
+        console.log({ id, position, ...style })
 
         return (
             <div {...outerProps} >

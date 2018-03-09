@@ -57,7 +57,7 @@ body {
     /* background-image: url(https://images.unsplash.com/photo-1479030160180-b1860951d696?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fbee86d97118ec6673c8d850c31787ef&auto=format&fit=crop&w=1050&q=80); */
     /* DESERT */
     background-image: url(https://images.unsplash.com/photo-1502790671504-542ad42d5189?ixlib=rb-0.3.5&s=da4d3b0a41041f60ee409664746ca2d6&auto=format&fit=crop&w=600&q=60);
-    background-size: 100%;
+    background-size: cover;
     /* background-position: 95% 25%; */
     /* background-position: center 20%; */
     /* background-position: 57.5%; */

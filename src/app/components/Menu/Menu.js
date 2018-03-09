@@ -31,6 +31,7 @@ function Menu({ current, open, toggleMenu }) {
     // console.log(links)
     return (
         <div id="Menu" className={open ? 'menu open' : 'menu closed'} >
+            <div id="Menu-Backdrop" />
             {
                 links.map(link => (
                     <Link

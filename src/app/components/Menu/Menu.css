@@ -9,9 +9,23 @@
     justify-content: center;
     align-items: stretch;
     /* background: rgba(95, 170, 215, 1); */
-    background: rgba(215, 215, 215, 1);
+    /* background: rgba(215, 215, 215, 1); */
+    overflow: hidden;
     transition: top 0.3s cubic-bezier(0.65, 0.15, 0, 1);
     z-index: 2;
+}
+
+#Menu-Backdrop {
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.125);
+    background-image: url(https://images.unsplash.com/photo-1502790671504-542ad42d5189?ixlib=rb-0.3.5&s=da4d3b0a41041f60ee409664746ca2d6&auto=format&fit=crop&w=600&q=60);
+    background-size: cover;
+    filter: blur(8px);
+    z-index: 2.5; */
 }
 
 .menu-link {

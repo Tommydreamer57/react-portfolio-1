@@ -102,6 +102,7 @@ class View extends Component {
                 {/* PRIMARY VIEWS */}
                 {/* ABOUT */}
                 <Wrapper
+                    open={this.state.open}
                     path="/"
                     id={aboutId}
                     position={aboutPosition}
@@ -113,6 +114,7 @@ class View extends Component {
                 />
                 {/* SKILLS */}
                 <Wrapper
+                    open={this.state.open}
                     path="/skills"
                     id={skillsId}
                     position={skillsPosition}
@@ -124,6 +126,7 @@ class View extends Component {
                 />
                 {/* PROJECTS */}
                 <Wrapper
+                    open={this.state.open}
                     path="/projects"
                     id={projectsId}
                     position={projectsPosition}
@@ -136,6 +139,7 @@ class View extends Component {
                 />
                 {/* CONTACT */}
                 <Wrapper
+                    open={this.state.open}
                     path="/contact"
                     id={contactId}
                     position={contactPosition}
