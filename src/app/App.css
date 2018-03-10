@@ -117,22 +117,22 @@ a {
 #logo-circle {
     /* height: 85px; */
     /* width: 85px; */
-    height: calc(84px + 24 * (100vw - 769px) / 2048);
-    width: calc(84px + 24 * (100vw - 769px) / 2048);
+    height: calc(80px + 64 * (100vw - 769px) / 2048);
+    width: calc(80px + 64 * (100vw - 769px) / 2048);
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50px;
-    background: rgba(255, 255, 255, 0.25);
+    border-radius: 100%;
+    background: rgba(255, 255, 255, 0.15);
     /* background: rgba(15, 230, 255, 0.6); */
     /* background: rgba(85, 25, 140, 0.6); */
 }
 
 #logo {
     /* height: 75px; */
-    height: calc(72px + 24 * (100vw - 769px) / 2048);
+    height: calc(72px + 58 * (100vw - 769px) / 2048);
     transform: translateX(2px) rotate(-2deg);
-    opacity: 0.75;
+    opacity: 0.65;
 }
 
 /* VIEW TRANSITIONS */

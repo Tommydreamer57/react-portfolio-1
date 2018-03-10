@@ -127,7 +127,7 @@ export default class Projects extends Component {
                                         i < arr.length - 2 ? ", " : i === arr.length - 2 ? " and " : ""
                                     ]
                                 )
-                            }),
+                            })
                         ]
                 }
             </h4>

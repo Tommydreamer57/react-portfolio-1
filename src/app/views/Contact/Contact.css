@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 4rem 0;
+    margin-top: calc(48px + 112 * (100vw - 769px) / 2048);
 }
 
 .link {

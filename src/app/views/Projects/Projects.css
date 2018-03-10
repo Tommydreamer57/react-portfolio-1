@@ -83,7 +83,7 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    margin-top: calc(26px + 10 * (100vw - 769px) / 2048)
+    margin-top: calc(36px + 96 * (100vw - 769px) / 2048)
 }
 
 .project {

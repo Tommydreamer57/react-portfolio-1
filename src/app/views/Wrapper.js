@@ -122,7 +122,16 @@ export default class Wrapper extends Component {
         })
     }
     render() {
-        let { current, id, position, slidePosition, slideDirection, child: Child, childProps } = this.props
+        let {
+            open,
+            current,
+            id,
+            position,
+            slidePosition,
+            slideDirection,
+            child: Child,
+            childProps
+        } = this.props
 
         let translateX = 0
 
@@ -150,7 +159,7 @@ export default class Wrapper extends Component {
         if (window.innerWidth < 769) {
             style.top = position === 'current' ? undefined : 0
             style.transform = `translateX(${translateX}px)`
-            style.transition = 'margin-top .3s'            
+            style.transition = 'margin-top .3s'
         }
         else {
             if (position !== 'current') {
@@ -161,13 +170,14 @@ export default class Wrapper extends Component {
             }
         }
 
-        if (this.props.open) {
+        if (open) {
             let scrollTop = document.getElementsByClassName('current')[0].scrollTop || 0
             style.marginTop = `calc(110vh + ${scrollTop}px)`
         }
 
         if (position.includes('current') && current === 'details') {
-            let scrollTop = document.getElementsByClassName('current')[0].scrollTop || 0
+            let el = document.getElementsByClassName('current')[0] || {}
+            let scrollTop = el.scrollTop || 0
             style.marginTop = `calc(110vh + ${scrollTop}px)`
         }
 
@@ -206,7 +216,11 @@ export class DetailWrapper extends Wrapper {
         }
     }
     render() {
-        let { position, children } = this.props
+        let {
+            open,
+            position,
+            children
+        } = this.props
         switch (position) {
             case "current":
                 position += " current-details"
@@ -215,8 +229,39 @@ export class DetailWrapper extends Wrapper {
                 position += " next-details"
                 break;
         }
+
+
+        let style = {}
+        if (window.innerWidth < 769) {
+            style.top = position.includes('current') ? undefined : 0
+            // style.transform = `translateX(${translateX}px)`
+            style.transition = 'margin-top .3s'
+        }
+        else {
+            if (!position.includes('current')) {
+                style.transition = 'transform .8s, margin-top .3s 1s'
+            }
+            else {
+                style.transition = 'transform .8s, margin-top .3s'
+            }
+        }
+
+        if (open) {
+            let scrollTop = document.getElementsByClassName('current')[0].scrollTop || 0
+            style.marginTop = `calc(110vh + ${scrollTop}px)`
+        }
+
+        let outerProps = {
+            className: position,
+            style,
+            onTouchStart: this.onTouchStart,
+            onTouchMove: this.onTouchMove,
+            onTouchEnd: this.onTouchEnd
+        }
+
+
         return (
-            <div className={position} onTouchStart={this.onTouchStart} onTouchMove={this.onTouchMove} onTouchEnd={this.onTouchEnd} >
+            <div {...outerProps} >
                 <div className="content details-content">
                     {children}
                 </div>

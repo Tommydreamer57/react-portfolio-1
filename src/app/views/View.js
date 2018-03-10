@@ -64,6 +64,7 @@ class View extends Component {
     }
     render = () => {
 
+        let open = this.state.open
         let history = this.props.history
         let current = this.props.match.params.view
         let details = this.props.match.params.details // project or skill
@@ -102,7 +103,7 @@ class View extends Component {
                 {/* PRIMARY VIEWS */}
                 {/* ABOUT */}
                 <Wrapper
-                    open={this.state.open}
+                    open={open}
                     path="/"
                     id={aboutId}
                     position={aboutPosition}
@@ -114,7 +115,7 @@ class View extends Component {
                 />
                 {/* SKILLS */}
                 <Wrapper
-                    open={this.state.open}
+                    open={open}
                     path="/skills"
                     id={skillsId}
                     position={skillsPosition}
@@ -126,7 +127,7 @@ class View extends Component {
                 />
                 {/* PROJECTS */}
                 <Wrapper
-                    open={this.state.open}
+                    open={open}
                     path="/projects"
                     current={current}
                     id={projectsId}
@@ -140,7 +141,7 @@ class View extends Component {
                 />
                 {/* CONTACT */}
                 <Wrapper
-                    open={this.state.open}
+                    open={open}
                     path="/contact"
                     id={contactId}
                     position={contactPosition}
@@ -156,7 +157,7 @@ class View extends Component {
                     bio.Projects.map(item => {
                         let detailPosition = details === item.title ? 'current' : 'next'
                         return (
-                            <DetailWrapper position={detailPosition} key={`Project Details ${item.title}`} >
+                            <DetailWrapper history={history} swipe={this.swipe} open={open} position={detailPosition} key={`Project Details ${item.title}`} >
                                 <ProjectDetails project={item.title} />
                             </DetailWrapper>
                         )
@@ -170,7 +171,7 @@ class View extends Component {
                 </Link>
                 {/* BUTTONS */}
                 <Buttons
-                    open={this.state.open}
+                    open={open}
                     history={history}
                     current={current}
                     details={details}
@@ -178,7 +179,7 @@ class View extends Component {
                 />
                 {/* MENU  */}
                 <Menu
-                    open={this.state.open}
+                    open={open}
                     current={current}
                     toggleMenu={this.toggleMenu}
                 />
