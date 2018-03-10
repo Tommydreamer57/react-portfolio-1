@@ -42,7 +42,8 @@ export default class Projects extends Component {
     }
     shouldComponentUpdate = ({ current, search, searchString }) => {
         // do not update when navigating from projects to another screen
-        if (this.props.current === 'projects' && current !== 'projects') return false
+        if (this.props.current === 'details') return false
+        else if (this.props.current === 'projects' && current !== 'projects') return false
         else return true
     }
     render = () => {

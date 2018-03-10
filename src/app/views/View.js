@@ -41,7 +41,7 @@ class View extends Component {
                 i-- // infinite loop protection
             }
         }
-        console.log(window)
+        // console.log(window)
     }
     componentDidMount = () => {
         setTimeout(this.componentDidUpdate, 50)
@@ -55,8 +55,13 @@ class View extends Component {
             open: !this.state.open
         })
     }
+    onKeyDown = ({ key }) => {
+        if (this.state.open && key === 'Escape') {
+            this.toggleMenu()
+        }
+    }
     swipe = (direction, distance) => {
-        console.log(direction, distance)
+        // console.log(direction, distance)
         this.setState({
             slidePosition: distance,
             slideDirection: direction
@@ -87,7 +92,7 @@ class View extends Component {
 
         let aboutPosition = !current ? 'current' : 'previous'
         let skillsPosition = !current ? 'next' : current === 'skills' ? 'current' : 'previous'
-        let projectsPosition = current === 'contact' ? 'previous' : current === 'projects' ? 'current' : current === 'details' ? 'current current-away' : 'next'
+        let projectsPosition = current === 'contact' ? 'previous' : current === 'projects' ? 'current' : current === 'details' ? 'previous' : 'next'
         let contactPosition = current === 'contact' ? 'current' : 'next'
 
         let aboutId = current === 'skills' ? 'previous-view' : ''
@@ -98,57 +103,49 @@ class View extends Component {
         let { main, front, back, other } = bio.Skills
         let allSkills = [...main, ...front, ...back, ...other]
 
+        let outerProps = {
+            open,
+            current,
+            slidePosition: this.state.slidePosition,
+            slideDirection: this.state.slideDirection,
+            swipe: this.swipe,
+            history
+        }
+
         return (
-            <div id="View" >
+            <div id="View" onKeyDown={this.onKeyDown} >
                 {/* PRIMARY VIEWS */}
                 {/* ABOUT */}
                 <Wrapper
-                    open={open}
+                    {...outerProps}
                     path="/"
                     id={aboutId}
                     position={aboutPosition}
-                    slidePosition={this.state.slidePosition}
-                    slideDirection={this.state.slideDirection}
-                    swipe={this.swipe}
-                    history={history}
                     child={About}
                 />
                 {/* SKILLS */}
                 <Wrapper
-                    open={open}
+                    {...outerProps}
                     path="/skills"
                     id={skillsId}
                     position={skillsPosition}
-                    slidePosition={this.state.slidePosition}
-                    slideDirection={this.state.slideDirection}
-                    swipe={this.swipe}
-                    history={history}
                     child={Skills}
                 />
                 {/* PROJECTS */}
                 <Wrapper
-                    open={open}
+                    {...outerProps}
                     path="/projects"
-                    current={current}
                     id={projectsId}
                     position={projectsPosition}
-                    slidePosition={this.state.slidePosition}
-                    slideDirection={this.state.slideDirection}
-                    swipe={this.swipe}
-                    history={history}
                     child={Projects}
                     childProps={{ current, search, searchString }}
                 />
                 {/* CONTACT */}
                 <Wrapper
-                    open={open}
+                    {...outerProps}
                     path="/contact"
                     id={contactId}
                     position={contactPosition}
-                    slidePosition={this.state.slidePosition}
-                    slideDirection={this.state.slideDirection}
-                    swipe={this.swipe}
-                    history={history}
                     child={Contact}
                 />
                 {/* SECONDARY VIEWS */}
@@ -157,9 +154,13 @@ class View extends Component {
                     bio.Projects.map(item => {
                         let detailPosition = details === item.title ? 'current' : 'next'
                         return (
-                            <DetailWrapper history={history} swipe={this.swipe} open={open} position={detailPosition} key={`Project Details ${item.title}`} >
-                                <ProjectDetails project={item.title} />
-                            </DetailWrapper>
+                            <DetailWrapper
+                                {...outerProps}
+                                position={detailPosition}
+                                key={`Project Details ${item.title}`}
+                                child={ProjectDetails}
+                                childProps={{ project: item.title }}
+                            />
                         )
                     })
                 }

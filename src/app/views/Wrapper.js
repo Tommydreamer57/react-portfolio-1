@@ -37,7 +37,7 @@ export default class Wrapper extends Component {
     }
     onTouchStart = ({ touches }) => {
         touches = [...touches]
-        console.log(touches)
+        // console.log(touches)
         let initialTouches = touches
         this.setState({
             touches,
@@ -71,7 +71,7 @@ export default class Wrapper extends Component {
                 initialTouch.navigating = true
                 // DIRECTION IS SET ONCE FOR EACH TOUCH
                 if (!initialTouch.direction) {
-                    console.log('setting direction to ' + direction)
+                    // console.log('setting direction to ' + direction)
                     initialTouch.direction = direction
                 }
             }
@@ -103,13 +103,13 @@ export default class Wrapper extends Component {
                 let views = ['/', '/skills', '/projects', '/contact']
                 let previousView = views[views.indexOf(path) - 1] || '/'
                 let nextView = views[views.indexOf(path) + 1] || '/contact'
-                console.log('previous: "' + previousView, '", next: "' + nextView + '"')
+                // console.log('previous: "' + previousView, '", next: "' + nextView + '"')
                 if (initialTouch.direction === 'left' && currentTouch.clientX < window.innerWidth / 2) {
-                    console.log('pushing to ', nextView)
+                    // console.log('pushing to ', nextView)
                     history.push(nextView)
                 }
                 else if (initialTouch.direction === 'right' && currentTouch.clientX > window.innerWidth / 2) {
-                    console.log('pushing to ', previousView)
+                    // console.log('pushing to ', previousView)
                     history.push(previousView)
                 }
             }
@@ -190,7 +190,7 @@ export default class Wrapper extends Component {
             onTouchEnd: this.onTouchEnd
         }
 
-        console.log({ id, position, ...style })
+        // console.log({ id, position, ...style })
 
         return (
             <div {...outerProps} >
@@ -219,7 +219,8 @@ export class DetailWrapper extends Wrapper {
         let {
             open,
             position,
-            children
+            child: Child,
+            childProps
         } = this.props
         switch (position) {
             case "current":
@@ -263,7 +264,8 @@ export class DetailWrapper extends Wrapper {
         return (
             <div {...outerProps} >
                 <div className="content details-content">
-                    {children}
+                    <Child {...childProps} />
+                    <div className="bottom-padding" />
                 </div>
             </div>
         )
