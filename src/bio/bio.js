@@ -27,19 +27,19 @@ let About = {
 const FULL_STACK = { name: "Full-Stack" }
 const FRONT_END = { name: "Front End" }
 const BACK_END = { name: "Back End" }
-const GROUP = { name: "Group" }
-const INDIVIDUAL = { name: "Individual" }
-const DEVMOUNTAIN = { name: "DevMountain" }
 const RESPONSIVE = { name: "Responsive" }
+const INDIVIDUAL = { name: "Individual" }
+const GROUP = { name: "Group" }
+const DEVMOUNTAIN = { name: "DevMountain" }
 
 let Tags = [
     FULL_STACK,
     FRONT_END,
     BACK_END,
-    GROUP,
+    RESPONSIVE,
     INDIVIDUAL,
-    DEVMOUNTAIN,
-    RESPONSIVE
+    GROUP,
+    DEVMOUNTAIN
 ]
 
 // SKILLS

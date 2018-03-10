@@ -98,25 +98,38 @@ export default class Projects extends Component {
         // 
         let noProjectsHeader = (
             <h4 id="no-projects">
+                {[<span className="myspan"></span>, <span />]}
                 {
-
-                }
-                No
-                {search.tag.map((tag, i, arr) => {
-                    return (
-                        <span key={`No Projects ${tag}`} > {tag.toLowerCase()} </span>
-                    )
-                })}
-                project uses
-                {search.skill.length === 2 ? " both " : " "}
-                {search.skill.map((skill, i, arr) => {
-                    return (
+                    search.tag.length && !search.skill.length ?
                         [
-                            <span key={`No Projects ${skill}`} >{skill}</span>,
-                            i < arr.length - 2 ? ", " : i === arr.length - 2 ? " and " : ""
+                            "There are no",
+                            ...search.tag.map((tag, i, arr) => {
+                                return (
+                                    <label key={`No Projects ${tag}`} > {tag.toLowerCase()} </label>
+                                )
+                            }),
+                            " projects"
                         ]
-                    )
-                })}
+                        :
+                        [
+                            "No ",
+                            ...search.tag.map((tag, i, arr) => {
+                                return (
+                                    <label key={`No Projects ${tag}`} > {tag.toLowerCase()} </label>
+                                )
+                            }),
+                            " project uses ",
+                            search.skill.length === 2 ? " both " : " ",
+                            ...search.skill.map((skill, i, arr) => {
+                                return (
+                                    [
+                                        <label key={`No Projects ${skill}`} >{skill}</label>,
+                                        i < arr.length - 2 ? ", " : i === arr.length - 2 ? " and " : ""
+                                    ]
+                                )
+                            }),
+                        ]
+                }
             </h4>
         )
 

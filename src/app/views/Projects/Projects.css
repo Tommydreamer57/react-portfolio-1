@@ -69,12 +69,12 @@
 }
 
 .tech-reset {
-    background: rgba(200, 0, 0, 0.25);
+    background: rgba(200, 48, 16, 0.275);
 }
 
 .tech-reset .slide {
     opacity: 0.25;
-    border-top: 3rem solid #A00;
+    border-top: 3rem solid rgb(200, 48, 16);
     /* left: 0; */
     /* transform: rotate(180deg); */
 }
@@ -131,8 +131,8 @@
     box-shadow: 2.5px 3.25px 5px rgba(0, 0, 0, 0.125);
 }
 
-#no-projects span {
-    color: rgba(255, 255, 255, 0.625)
+#no-projects label {
+    color: rgba(255, 255, 255, 0.625) !important;
 }
 
 @media(min-width: 769px) {
