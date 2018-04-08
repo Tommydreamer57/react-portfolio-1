@@ -13,15 +13,17 @@ function About() {
                         <img src={logo} />
                     </div>
                 </div>
-                <h1>{bio.About.greeting}</h1>
-                <h3>{bio.About.intro}</h3>
-                {
-                    bio.About.info.map(paragraph => {
-                        return (
-                            <p key={`About: ${paragraph.slice(0, 25)}`}>{paragraph}</p>
-                        )
-                    })
-                }
+                <div className="landing" >
+                    <h1>{bio.About.greeting}</h1>
+                    <h3>{bio.About.intro}</h3>
+                    {
+                        bio.About.info.map(paragraph => {
+                            return (
+                                <p key={`About: ${paragraph.slice(0, 25)}`}>{paragraph}</p>
+                            )
+                        })
+                    }
+                </div>
                 <div className="more" >
                     {
                         bio.About.more.map(paragraph => {

@@ -11,8 +11,8 @@ button:focus {
     border: none;
     outline: 0;
 }
-button:hover {
-    cursor: pointer
+button:hover, #LeftButton:hover, #RightButton:hover, #LeftButton a:hover, #RightButton a:hover {
+    cursor: default;
 }
 
 /* Arrow - Button Line */

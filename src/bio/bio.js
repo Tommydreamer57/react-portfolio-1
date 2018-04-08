@@ -1,3 +1,4 @@
+import boggle from '../assets/Boggle Screenshot.PNG';
 import calendar from '../assets/Calendar Screenshot.PNG';
 import colors from '../assets/Color Blender Screenshot.PNG';
 import personal from '../assets/Personal Project Screenshot.PNG';
@@ -24,6 +25,7 @@ let About = {
 }
 
 // TAGS
+const FULL_CRUD = { name: "Full CRUD" }
 const FULL_STACK = { name: "Full-Stack" }
 const FRONT_END = { name: "Front End" }
 const BACK_END = { name: "Back End" }
@@ -33,9 +35,10 @@ const GROUP = { name: "Group" }
 const DEVMOUNTAIN = { name: "DevMountain" }
 
 let Tags = [
+    FULL_CRUD,
     FULL_STACK,
     FRONT_END,
-    BACK_END,
+    // BACK_END,
     RESPONSIVE,
     INDIVIDUAL,
     GROUP,
@@ -54,8 +57,9 @@ const JQUERY = { name: "JQuery", icon: "devicon-jquery-plain" }
 const NODE = { name: "Node", icon: "devicon-nodejs-plain" }
 const EXPRESS = { name: 'Express', icon: "" }
 const POSTGRESQL = { name: "PostgreSQL", icon: "devicon-postgresql-plain" }
+const MONGODB = { name: "MongoDB", icon: "" }
 const AUTH0 = { name: "Auth0", icon: "" }
-const HEROKU = { name: "Heroku", icon: "devicon-heroku-plain" }
+// // // const HEROKU = { name: "Heroku", icon: "devicon-heroku-plain" }
 const SLATE = { name: "Slate", icon: "" }
 const ACE = { name: "Ace", icon: "" }
 const IFRAME = { name: "iframe", icon: "" }
@@ -78,9 +82,10 @@ let Skills = {
     back: [
         NODE,
         EXPRESS,
-        POSTGRESQL,
         AUTH0,
-        HEROKU
+        POSTGRESQL,
+        MONGODB,
+        // HEROKU
     ],
     other: [
         SLATE,
@@ -92,6 +97,24 @@ let Skills = {
 }
 
 let Projects = [
+    {
+        title: "Boggle",
+        subtitle: "Boggle Word Search",
+        description: [],
+        img: boggle,
+        github: "https://github.com/Tommydreamer57/boggle",
+        url: "http://boggle.thomaslowry.me",
+        tech: [
+            REACT,
+            NODE,
+            EXPRESS,
+            MONGODB
+        ],
+        tags: [
+            FULL_STACK,
+            INDIVIDUAL
+        ]
+    },
     {
         title: "Calendar",
         subtitle: "Timeshare Week Selector",
@@ -146,9 +169,10 @@ let Projects = [
             POSTGRESQL
         ],
         tags: [
+            FULL_CRUD,
             FULL_STACK,
             FRONT_END,
-            BACK_END,
+            // BACK_END,
             INDIVIDUAL,
             DEVMOUNTAIN,
             RESPONSIVE
@@ -179,9 +203,10 @@ let Projects = [
             POSTGRESQL
         ],
         tags: [
+            FULL_CRUD,
             FULL_STACK,
             FRONT_END,
-            BACK_END,
+            // BACK_END,
             GROUP,
             DEVMOUNTAIN
         ]
@@ -204,9 +229,10 @@ let Projects = [
             POSTGRESQL
         ],
         tags: [
+            FULL_CRUD,
             FULL_STACK,
             FRONT_END,
-            BACK_END,
+            // BACK_END,
             GROUP,
             DEVMOUNTAIN
         ]

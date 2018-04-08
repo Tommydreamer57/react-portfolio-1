@@ -1,6 +1,14 @@
 
+.landing {
+    min-height: calc(100vh - 10vw);
+}
+
 .more {
     margin-top: 5rem;
+}
+
+.more p {
+    margin-bottom: calc(36px + 30 * (100vw - 769px) / 2048);
 }
 
 .ellipsis {

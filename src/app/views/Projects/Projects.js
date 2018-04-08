@@ -131,6 +131,7 @@ export default class Projects extends Component {
                             })
                         ]
                 }
+                .{/* period at the end of the sentence */}
             </h4>
         )
 
