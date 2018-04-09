@@ -1,4 +1,4 @@
-import boggle from '../assets/Boggle Screenshot.PNG';
+import boggle from '../assets/Boggle.PNG';
 import calendar from '../assets/Calendar Screenshot.PNG';
 import colors from '../assets/Color Blender Screenshot.PNG';
 import personal from '../assets/Personal Project Screenshot.PNG';
