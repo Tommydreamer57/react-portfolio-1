@@ -138,7 +138,7 @@ export default class Projects extends Component {
         const RESET = {
             name: "Reset",
             type: "reset",
-            className: "tech tech-reset",
+            className: `tech tech-reset ${projects.length ? '' : 'selected-tech'}`,
             key: "Project Tech Reset",
             selected: false,
             to: "/projects"

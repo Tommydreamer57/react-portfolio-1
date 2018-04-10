@@ -1,6 +1,6 @@
 
-.project-details {
-
+.project-details .image img {
+    box-shadow: 10px 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .project-details h4 {
@@ -21,4 +21,8 @@
 
 .description a {
     color: rgba(255, 255, 255, 0.625);
+}
+
+.description h4 {
+    margin-bottom: calc(12px + 10 * (100vw - 769px) / 2048);
 }
