@@ -1,6 +1,7 @@
 import React from 'react';
 import bio from '../../../../bio/bio';
 import './ProjectDetails.css';
+import Text from '../../../components/Text/Text';
 
 function Tech(tech) {
     return (
@@ -25,26 +26,7 @@ function ProjectDetails({ project }) {
             </div>
             <div className="description">
                 {
-                    project.description.map(desc => {
-                        if (desc.slice(0, 2) === "# ") return (
-                            <h4>{desc.slice(2)}</h4>
-                        );
-                        else if (typeof desc === 'string') return (
-                            <p key={desc} >{desc}</p>
-                        );
-                        else if (Array.isArray(desc)) return (
-                            <p key={JSON.stringify(desc)} >
-                                {
-                                    desc.map(item => {
-                                        if (typeof item === 'string') return item;
-                                        else if (typeof item === 'object') return (
-                                            <a href={item.link} target="_blank" > {item.name} </a>
-                                        );
-                                    })
-                                }
-                            </p>
-                        );
-                    })
+                    project.description.map(text => <Text key={JSON.stringify(text)} text={text} />)
                 }
             </div>
             <div className="description">

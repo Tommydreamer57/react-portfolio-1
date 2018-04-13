@@ -31,9 +31,10 @@ function Tech(item) {
 
 // VIEW
 export default class Projects extends Component {
-    constructor({ search, searchString, current }) {
-        super({ search, searchString, current })
-        this.current = current
+    constructor(props) {
+        let { search, searchString, current } = props;
+        super(props);
+        this.current = current;
         this.state = {
             search,
             searchString,
@@ -99,7 +100,7 @@ export default class Projects extends Component {
         // 
         let noProjectsHeader = (
             <h4 id="no-projects">
-                {[<span className="myspan"></span>, <span />]}
+                {[<span key=" " className="myspan"></span>, <span key="  " />]}
                 {
                     search.tag.length && !search.skill.length ?
                         [

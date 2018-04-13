@@ -1,3 +1,4 @@
+// ASPECT RATIO FOR IMAGES === 1871 x 893
 import boggle from '../assets/Boggle Copy.png';
 import calendar from '../assets/Calendar Screenshot.PNG';
 import colors from '../assets/Color Blender Screenshot.PNG';
