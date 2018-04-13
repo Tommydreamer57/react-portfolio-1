@@ -1,8 +1,8 @@
-import boggle from '../assets/Boggle.PNG';
+import boggle from '../assets/Boggle Copy.png';
 import calendar from '../assets/Calendar Screenshot.PNG';
 import colors from '../assets/Color Blender Screenshot.PNG';
-import personal from '../assets/Personal Project Screenshot.PNG';
-import group from '../assets/CodeWars Create page.png';
+import personal from '../assets/Personal Project Copy.png';
+import group from '../assets/CodeWars Copy.png';
 import trivia from '../assets/Trivia Trends Screenshot.PNG';
 import LinkedIn from '../assets/iconmonstr-linkedin-3.svg';
 import redux from '../assets/Redux.svg';
