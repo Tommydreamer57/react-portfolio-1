@@ -101,7 +101,7 @@ export default class Projects extends Component {
         const RESET = {
             name: "Reset",
             type: "reset",
-            className: `tech tech-reset ${projects.length ? '' : 'selected-tech'}`,
+            className: `tech tech-reset ${search.tag.length || search.skill.length ? 'selected-tech' : ''}`,
             key: "Project Tech Reset",
             selected: false,
             to: "/projects"

@@ -56,22 +56,22 @@ class View extends Component {
         let color = root.style.backgroundColor;
         switch (view) {
             case '/':
-                color = 'rgba(255,0,0,0.125)';
+                color = 'rgba(255,127.5,127.5,0.125)';
                 break;
             case 'skills':
-                color = 'rgba(0,255,0,0.125)';
+                color = 'rgba(127.5,255,127.5,0.125)';
                 break;
             case 'projects':
                 color = 'rgba(0,255,255,0.125)';
                 break;
             case 'details':
-                color = 'rgba(0,0,255,0.125)';
+                color = 'rgba(127.5,127.5,255,0.125)';
                 break;
             case 'contact':
                 color = 'rgba(255,255,0,0.125)';
                 break;
             default:
-                color = 'rgba(0,0,255,0.125)';
+                color = 'rgba(127.5,127.5,255,0.125)';
                 break;
         }
         console.log(color);
