@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import bio from '../../../bio/bio';
 import './Projects.css';
+import NoProjectsHeader from './NoProjectsHeader/NoProjectsHeader';
 
 // PROJECT
 function Project(project) {
@@ -97,45 +98,6 @@ export default class Projects extends Component {
                 search.tag.every(stag => project.tags.some(tag => stag.includes(tag.name)))
         })
 
-        // 
-        let noProjectsHeader = (
-            <h4 id="no-projects">
-                {[<span key=" " className="myspan"></span>, <span key="  " />]}
-                {
-                    search.tag.length && !search.skill.length ?
-                        [
-                            "There are no",
-                            ...search.tag.map((tag, i, arr) => {
-                                return (
-                                    <label key={`No Projects ${tag}`} > {tag.toLowerCase()} </label>
-                                )
-                            }),
-                            " projects"
-                        ]
-                        :
-                        [
-                            "No ",
-                            ...search.tag.map((tag, i, arr) => {
-                                return (
-                                    <label key={`No Projects ${tag}`} > {tag.toLowerCase()} </label>
-                                )
-                            }),
-                            " project uses ",
-                            search.skill.length === 2 ? " both " : " ",
-                            ...search.skill.map((skill, i, arr) => {
-                                return (
-                                    [
-                                        <label key={`No Projects ${skill}`} >{skill}</label>,
-                                        i < arr.length - 2 ? ", " : i === arr.length - 2 ? " and " : ""
-                                    ]
-                                )
-                            })
-                        ]
-                }
-                .{/* period at the end of the sentence */}
-            </h4>
-        )
-
         const RESET = {
             name: "Reset",
             type: "reset",
@@ -166,7 +128,7 @@ export default class Projects extends Component {
                             projects.map(Project)
                             :
                             // NO PROJECTS
-                            noProjectsHeader
+                            <NoProjectsHeader search={search} />
                     }
                 </div>
             </div>

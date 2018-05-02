@@ -21,6 +21,10 @@
     transition: width .4s ease, height .4s ease, top .4s ease;
 }
 
+html, body {
+    /* background-color: white; */
+}
+
 html,
 body,
 #root {
@@ -35,8 +39,17 @@ body,
     /* color: white; */
 }
 
-body {
-
+#root {
+    /* filter: blur(0); */
+    /* backdrop-filter: blur(5px); */
+    /* -webkit-backdrop-filter: blur(5px);     */
+    /* background: rgba(105, 185, 255, 0.25); */
+    /* background: rgba(255, 255, 255, 0.125); */
+    /* background-image: linear-gradient(25deg, rgba(175, 0, 0, 0.125), rgba(165, 195, 235, 0.675)); */
+    /* background-image: linear-gradient(to top right, rgba(10, 105, 155, 0.125), transparent); */
+    background-image: linear-gradient(to top right, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.125));
+    background-image: linear-gradient(195deg, rgba(64, 90, 97, 0.5), rgba(67, 97, 106, 0.5), rgba(107, 115, 123, 0.5), rgba(216, 170, 153, 0.625));
+    transition: background-color 1.2s;
 }
 
 #backdrop-filter {
@@ -45,37 +58,59 @@ body {
     /* TREES & GRASS */
     background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t1.0-9/14915191_10211238130898486_3141073830935842358_n.jpg?oh=0e61a0dbfc31aa4f82f9da84b167a4b0&oe=5B42FDA0);
     /* LAKE */
-    /* background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t1.0-9/14956545_10211287699057659_797311144434314151_n.jpg?oh=0a05f3d098e1941d9e0e5e9eafca01ef&oe=5B09C3CD); */
+    background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t1.0-9/14956545_10211287699057659_797311144434314151_n.jpg?oh=0a05f3d098e1941d9e0e5e9eafca01ef&oe=5B09C3CD);
     /* ROAD */
-    /* background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t31.0-8/20901335_10214133008188609_1641634066272711721_o.jpg?oh=46e915650cd74c88f749e01a0ef79436&oe=5B070312); */
+    background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t31.0-8/20901335_10214133008188609_1641634066272711721_o.jpg?oh=46e915650cd74c88f749e01a0ef79436&oe=5B070312);
     /* SKY */
-    /* background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t1.0-9/15134824_10211370206520294_1213367688941087975_n.jpg?oh=f20bdf16c71a9207cf8a98afba7dc583&oe=5B49484A); */
+    background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t1.0-9/15134824_10211370206520294_1213367688941087975_n.jpg?oh=f20bdf16c71a9207cf8a98afba7dc583&oe=5B49484A);
     /* MEADOW */
-    /* background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t1.0-9/11800610_10207523258148989_8586288223078164359_n.jpg?oh=1fadbf46e790ecb083d0023b2bb7fbc7&oe=5B0284E9); */
+    background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t1.0-9/11800610_10207523258148989_8586288223078164359_n.jpg?oh=1fadbf46e790ecb083d0023b2bb7fbc7&oe=5B0284E9);
     /* TIMP */
-    /* background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t1.0-9/11836836_10207523257468972_8426094492630959740_n.jpg?oh=0c19ff7ff662fb23c21008380423ee8e&oe=5B0C270C); */
-    /* background-image: url(https://images.unsplash.com/photo-1479030160180-b1860951d696?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fbee86d97118ec6673c8d850c31787ef&auto=format&fit=crop&w=1050&q=80); */
+    background-image: url(https://scontent.fmkc1-1.fna.fbcdn.net/v/t1.0-9/11836836_10207523257468972_8426094492630959740_n.jpg?oh=0c19ff7ff662fb23c21008380423ee8e&oe=5B0C270C);
+    background-image: url(https://images.unsplash.com/photo-1479030160180-b1860951d696?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fbee86d97118ec6673c8d850c31787ef&auto=format&fit=crop&w=1050&q=80);
     /* DESERT */
     background-image: url(https://images.unsplash.com/photo-1502790671504-542ad42d5189?ixlib=rb-0.3.5&s=da4d3b0a41041f60ee409664746ca2d6&auto=format&fit=crop&w=600&q=60);
+    background-position: cen ter;
+    /* OCEAN FOAM */
+    background-image: url(https://images.unsplash.com/photo-1444944232907-0b9e9ace348c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b2943aa45a75eed3360a652788182ed&auto=format&fit=crop&w=600&q=60);
+    /* BEACH */
+    background-image: url(https://images.unsplash.com/photo-1503007688236-d1f4974412d8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2098553215372c3dd4eacf3a8e826bfc&auto=format&fit=crop&w=600&q=60);
+    background-position-y: 35%;
+    /* --- OCEAN --- */
+    background-image: url(https://images.unsplash.com/photo-1508076956059-21ac302690eb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=53da87cf00f8c86581168eb1c3dbd5e3&auto=format&fit=crop&w=600&q=60);
+    background-position-y: 44%;
+    filter: blur(3px);
+    /* OCEAN WATER & SKY */
+    /* background-image: url(https://images.unsplash.com/photo-1510297895683-0f27794412d5?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=914da693feb649caade0273dc5092453&auto=format&fit=crop&w=600&q=60);
+    background-position-y: top; */
+    /* --- WATER --- */
+    /* background-image: url(https://images.unsplash.com/photo-1496518908709-02b67989c265?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d56a92d685be4458adfe4b6e6337e1fe&auto=format&fit=crop&w=600&q=60);
+    background-position: top;
+    filter: blur(8px); */   
+    /* -- WATER CLOSE UP -- */
+    /* background-image: url(https://images.unsplash.com/photo-1447244236161-6d00eb5bfaee?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8b0c306331a23ac960eeddfc753c61af&auto=format&fit=crop&w=600&q=60);
+    background-position-y: 55%;
+    filter: blur(6px); */
+    /* WATER SUNSET */
+    /* background-image: url(https://images.unsplash.com/photo-1506335453669-7e36607f95d5?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b1c2a291548f461630c19fbb1061134d&auto=format&fit=crop&w=600&q=60);
+    background-position-y: top;
+    filter: blur(12px); */
+    /* SOLID COLOR */
+    background-image: none;
+    /* background: rgb(85, 155, 205); */
+    /* LINEAR GRADIENT */
+    background-image: linear-gradient(20deg, rgb(55, 95, 135), rgb(165, 195, 235));
+    /* RADIAL GRADIENT */
+    background-image: radial-gradient(circle at center, rgba(125, 185, 255, 0.25), rgba(125, 185, 255, 1));
+    /* opacity: 0.5; */
+    /* END */
     background-size: cover;
-    /* background-position: 95% 25%; */
-    /* background-position: center 20%; */
-    /* background-position: 57.5%; */
-    background-position: center;
-    filter: blur(8px);
     position: fixed;
     top: -15px;
     left: -15px;
     right: -15px;
     bottom: -15px;
     z-index: -1;
-}
-
-#root {
-    /* filter: blur(0); */
-    /* backdrop-filter: blur(5px); */
-    /* -webkit-backdrop-filter: blur(5px);     */
-    background: rgba(255, 255, 255, 0.125);
 }
 
 ::-webkit-scrollbar {
@@ -157,11 +192,11 @@ a {
     transition: left 0.8s, width 0.8s, transform 0.8s;
 }
 
-.current-details, .next-details {
+/* .current-details, .next-details { */
     /* background: rgba(64, 152, 207, 1); */
     /* background-image: linear-gradient(90deg, transparent, rgba(64, 152, 207, 1) 11.25%); */
     /* background-image: linear-gradient(90deg, transparent, rgba(215, 215, 215, 1) 11.25%);     */
-}
+/* } */
 
 .previous {
     /* left: -150vw; */
@@ -247,7 +282,7 @@ font-size starts at 20px at vewport width of 769px and ranges to 30px at viewpor
         font-size: calc(16px + 6 * (100vw - 769px) / 2048);;
         line-height: 145%;
         /* margin-bottom: 1rem; */
-        margin-bottom: calc(12px + 10 * (100vw - 769px) / 2048);
+        margin-bottom: calc(12px + 36 * (100vw - 769px) / 2048);
     }
 
 }

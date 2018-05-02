@@ -1,0 +1,16 @@
+
+#Copyright {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    margin: 8px 16px;
+    color: #000;
+    opacity: 0.67;
+}
+
+/* #Copyright span {
+    position: relative;
+    top: -2px;
+} */

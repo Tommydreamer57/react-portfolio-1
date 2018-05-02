@@ -16,6 +16,7 @@ import bio from '../../bio/bio';
 import logo from '../../assets/logo.svg';
 import Menu from '../components/Menu/Menu';
 import Buttons from '../components/Buttons/Buttons';
+import Copyright from '../components/Copyright/Copyright';
 // scrollbar controller
 import addEventListeners from '../event-listeners';
 
@@ -26,7 +27,7 @@ class View extends Component {
         super(props)
         this.scrollbar = {
             addEventListeners,
-            removeEventListeners: () => { return this.scrollbar }
+            removeEventListeners: () => this.scrollbar
         }
         this.state = {
             open: false,
@@ -46,9 +47,39 @@ class View extends Component {
     componentDidMount = () => {
         setTimeout(this.componentDidUpdate, 50)
     }
+    componentWillReceiveProps = ({ match }) => {
+        console.log(arguments);
+        let { params } = match;
+        let { view } = params;
+        // if (pathname === this.props.location.pathname) return;
+        let root = document.getElementById('root');
+        let color = root.style.backgroundColor;
+        switch (view) {
+            case '/':
+                color = 'rgba(255,0,0,0.125)';
+                break;
+            case 'skills':
+                color = 'rgba(0,255,0,0.125)';
+                break;
+            case 'projects':
+                color = 'rgba(0,255,255,0.125)';
+                break;
+            case 'details':
+                color = 'rgba(0,0,255,0.125)';
+                break;
+            case 'contact':
+                color = 'rgba(255,255,0,0.125)';
+                break;
+            default:
+                color = 'rgba(0,0,255,0.125)';
+                break;
+        }
+        console.log(color);
+        root.style.backgroundColor = color;
+    }
     componentDidUpdate = () => {
         // console.log('updating View')
-        this.scrollbar = this.scrollbar.removeEventListeners().addEventListeners().removeEventListeners().addEventListeners()
+        this.scrollbar = this.scrollbar.removeEventListeners().addEventListeners()//.removeEventListeners().addEventListeners()
     }
     toggleMenu = () => {
         this.setState({
@@ -184,6 +215,8 @@ class View extends Component {
                     current={current}
                     toggleMenu={this.toggleMenu}
                 />
+                {/* COPYRIGHT */}
+                <Copyright />
             </div >
         )
     }
