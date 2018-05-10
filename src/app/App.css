@@ -48,7 +48,13 @@ body,
     /* background-image: linear-gradient(25deg, rgba(175, 0, 0, 0.125), rgba(165, 195, 235, 0.675)); */
     /* background-image: linear-gradient(to top right, rgba(10, 105, 155, 0.125), transparent); */
     background-image: linear-gradient(to top right, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.125));
-    background-image: linear-gradient(195deg, rgba(64, 90, 97, 0.5), rgba(67, 97, 106, 0.5), rgba(107, 115, 123, 0.5), rgba(216, 170, 153, 0.625));
+    /* background-image: linear-gradient(195deg, rgba(64, 90, 97, 0.5), rgba(67, 97, 106, 0.5), rgba(107, 115, 123, 0.5), rgba(216, 170, 153, 0.625)); */
+    background-image: linear-gradient(195deg,
+        rgba(180, 200, 210, 0.5),
+        rgba(195, 210, 220, 0.5),
+        rgba(230, 240, 240, 0.5),
+        rgba(230, 200, 190, 0.625));
+    /* background: rgba(230, 240, 240, 0.5); */
     transition: background-color 1.2s;
 }
 
@@ -70,7 +76,7 @@ body,
     background-image: url(https://images.unsplash.com/photo-1479030160180-b1860951d696?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fbee86d97118ec6673c8d850c31787ef&auto=format&fit=crop&w=1050&q=80);
     /* DESERT */
     background-image: url(https://images.unsplash.com/photo-1502790671504-542ad42d5189?ixlib=rb-0.3.5&s=da4d3b0a41041f60ee409664746ca2d6&auto=format&fit=crop&w=600&q=60);
-    background-position: cen ter;
+    background-position: center;
     /* OCEAN FOAM */
     background-image: url(https://images.unsplash.com/photo-1444944232907-0b9e9ace348c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3b2943aa45a75eed3360a652788182ed&auto=format&fit=crop&w=600&q=60);
     /* BEACH */
@@ -79,7 +85,7 @@ body,
     /* --- OCEAN --- */
     background-image: url(https://images.unsplash.com/photo-1508076956059-21ac302690eb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=53da87cf00f8c86581168eb1c3dbd5e3&auto=format&fit=crop&w=600&q=60);
     background-position-y: 44%;
-    filter: blur(3px);
+    filter: blur(26px);
     /* OCEAN WATER & SKY */
     /* background-image: url(https://images.unsplash.com/photo-1510297895683-0f27794412d5?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=914da693feb649caade0273dc5092453&auto=format&fit=crop&w=600&q=60);
     background-position-y: top; */
@@ -101,7 +107,9 @@ body,
     /* LINEAR GRADIENT */
     background-image: linear-gradient(20deg, rgb(55, 95, 135), rgb(165, 195, 235));
     /* RADIAL GRADIENT */
-    background-image: radial-gradient(circle at center, rgba(125, 185, 255, 0.25), rgba(125, 185, 255, 1));
+    background-image: radial-gradient(circle at center,
+        rgba(155, 186, 223, 0.5),
+        rgb(180, 210, 240));
     /* opacity: 0.5; */
     /* END */
     background-size: cover;

@@ -78,8 +78,7 @@ class View extends Component {
         root.style.backgroundColor = color;
     }
     componentDidUpdate = () => {
-        // console.log('updating View')
-        this.scrollbar = this.scrollbar.removeEventListeners().addEventListeners()//.removeEventListeners().addEventListeners()
+        this.scrollbar = this.scrollbar.removeEventListeners().addEventListeners()
     }
     toggleMenu = () => {
         this.setState({

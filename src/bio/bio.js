@@ -107,22 +107,23 @@ let Projects = [
         title: "Boggle",
         subtitle: "Boggle Word Search",
         description: [
-            "# Features",
-            "This project features an algorithm to map out all paths to create a given word on a boggle board and a muli-layered cache system for minimizing http requests.",
-            "# Mapping Algorithm",
-            "The mapping algorithm finds all possible starting points for a given word, then loops through the starting points to recursively create all possible paths from each starting point that can create the given word.",
-            "# Oxford Dictionary API",
-            "This project uses the Oxford Dictionary API to validate words. I implemented the cache system to remember the results of each request to the API and minimize the number of requests made on all levels.",
-            "# Cache System",
+            ["# Features",
+            "This project features an algorithm to map out all paths to create a given word on a boggle board and a muli-layered cache system for minimizing http requests."],
+            ["# Mapping Algorithm",
+            "The mapping algorithm finds all possible starting points for a given word, then loops through the starting points to recursively create all possible paths from each starting point that can create the given word."],
+            ["# Oxford Dictionary API",
+            "This project uses the Oxford Dictionary API to validate words. I implemented the cache system to remember the results of each request to the API and minimize the number of requests made on all levels."],
+            ["# Cache System",
             "The cache system begins in the browser, which makes an initial request to get a list of all previously validated words with which to compare inputted words before making a request to the server.",
             "If a word is inputted that has not previously been validated, the browser will send a request to the server to validate the word. The server keeps a cache of all previously validated words and of all current outgoing requests to both the database and Oxford.",
-            "First, the server will check its own cache for the word. If it doesn't find the word, it will check its cache for an outgoing request for the word and subscribe to that request. If it still hasn't found the word, it will send a request to th  e database for the word"
+            "First, the server will check its own cache for the word. If it doesn't find the word, it will check its cache for an outgoing request for the word and subscribe to that request. If it still hasn't found the word, it will send a request to th  e database for the word"]
         ],
         img: boggle,
         github: "https://github.com/Tommydreamer57/boggle",
         url: "http://boggle.thomaslowry.me",
         tech: [
             REACT,
+            JEST,
             NODE,
             EXPRESS,
             MONGODB
@@ -136,13 +137,13 @@ let Projects = [
         title: "Calendar",
         subtitle: "Timeshare Week Selector",
         description: [
-            "# Collaborators",
-            ["I worked together with", Mikel_North, "and", Josi_Moore, "to create this calendar app for a company in Arizona that sells timeshares to a property."],
-            "# Features",
-            "Constituents can use the calendar to select the weeks they would like to buy, and admins can use the calendar to see which weeks are allocated to which customers as well as to select maintenance weeks for the property."
+            ["# Collaborators",
+            ["I worked together with", Mikel_North, "and", Josi_Moore, "to create this calendar app for a company in Arizona that sells timeshares to a property."]],
+            ["# Features",
+            "Constituents can use the calendar to select the weeks they would like to buy, and admins can use the calendar to see which weeks are allocated to which customers as well as to select maintenance weeks for the property."]
         ],
         img: calendar,
-        github: "https://github.com/Calendar-App",
+        github: "https://github.com/Calendar-App/calendar",
         url: "http://calendar.thomaslowry.me",
         tech: [
             REACT,
@@ -204,12 +205,12 @@ let Projects = [
         title: "CodeWars Clone",
         subtitle: "DevMountain Group Project",
         description: [
-            "# Collaborators",
-            ["I worked together with", Chase_Davis, "and", Conner_Jensen, "to create this clone of CodeWars.com, a webapp for practicing code."],
-            "# Features",
-            "This project utilizes the Ace code editor and Slate text editor as well as an iframe sandbox for security. Code input and test cases are saved as strings and sent to the iframe to be converted into their correct data types and evaluated.",
-            "# Responsibilities",
-            "My responsibilities included creating the algorithms to parse the strings into the correct data types, evaluate the code input, catch any errors, and return the results. In conjunction with the testing functionality, I built the create page and the tests component."
+            ["# Collaborators",
+            ["I worked together with", Chase_Davis, "and", Conner_Jensen, "to create this clone of CodeWars.com, a webapp for practicing code."]],
+            ["# Features",
+            "This project utilizes the Ace code editor and Slate text editor as well as an iframe sandbox for security. Code input and test cases are saved as strings and sent to the iframe to be converted into their correct data types and evaluated."],
+            ["# Responsibilities",
+            "My responsibilities included creating the algorithms to parse the strings into the correct data types, evaluate the code input, catch any errors, and return the results. In conjunction with the testing functionality, I built the create page and the tests component."]
         ],
         img: group,
         github: "https://github.com/DevMtn-CodeWars/Group-Project",
@@ -239,10 +240,10 @@ let Projects = [
         title: "Trivia Trends",
         subtitle: "Angular Simulation",
         description: [
-            "# ",
+            ["# ",
             "I built this project in Angular for a competition at devmountain. The styles and basic HTML were already set up, along with an API.",
             "The contest was to be the first to add all the functionality with Angular, including retreiving, filtering, and mapping through the data, handling clicks and adding correct class-names, and sending data back to the API.",
-            "My group won this competition, and afterwards I built my own database and server for the project."
+            "My group won this competition, and afterwards I built my own database and server for the project."]
         ],
         img: trivia,
         url: "http://trivia.thomaslowry.me",

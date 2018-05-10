@@ -20,7 +20,7 @@ export default function Buttons({ open, current, details, history, toggleMenu })
         let key = `Right Button ${label} ${i}`
         let className = label === nextLabel ? 'nav-label nav-label-display' : 'nav-label'
         return (
-            <div key={key} className={className} >
+            <div key={0} className={className} >
                 {label}
             </div>
         )
