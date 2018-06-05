@@ -207,7 +207,7 @@ button:hover, #LeftButton:hover, #RightButton:hover, #LeftButton a:hover, #Right
     }
 
     .nav-button:hover .nav-label-display {
-        color: white;
+        color: rgba(0, 0, 0, 0.5);
         /* rgba(85, 30, 140, 0.9); */
     }
     

@@ -1,4 +1,5 @@
 // ASPECT RATIO FOR IMAGES === 1871 x 893
+import cell from '../assets/Meiosis Screenshot.PNG';
 import boggle from '../assets/Boggle Copy.png';
 import calendar from '../assets/Calendar Screenshot.PNG';
 import colors from '../assets/Color Blender Screenshot.PNG';
@@ -52,6 +53,7 @@ const CSS3 = { name: "CSS3", icon: "devicon-css3-plain " }
 const ES6 = { name: "ES6", icon: "devicon-javascript-plain" }
 const REACT = { name: "React", icon: "devicon-react-original" }
 const REDUX = { name: "Redux", svg: redux }
+const MEIOSIS = { name: "Meiosis", icon: "" }
 const SCSS = { name: "Sass", icon: "devicon-sass-original" }
 const ANGULARJS = { name: "AngularJS", icon: "devicon-angularjs-plain" }
 const JQUERY = { name: "JQuery", icon: "devicon-jquery-plain" }
@@ -60,10 +62,11 @@ const EXPRESS = { name: 'Express', icon: "" }
 const POSTGRESQL = { name: "PostgreSQL", icon: "devicon-postgresql-plain" }
 const MONGODB = { name: "MongoDB", icon: "" }
 const AUTH0 = { name: "Auth0", icon: "" }
-// // // const HEROKU = { name: "Heroku", icon: "devicon-heroku-plain" }
+const BCRYPT = { name: "Bcrypt", icon: "" }
+const JSS = { name: "CSS in JS", icon: "" }
 const SLATE = { name: "Slate", icon: "" }
 const ACE = { name: "Ace", icon: "" }
-const IFRAME = { name: "iframe", icon: "" }
+// const IFRAME = { name: "iframe", icon: "" }
 const JEST = { name: "Jest", icon: "" }
 const GIT = { name: "git", icon: "devicon-github-plain" }
 
@@ -76,14 +79,17 @@ let Skills = {
     front: [
         REACT,
         REDUX,
+        MEIOSIS,
         ANGULARJS,
         JQUERY,
-        SCSS
+        SCSS,
+        JSS
     ],
     back: [
         NODE,
         EXPRESS,
         AUTH0,
+        BCRYPT,
         POSTGRESQL,
         MONGODB,
         // HEROKU
@@ -91,7 +97,7 @@ let Skills = {
     other: [
         SLATE,
         ACE,
-        IFRAME,
+        // IFRAME,
         JEST,
         GIT
     ]
@@ -101,22 +107,60 @@ const Chase_Davis = { name: "Chase Davis", link: "https://www.linkedin.com/in/cw
 const Conner_Jensen = { name: "Conner Jensen", link: "https://www.linkedin.com/in/connerjensen" }
 const Mikel_North = { name: "Mikel North", link: "https://www.linkedin.com/in/mikelnorth" }
 const Josi_Moore = { name: "Josi Moore", link: "https://www.linkedin.com/in/josi-moore" }
+const Scott_Abbott = { name: "Scott Abbott" }
+const Tayt_Low = { name: "Tayt Low" }
+const Tav_Hafner = { name: "Tav Hafner" }
+
+const Meiosis_Tutorial = { name: "here.", link: "https://github.com/Tommydreamer57/meiosis-demo" }
 
 let Projects = [
+    {
+        title: "Cell",
+        subtitle: "Clone of Slack.com",
+        description: [
+            ["# Collaborators",
+                ["I worked together with", Scott_Abbott, Tayt_Low, "and", Tav_Hafner, "on this project."]],
+            ["# Meiosis",
+                ["This is my first project using the JavaScript pattern, Meiosis. Meiosis is a pattern for managing state in an application following the model view concept. I built a tutorial on this pattern", Meiosis_Tutorial, "I found this pattern to be much lighter than Redux as well as easier to implement."]],
+            ["# CSS in JS",
+                "I decided to try out CSS in JS with the library Aphrodite-JSS in this project. This project therefore has 0 CSS files and is almost 100% JavaScript."],
+            ["# Bcrypt",
+                "For authentication I decided to try out the bcrypt library for salting and hashing passwords. Implementation was quick and easy with bcrypt, and it allowed me to control sessions directly in the server."]
+        ],
+        img: cell,
+        github: "https://github.com/Tommydreamer57/cell",
+        url: "http://meiosis.thomaslowry.me",
+        tech: [
+            REACT,
+            MEIOSIS,
+            JSS,
+            NODE,
+            EXPRESS,
+            BCRYPT,
+            POSTGRESQL,
+
+        ],
+        tags: [
+            FULL_CRUD,
+            FULL_STACK,
+            FRONT_END,
+            GROUP
+        ]
+    },
     {
         title: "Boggle",
         subtitle: "Boggle Word Search",
         description: [
             ["# Features",
-            "This project features an algorithm to map out all paths to create a given word on a boggle board and a muli-layered cache system for minimizing http requests."],
+                "This project features an algorithm to map out all paths to create a given word on a boggle board and a muli-layered cache system for minimizing http requests."],
             ["# Mapping Algorithm",
-            "The mapping algorithm finds all possible starting points for a given word, then loops through the starting points to recursively create all possible paths from each starting point that can create the given word."],
+                "The mapping algorithm finds all possible starting points for a given word, then loops through the starting points to recursively create all possible paths from each starting point that can create the given word."],
             ["# Oxford Dictionary API",
-            "This project uses the Oxford Dictionary API to validate words. I implemented the cache system to remember the results of each request to the API and minimize the number of requests made on all levels."],
+                "This project uses the Oxford Dictionary API to validate words. I implemented the cache system to remember the results of each request to the API and minimize the number of requests made on all levels."],
             ["# Cache System",
-            "The cache system begins in the browser, which makes an initial request to get a list of all previously validated words with which to compare inputted words before making a request to the server.",
-            "If a word is inputted that has not previously been validated, the browser will send a request to the server to validate the word. The server keeps a cache of all previously validated words and of all current outgoing requests to both the database and Oxford.",
-            "First, the server will check its own cache for the word. If it doesn't find the word, it will check its cache for an outgoing request for the word and subscribe to that request. If it still hasn't found the word, it will send a request to th  e database for the word"]
+                "The cache system begins in the browser, which makes an initial request to get a list of all previously validated words with which to compare inputted words before making a request to the server.",
+                "If a word is inputted that has not previously been validated, the browser will send a request to the server to validate the word. The server keeps a cache of all previously validated words and of all current outgoing requests to both the database and Oxford.",
+                "First, the server will check its own cache for the word. If it doesn't find the word, it will check its cache for an outgoing request for the word and subscribe to that request. If it still hasn't found the word, it will send a request to th  e database for the word"]
         ],
         img: boggle,
         github: "https://github.com/Tommydreamer57/boggle",
@@ -138,9 +182,9 @@ let Projects = [
         subtitle: "Timeshare Week Selector",
         description: [
             ["# Collaborators",
-            ["I worked together with", Mikel_North, "and", Josi_Moore, "to create this calendar app for a company in Arizona that sells timeshares to a property."]],
+                ["I worked together with", Mikel_North, "and", Josi_Moore, "to create this calendar app for a company in Arizona that sells timeshares to a property."]],
             ["# Features",
-            "Constituents can use the calendar to select the weeks they would like to buy, and admins can use the calendar to see which weeks are allocated to which customers as well as to select maintenance weeks for the property."]
+                "Constituents can use the calendar to select the weeks they would like to buy, and admins can use the calendar to see which weeks are allocated to which customers as well as to select maintenance weeks for the property."]
         ],
         img: calendar,
         github: "https://github.com/Calendar-App/calendar",
@@ -206,11 +250,11 @@ let Projects = [
         subtitle: "DevMountain Group Project",
         description: [
             ["# Collaborators",
-            ["I worked together with", Chase_Davis, "and", Conner_Jensen, "to create this clone of CodeWars.com, a webapp for practicing code."]],
+                ["I worked together with", Chase_Davis, "and", Conner_Jensen, "to create this clone of CodeWars.com, a webapp for practicing code."]],
             ["# Features",
-            "This project utilizes the Ace code editor and Slate text editor as well as an iframe sandbox for security. Code input and test cases are saved as strings and sent to the iframe to be converted into their correct data types and evaluated."],
+                "This project utilizes the Ace code editor and Slate text editor as well as an iframe sandbox for security. Code input and test cases are saved as strings and sent to the iframe to be converted into their correct data types and evaluated."],
             ["# Responsibilities",
-            "My responsibilities included creating the algorithms to parse the strings into the correct data types, evaluate the code input, catch any errors, and return the results. In conjunction with the testing functionality, I built the create page and the tests component."]
+                "My responsibilities included creating the algorithms to parse the strings into the correct data types, evaluate the code input, catch any errors, and return the results. In conjunction with the testing functionality, I built the create page and the tests component."]
         ],
         img: group,
         github: "https://github.com/DevMtn-CodeWars/Group-Project",
@@ -241,9 +285,9 @@ let Projects = [
         subtitle: "Angular Simulation",
         description: [
             ["# ",
-            "I built this project in Angular for a competition at devmountain. The styles and basic HTML were already set up, along with an API.",
-            "The contest was to be the first to add all the functionality with Angular, including retreiving, filtering, and mapping through the data, handling clicks and adding correct class-names, and sending data back to the API.",
-            "My group won this competition, and afterwards I built my own database and server for the project."]
+                "I built this project in Angular for a competition at devmountain. The styles and basic HTML were already set up, along with an API.",
+                "The contest was to be the first to add all the functionality with Angular, including retreiving, filtering, and mapping through the data, handling clicks and adding correct class-names, and sending data back to the API.",
+                "My group won this competition, and afterwards I built my own database and server for the project."]
         ],
         img: trivia,
         url: "http://trivia.thomaslowry.me",

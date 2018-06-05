@@ -43,10 +43,14 @@ function Text({ text, toggle }) {
     else if (Array.isArray(text)) return (
         <p key={JSON.stringify(text)} >
             {
-                text.map(item => {
+                text.map((item, i) => {
+                    let next = text[i + 1]
                     if (typeof item === 'string') return item;
                     else if (typeof item === 'object') return (
-                        <a key={item.link} href={item.link} target="_blank" > {item.name} </a>
+                        <span>
+                            <a key={item.link} href={item.link} target="_blank" > {item.name}</a>
+                            <span>{typeof next === 'object' ? ', ' : ' '}</span>
+                        </span>
                     );
                 })
             }

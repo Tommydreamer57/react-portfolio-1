@@ -6,24 +6,24 @@ export default function NoProjectsHeader({ search }) {
             {
                 search.tag.length && !search.skill.length ?
                     <span>
-                        <span>There are no</span>
+                        <span>There are no </span>
                         {search.tag.map(tag => (
                             <label key={`No Projects Tag ${tag} - No Skills`} > {tag.toLowerCase()} </label>
                         ))}
-                        <span>projects</span>
+                        <span> projects </span>
                     </span>
                     :
                     <span>
-                        <span>No</span>
+                        <span>No </span>
                         {search.tag.map(tag => (
                             <label key={`No Projects Tag ${tag}`} > {tag.toLowerCase()} </label>
                         ))}
-                        <span>project uses</span>
-                        <span>{search.skill.length === 2 ? " both " : " "}</span>
+                        <span> project uses </span>
+                        <span> {search.skill.length === 2 ? " both " : " "} </span>
                         {search.skill.map((skill, i, arr) => (
                             <span key={`No Projects Skill ${skill}`} >
-                                <label>{skill}</label>
-                                <span>{i < arr.length - 2 ? ", " : i === arr.length - 2 ? " and " : ""}</span>
+                                <label> {skill} </label>
+                                <span> {i < arr.length - 2 ? ", " : i === arr.length - 2 ? " and " : " "} </span>
                             </span>
                         ))}
                     </span>
