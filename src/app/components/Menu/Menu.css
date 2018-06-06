@@ -11,7 +11,7 @@
     /* background: rgba(95, 170, 215, 1); */
     /* background: rgba(215, 215, 215, 1); */
     /* overflow: hidden; */
-    background: #CCC;
+    /* background: #CCC; */
     transition: top 0.3s cubic-bezier(0.65, 0.15, 0, 1);
     z-index: 2;
 }
