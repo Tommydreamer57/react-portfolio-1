@@ -47,35 +47,35 @@ class View extends Component {
     componentDidMount = () => {
         setTimeout(this.componentDidUpdate, 50)
     }
-    componentWillReceiveProps = ({ match }) => {
+    componentWillReceiveProps = ({ match: { params: { view } }, location: { pathname } }) => {
         console.log(arguments);
-        let { params } = match;
-        let { view } = params;
-        // if (pathname === this.props.location.pathname) return;
-        let root = document.getElementById('root');
-        let color = root.style.backgroundColor;
-        switch (view) {
-            case '/':
-                color = 'rgba(255,127.5,127.5,0.125)';
-                break;
-            case 'skills':
-                color = 'rgba(127.5,255,127.5,0.125)';
-                break;
-            case 'projects':
-                color = 'rgba(0,255,255,0.125)';
-                break;
-            case 'details':
-                color = 'rgba(127.5,127.5,255,0.125)';
-                break;
-            case 'contact':
-                color = 'rgba(255,255,0,0.125)';
-                break;
-            default:
-                color = 'rgba(127.5,127.5,255,0.125)';
-                break;
-        }
-        console.log(color);
-        root.style.backgroundColor = color;
+        if (pathname === this.props.location.pathname) return;
+        // if (view === '/') document.getElementById('root').style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+        // else document.getElementById('root').style.backgroundColor = 'rgba(128, 128, 128, 0.5)';
+        // let root = document.getElementById('root');
+        // let color = root.style.backgroundColor;
+        // switch (view) {
+        //     case '/':
+        //         color = 'rgba(255,127.5,127.5,0.125)';
+        //         break;
+        //     case 'skills':
+        //         color = 'rgba(127.5,255,127.5,0.125)';
+        //         break;
+        //     case 'projects':
+        //         color = 'rgba(0,255,255,0.125)';
+        //         break;
+        //     case 'details':
+        //         color = 'rgba(127.5,127.5,255,0.125)';
+        //         break;
+        //     case 'contact':
+        //         color = 'rgba(255,255,0,0.125)';
+        //         break;
+        //     default:
+        //         color = 'rgba(127.5,127.5,255,0.125)';
+        //         break;
+        // }
+        // console.log(color);
+        // root.style.backgroundColor = color;
     }
     componentDidUpdate = () => {
         this.scrollbar = this.scrollbar.removeEventListeners().addEventListeners()

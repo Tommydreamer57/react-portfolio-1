@@ -111,7 +111,7 @@ const Scott_Abbott = { name: "Scott Abbott" }
 const Tayt_Low = { name: "Tayt Low" }
 const Tav_Hafner = { name: "Tav Hafner" }
 
-const Meiosis_Tutorial = { name: "here.", link: "https://github.com/Tommydreamer57/meiosis-demo" }
+const Meiosis_Tutorial = { name: "here", link: "https://github.com/Tommydreamer57/meiosis-demo" }
 
 let Projects = [
     {
@@ -121,7 +121,7 @@ let Projects = [
             ["# Collaborators",
                 ["I worked together with", Scott_Abbott, Tayt_Low, "and", Tav_Hafner, "on this project."]],
             ["# Meiosis",
-                ["This is my first project using the JavaScript pattern, Meiosis. Meiosis is a pattern for managing state in an application following the model view concept. I built a tutorial on this pattern", Meiosis_Tutorial, "I found this pattern to be much lighter than Redux as well as easier to implement."]],
+                ["This is my first project using the JavaScript pattern, Meiosis. Meiosis is a pattern for managing state in an application following the model view concept. I built a tutorial on this pattern", Meiosis_Tutorial, ". I found this pattern to be much lighter than Redux as well as easier to implement."]],
             ["# CSS in JS",
                 "I decided to try out CSS in JS with the library Aphrodite-JSS in this project. This project therefore has 0 CSS files and is almost 100% JavaScript."],
             ["# Bcrypt",
