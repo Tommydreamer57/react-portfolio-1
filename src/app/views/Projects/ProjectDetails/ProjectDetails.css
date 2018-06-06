@@ -1,0 +1,28 @@
+
+.project-details .image img {
+    box-shadow: 10px 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.project-details h4 {
+    position: relative;
+    margin: 0;
+    cursor: default;
+    z-index: 1;
+}
+
+.project-details h3 {
+    opacity: 0.675;
+    font-style: italic;
+}
+
+.project-details .description {
+    margin: 1rem 0 2rem;
+}
+
+.description a {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.description h4 {
+    margin-bottom: calc(12px + 10 * (100vw - 769px) / 2048);
+}
