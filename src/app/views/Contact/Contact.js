@@ -12,7 +12,7 @@ function Contact() {
                 {
                     bio.Contact.map(link => {
                         return (
-                            <a key={i++} href={link.link} className="link">
+                            <a key={i++} href={link.link} target='_blank' className="link">
                                 {
                                     link.icon ?
                                         <i className={link.icon} />
