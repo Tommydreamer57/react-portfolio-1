@@ -8,7 +8,18 @@
 @import url('https://fonts.googleapis.com/css?family=Cousine');
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono');
 
-
+/*
+    foxes
+    url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD4zbzPEttF62Tyk8VW4D1dG9DHLtM-Tkdnc1fXQjJgjw5Iiqt)
+    whales
+    url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi_QCPGq95J8GeHXkBC5y-Xgq2eiKFQnidmziRiVvdlu0iOyP2)
+    cactuses
+    url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStE5T8M8cYWYyXqjEG34-7ztVvCVVWN3sKH9XSGs26EMEqVBij1Q)
+    shapes
+    url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcFp7SsyLSiB-SQoXCJp5y2HWbQbZH99pMZ-MNL0HfuUUu46w2lA)
+    watermelons
+    url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCsw8-EAALLKuNJ8uRgY1OCnjefOSU0wCpcOG17BTRL7IVGf3O)
+*/
 
 #scrollbar {
     position: fixed;
@@ -35,6 +46,7 @@ body,
     padding: 0;
     /* background: rgba(64, 152, 207, 1); */
     /* background: rgba(126, 186, 223, 1); */
+    background: #228;
     font-family: 'Mukta Mahee', Cousine, 'Fira Mono', 'Ubuntu Mono', Roboto;
     /* color: white; */
 }
@@ -47,7 +59,7 @@ body,
     /* background: rgba(255, 255, 255, 0.125); */
     /* background-image: linear-gradient(25deg, rgba(175, 0, 0, 0.125), rgba(165, 195, 235, 0.675)); */
     /* background-image: linear-gradient(to top right, rgba(10, 105, 155, 0.125), transparent); */
-    background-image: linear-gradient(to top right, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.125));
+    background-image: linear-gradient(to top right, rgba(255, 255, 255, 0.175), rgba(255, 255, 255, 0.35));
     /* background-image: linear-gradient(195deg, rgba(64, 90, 97, 0.5), rgba(67, 97, 106, 0.5), rgba(107, 115, 123, 0.5), rgba(216, 170, 153, 0.625)); */
     /* background-image: linear-gradient(195deg,
         rgba(180, 200, 210, 0.25),
@@ -57,8 +69,12 @@ body,
     /* background: rgba(230, 240, 240, 0.5); */
     /* background-color: rgba(180, 180, 255, 0.25); */
     /* background: rgba(128, 128, 128, 0.625); */
-    background: rgba(255, 255, 255, 0.5);
+    /* background: rgba(255, 255, 255, 0.5); */
     transition: background-color 1.2s;
+}
+
+#background {
+    /* filter: blur(4px); */
 }
 
 #backdrop-filter {
@@ -134,10 +150,10 @@ body,
     filter: blur(8px) brightness(150%) contrast(115%);
     background-position-y: 44%;
     /* RED / WHITE TEXTURE */
-    background-image: url(https://images.unsplash.com/photo-1520241334777-b5b1824ce314?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=195b520c2fc5d0682271e8580d70fc30&auto=format&fit=crop&w=600&q=60);
+    /* background-image: url(https://images.unsplash.com/photo-1520241334777-b5b1824ce314?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=195b520c2fc5d0682271e8580d70fc30&auto=format&fit=crop&w=600&q=60);
     filter: blur(2px) contrast(150%);
     filter: blur(8px) contrast(130%);
-    background-position-y: 100%;
+    background-position-y: 100%; */
     /* opacity: 0.5; */
     /* END */
     background-size: cover;
@@ -146,7 +162,8 @@ body,
     left: -15px;
     right: -15px;
     bottom: -15px;
-    z-index: -1;
+    z-index: -2;
+    display: none;
 }
 
 ::-webkit-scrollbar {
@@ -194,7 +211,7 @@ a {
     justify-content: center;
     align-items: center;
     border-radius: 100%;
-    background: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.2);
     /* background: rgba(15, 230, 255, 0.6); */
     /* background: rgba(85, 25, 140, 0.6); */
 }

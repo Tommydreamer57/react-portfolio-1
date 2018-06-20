@@ -30,8 +30,8 @@ function ProjectDetails({ project }) {
                 }
             </div>
             <div className="description">
-                <p>Click <a href={project.github} target="_blank" >here</a> to see this project on GitHub</p>
-                <p>Click the image to view the hosted project</p>
+                <p>Click <a href={project.github} target="_blank" >here</a> to see this project on GitHub.</p>
+                <p>Click the image to view the hosted project.</p>
             </div>
             <div className="image">
                 <a href={project.url} target="_blank" >
