@@ -46,9 +46,14 @@ body,
     padding: 0;
     /* background: rgba(64, 152, 207, 1); */
     /* background: rgba(126, 186, 223, 1); */
+    /* PURPLE */
     background: #228;
+    /* DARKER */
+    background: #060660;
+    /* LIGHTER */
+    background: #66D;
     font-family: 'Mukta Mahee', Cousine, 'Fira Mono', 'Ubuntu Mono', Roboto;
-    /* color: white; */
+    /* color: rgba(255, 255, 255, 0.75); */
 }
 
 #root {
@@ -59,7 +64,7 @@ body,
     /* background: rgba(255, 255, 255, 0.125); */
     /* background-image: linear-gradient(25deg, rgba(175, 0, 0, 0.125), rgba(165, 195, 235, 0.675)); */
     /* background-image: linear-gradient(to top right, rgba(10, 105, 155, 0.125), transparent); */
-    background-image: linear-gradient(to top right, rgba(255, 255, 255, 0.175), rgba(255, 255, 255, 0.35));
+    background-image: linear-gradient(to top right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.35));
     /* background-image: linear-gradient(195deg, rgba(64, 90, 97, 0.5), rgba(67, 97, 106, 0.5), rgba(107, 115, 123, 0.5), rgba(216, 170, 153, 0.625)); */
     /* background-image: linear-gradient(195deg,
         rgba(180, 200, 210, 0.25),
