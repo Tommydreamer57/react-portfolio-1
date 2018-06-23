@@ -67,7 +67,7 @@ export default class AnimatedText extends Component {
                                             <span
                                                 key={i}
                                                 ref={this.setletters[i]}
-                                                className="transition-letter"
+                                                className="transition-letter bold"
                                                 style={{
                                                     opacity: 0,
                                                     position: 'relative',

@@ -35,6 +35,10 @@
     transition: left 0.6s;
 }
 
+.transition-letter.bold:hover {
+    cursor: pointer;
+}
+
 .previous .transition-letter {
     left: -75vw;
 }
