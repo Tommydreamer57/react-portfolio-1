@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import bio from '../../../bio/bio';
 import './Skills.css';
 
-let i = 100
-
-function IconSkill(skill) {
+function IconSkill(skill, i) {
     return (
-        <div key={i++} className="icon-skill">
+        <div key={i} className="icon-skill" style={{transitionDelay:(i + 1) * 0.1 + 's'}} >
             {
                 skill.icon ?
                     <i className={skill.icon} />
@@ -20,9 +18,9 @@ function IconSkill(skill) {
     )
 }
 
-function Skill(skill) {
+function Skill(skill, i) {
     return (
-        <Link to={`/projects?skill=${skill.name}`} key={i++} className="skill">
+        <Link to={`/projects?skill=${skill.name}`} key={i} className="skill" style={{ transitionDelay: (i + 1) * 0.1 + 's' }} >
         {/* <Link to={`/details/${skill.name}`} key={i++} className="skill"> */}
             <h4>{skill.name}</h4>
             <div className="slide" />

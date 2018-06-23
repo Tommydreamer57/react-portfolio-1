@@ -1,6 +1,27 @@
 
+#About {
+    margin-bottom: -10vh;
+}
+
 .landing {
     min-height: calc(100vh - 10vw);
+    text-align: center;
+}
+
+.landing h1 {
+    transform: translateY(25px);
+}
+
+.landing h4 {
+    line-height: 1.5;
+    transform: translateY(37px);
+}
+
+#underscore {
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-duration: 0.7s;
+    transform: scale(1.125)
 }
 
 .more {
@@ -50,4 +71,22 @@
         opacity: 0.675;
     }
 
+}
+
+@keyframes blink {
+    from {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }

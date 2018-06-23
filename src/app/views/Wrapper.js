@@ -198,6 +198,7 @@ export default class Wrapper extends Component {
                     {/* {this.state.touches.map(Touch)} */}
                     <Child {...childProps} />
                     <div className="bottom-padding" />
+                    <div className="scrollbar-cover" />
                     {/* {
                         <div className="" style={{ position: 'fixed', top: 0, left: 0, display: position === 'current' ? 'static' : 'none' }} >slidePosition: {slidePosition}</div>
                     } */}
@@ -266,6 +267,7 @@ export class DetailWrapper extends Wrapper {
                 <div className="content details-content">
                     <Child {...childProps} />
                     <div className="bottom-padding" />
+                    <div className="scrollbar-cover" />
                 </div>
             </div>
         )

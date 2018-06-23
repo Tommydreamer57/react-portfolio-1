@@ -11,9 +11,10 @@ button:focus {
     border: none;
     outline: 0;
 }
-button:hover, #LeftButton:hover, #RightButton:hover, #LeftButton a:hover, #RightButton a:hover {
+
+/* button:hover, #LeftButton:hover, #RightButton:hover, #LeftButton a:hover, #RightButton a:hover {
     cursor: default;
-}
+} */
 
 /* Arrow - Button Line */
 
@@ -24,7 +25,7 @@ button:hover, #LeftButton:hover, #RightButton:hover, #LeftButton a:hover, #Right
     background: black;
     /* box-shadow: 0px 0px 7.5px 2.5px rgba(255, 255, 255, 0.25); */
     opacity: 0.25;
-    border-radius: 3px;
+    /* border-radius: 3px; */
     transition: margin 0.4s ease, transform 0.4s ease;
 }
 
@@ -174,28 +175,53 @@ button:hover, #LeftButton:hover, #RightButton:hover, #LeftButton a:hover, #Right
     /* #MenuButton:hover {
         cursor: pointer;
     } */
-
+    
     .open-menu:hover .arrow {
         margin: 8.75px;
     }
-
+    
     .close-menu:hover #menu-one, .close-menu:hover #menu-three {
         transform: rotate(-235deg);
     }
-
+    
     .close-menu:hover #menu-two {
         transform: rotate(235deg);
     }
-
-
-    .nav-button:hover #left-one, .nav-button:hover #right-two {
+    
+    /* ARROWS OPEN BEFORE HOVER */
+    
+    .nav-button #left-one, .nav-button #right-two {
         transform: rotate(-45deg);
         margin: 14.825px;        
     }
 
-    .nav-button:hover #left-two, .nav-button:hover #right-one {
+    .nav-button #left-two, .nav-button #right-one {
         transform: rotate(45deg);
-        margin: 14.825px;    
+        margin: 14.825px;        
+    }
+    
+    /* END ARROWS OPEN BEFORE HOVER */
+
+    .nav-button:hover #left-one, .nav-button:hover #left-two {
+        transform: rotate(0deg) translateX(-5vw);
+        /* margin: 18.875px; */
+        margin: 8.75px;
+    }
+
+    .nav-button:hover #right-one, .nav-button:hover #right-two {
+        transform: rotate(0deg) translateX(5vw);
+        /* margin: 18.875px; */
+        margin: 8.75px;
+    }
+
+    .nav-button:hover #left-one, .nav-button:hover #right-two {
+        /* transform: rotate(-45deg); */
+        /* margin: 14.825px;         */
+    }
+
+    .nav-button:hover #left-two, .nav-button:hover #right-one {
+        /* transform: rotate(45deg); */
+        /* margin: 14.825px;     */
     }
 
     #LeftButton:hover .nav-label-display {

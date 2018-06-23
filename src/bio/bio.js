@@ -12,7 +12,8 @@ import logo from '../assets/logo.svg';
 
 let About = {
     greeting: "Hi, I'm Tommy Lowry",
-    intro: "I am a full-stack web-developer, linguist, and artist.",
+    // intro: "I am a full-stack web-developer, linguist, and artist.",
+    intro: "I am a full-stack web-developer, linguist, and artist. My programming specialties include React, Node, and plain vanilla JavaScript. Having lived across the United States and Germany, I am fluent in both English and German",
     info: [
         "My programming specialties include React, Node, and plain vanilla JavaScript. Having lived across the United States and Germany, I am fluent in both English and German.",
         "My love for code is largely a branch off of my love for language. I studied German in high school and college, and have also studied Italian, Spanish, Polish, and Russian. I have found code and language to be similar in both their challenge and their creative ability.",

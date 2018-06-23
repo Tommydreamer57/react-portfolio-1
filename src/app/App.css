@@ -47,11 +47,11 @@ body,
     /* background: rgba(64, 152, 207, 1); */
     /* background: rgba(126, 186, 223, 1); */
     /* PURPLE */
-    background: #228;
+    /* background: #228; */
     /* DARKER */
-    background: #060660;
+    /* background: #060660; */
     /* LIGHTER */
-    background: #66D;
+    /* background: #66D; */
     font-family: 'Mukta Mahee', Cousine, 'Fira Mono', 'Ubuntu Mono', Roboto;
     /* color: rgba(255, 255, 255, 0.75); */
 }
@@ -168,7 +168,7 @@ body,
     right: -15px;
     bottom: -15px;
     z-index: -2;
-    display: none;
+    /* display: none; */
 }
 
 ::-webkit-scrollbar {
@@ -259,13 +259,15 @@ a {
 .previous {
     /* left: -150vw; */
     left: 0;
-    transform: translateX(-162.5vw);
+    /* transform: translateX(-162.5vw); */
+    transform: translateX(-100vw);
     overflow: hidden;
 }
 
 .current {
     left: 0;
-    overflow: scroll;
+    overflow-x: hidden;
+    max-height: none;
     -ms-overflow-style: none;
     transform: translateX(0);
 }
@@ -273,8 +275,17 @@ a {
 .next {
     /* left: 150vw; */
     left: 0;
-    transform: translateX(162.5vw);
+    /* transform: translateX(162.5vw); */
+    transform: translateX(100vw);
     overflow: hidden;
+}
+
+#About {
+    max-height: 100vh;
+}
+
+#About + .bottom-padding {
+    height: 0;
 }
 
 #About, #Skills, #Projects, #Contact {
@@ -284,6 +295,17 @@ a {
 .bottom-padding {
     width: 100%;
     height: 15vw;
+}
+
+.scrollbar-cover {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    /* background: #66D; */
+    display: none;
 }
 
 /*
