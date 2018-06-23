@@ -10,9 +10,12 @@ import LinkedIn from '../assets/iconmonstr-linkedin-3.svg';
 import redux from '../assets/Redux.svg';
 import logo from '../assets/logo.svg';
 
+
+
 let About = {
     greeting: "Hi, I'm Tommy Lowry",
-    intro: "I am a full-stack web-developer, linguist, and artist.",
+    // intro: "I am a full-stack web-developer, linguist, and artist.",
+    intro: "I am a full-stack web-developer specializing in React, Node, and PostgreSQL. Feel free to take a look at my projects on my $portfolio page$. Or reach out to me at $minilao94@yahoo.com$.",
     info: [
         "My programming specialties include React, Node, and plain vanilla JavaScript. Having lived across the United States and Germany, I am fluent in both English and German.",
         "My love for code is largely a branch off of my love for language. I studied German in high school and college, and have also studied Italian, Spanish, Polish, and Russian. I have found code and language to be similar in both their challenge and their creative ability.",
@@ -309,23 +312,26 @@ let Projects = [
     }
 ]
 
-let Contact = [
-    {
-        name: "GitHub",
-        icon: "devicon-github-plain",
-        link: "https://github.com/tommydreamer57"
-    },
-    // {
-    //     name: "minilao94@yahoo.com",
-    //     svg: logo,
-    //     link: "minilao94@yahoo.com"
-    // },
-    {
-        name: "LinkedIn",
-        svg: LinkedIn,
-        link: "http://linkedin.com/in/thomasglowry"
-    }
-]
+let Contact = {
+    text: "Feel free to reach out to me through LinkedIn, or send me an email at $$$minilao94@yahoo.com$.",
+    links: [
+        {
+            name: "GitHub",
+            icon: "devicon-github-plain",
+            link: "https://github.com/tommydreamer57"
+        },
+        // {
+        //     name: "minilao94@yahoo.com",
+        //     svg: logo,
+        //     link: "minilao94@yahoo.com"
+        // },
+        {
+            name: "LinkedIn",
+            svg: LinkedIn,
+            link: "http://linkedin.com/in/thomasglowry"
+        }
+    ]
+}
 
 
 export default {

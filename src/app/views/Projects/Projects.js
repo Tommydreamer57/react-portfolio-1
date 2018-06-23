@@ -5,15 +5,15 @@ import './Projects.css';
 import NoProjectsHeader from './NoProjectsHeader/NoProjectsHeader';
 
 // PROJECT
-function Project(project) {
+function Project(project, i) {
     let key = `Project ${project.title}`
     let to = `/details/${project.title}`
     let alt = `GitHub Repository: ${project.github}`
     return (
-        <Link to={to} key={key} className='project'>
-            <h3>{project.title}</h3>
-            <h4>{project.subtitle}</h4>
-            <div className="image" >
+        <Link to={to} key={key} className='project' style={{ transitionDelay: (i + 3.5) * 0.125 + 's' }} >
+            <h3 style={{ transitionDelay: ((i + 3.5) * 0.125) + 's' }} >{project.title}</h3>
+            <h4 style={{ transitionDelay: ((i + 4.5) * 0.125) + 's' }} >{project.subtitle}</h4>
+            <div style={{ transitionDelay: ((i + 5.5) * 0.125) + 's' }} className="image" >
                 <img src={project.img} />
             </div>
         </Link>
@@ -21,9 +21,9 @@ function Project(project) {
 }
 
 // TECH
-function Tech(item) {
+function Tech(item, i) {
     return (
-        <Link to={item.to} key={item.key} className={item.className} >
+        <Link to={item.to} key={item.key} className={item.className} style={{ transitionDelay: ((i + 5) * 0.02) + 's' }} >
             <h5>{item.name}</h5>
             <div className="slide" />
         </Link>
@@ -117,7 +117,7 @@ export default class Projects extends Component {
                         fullList.map(Tech)
                     }
                     {
-                        Tech(RESET)
+                        Tech(RESET, fullList.length)
                     }
                 </div>
                 {/* PROJECTS */}

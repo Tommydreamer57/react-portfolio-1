@@ -130,7 +130,8 @@ export default class Wrapper extends Component {
             slidePosition,
             slideDirection,
             child: Child,
-            childProps
+            childProps,
+            history
         } = this.props
 
         let translateX = 0
@@ -187,7 +188,7 @@ export default class Wrapper extends Component {
             style,
             onTouchStart: this.onTouchStart,
             onTouchMove: this.onTouchMove,
-            onTouchEnd: this.onTouchEnd
+            onTouchEnd: this.onTouchEnd,
         }
 
         // console.log({ id, position, ...style })
@@ -196,8 +197,9 @@ export default class Wrapper extends Component {
             <div {...outerProps} >
                 <div className="content">
                     {/* {this.state.touches.map(Touch)} */}
-                    <Child {...childProps} />
+                    <Child {...childProps} history={history} />
                     <div className="bottom-padding" />
+                    <div className="scrollbar-cover" />
                     {/* {
                         <div className="" style={{ position: 'fixed', top: 0, left: 0, display: position === 'current' ? 'static' : 'none' }} >slidePosition: {slidePosition}</div>
                     } */}
@@ -266,6 +268,7 @@ export class DetailWrapper extends Wrapper {
                 <div className="content details-content">
                     <Child {...childProps} />
                     <div className="bottom-padding" />
+                    <div className="scrollbar-cover" />
                 </div>
             </div>
         )

@@ -3,12 +3,12 @@ import './Copyright.css';
 
 export default function Copyright() {
     return (
-        <div id="Copyright">
+        <h5 id="Copyright">
             {/* <span>{`<`}</span> &nbsp;&nbsp; */}
             {/* © */}
             Created by Thomas Lowry
             {/* 2018 */}
             {/* &nbsp;&nbsp; <span>{`>`}</span> */}
-        </div>
+        </h5>
     )
 }
