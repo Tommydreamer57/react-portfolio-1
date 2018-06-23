@@ -206,7 +206,7 @@ function scrollable(Comp) {
         componentWillReceiveProps = (newProps) => {
             console.log("RECEIVING PROPS")
             console.log(newProps)
-            if (newProps.location !== this.props.location && newProps.location.hash) {
+            if (newProps.location !== this.props.location && newProps.location.hash && window.innerWidth < 769) {
                 let el = document.querySelector(newProps.location.hash)
                 if (el) {
                     jump(el, {
@@ -220,13 +220,6 @@ function scrollable(Comp) {
                 super.componentWillReceiveProps()
             }
         }
-        // componentDidUpdate = (prevProps) => {
-        //     console.log("UPDATING")
-        //     console.log(prevProps)
-        //     if (super.componentDidUpdate) {
-        //         super.componentDidUpdate(prevProps)
-        //     }
-        // }
     }
 }
 
