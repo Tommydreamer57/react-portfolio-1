@@ -211,7 +211,7 @@ function scrollable(Comp) {
                 if (el) {
                     jump(el, {
                         duration: 400,
-                        offset: -window.innerHeight / 10
+                        offset: -window.innerWidth / 10
                     })
                 }
                 console.log(el)

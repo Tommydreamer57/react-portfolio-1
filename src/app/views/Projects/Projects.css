@@ -191,11 +191,16 @@
 
     .project {
         /* margin: 1rem 0; */
+        margin: 2rem 0;
         width: 100%;
     }
 
-    .project:first-of-type {
-        /* margin-top: 2rem; */
+    .project h3 {
+        font-size: 32px;
+    }
+
+    .project h4 {
+
     }
 
     #projects .slide {
