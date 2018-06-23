@@ -12,22 +12,6 @@
     transition: 0.6s;
 }
 
-.previous .skills-section, .previous .icon-skill, .previous .skill {
-    transform: translateX(-75vw);
-}
-
-.next .skills-section, .next .icon-skill, .next .skill {
-    transform: translateX(75vw);
-}
-
-.previous .skills-section .skills-wrapper {
-    transform: translateX(-75vw);
-}
-
-.next .skills-section .skills-wrapper {
-    transform: translateX(75vw);
-}
-
 .current .skills-section:nth-of-type(1), .current .skills-section:nth-of-type(1) .skills-wrapper {
     transition-delay: 0s;
 }
@@ -107,42 +91,58 @@
     border-top: 3rem solid white;
 }
 
+.icon-skill:hover .slide, .skill:hover .slide {
+    right: 0;
+}
+
+.icon-skill {
+    margin-top: calc(16px + 8 * (100vw - 769px) / 2048);
+    margin-bottom: calc(54px + 58 * (100vw - 769px) / 2048);
+}
+
+.icon-skill i {
+    /* font-size: 6rem; */
+    font-size: calc(88px + 48 * (100vw - 769px) / 2048);
+    /* margin-bottom: 1rem; */
+    margin-bottom: calc(16px + 8 * (100vw - 769px) / 2048);
+}
+
+.skill {
+    margin-left: calc(20px + 20 * (100vw - 769px) / 2048);
+    margin-bottom: calc(20px + 20 * (100vw - 769px) / 2048);
+}
+
+.skills-wrapper {
+    padding-left: calc(18px + 8 * (100vw - 769px) / 2048);
+    padding-right: calc(18px + 8 * (100vw - 769px) / 2048);        
+    margin-bottom: calc(68px + 72 * (100vw - 769px) / 2048);
+}
+
+#skills-main .skills-wrapper {
+    margin-bottom: 0;
+}
 
 
-/* @media(min-width: 769px) { */
 
-    .icon-skill:hover .slide, .skill:hover .slide {
-        right: 0;
-    }
+@media(min-width: 769px) {
 
-    .icon-skill {
-        margin-top: calc(16px + 8 * (100vw - 769px) / 2048);
-        margin-bottom: calc(54px + 58 * (100vw - 769px) / 2048);
-    }
-
-    .icon-skill i {
-        /* font-size: 6rem; */
-        font-size: calc(88px + 48 * (100vw - 769px) / 2048);
-        /* margin-bottom: 1rem; */
-        margin-bottom: calc(16px + 8 * (100vw - 769px) / 2048);
-    }
-
-    .skill {
-        margin-left: calc(20px + 20 * (100vw - 769px) / 2048);
-        margin-bottom: calc(20px + 20 * (100vw - 769px) / 2048);
+    .previous .skills-section, .previous .icon-skill, .previous .skill {
+        transform: translateX(-75vw);
     }
     
-    .skills-wrapper {
-        padding-left: calc(18px + 8 * (100vw - 769px) / 2048);
-        padding-right: calc(18px + 8 * (100vw - 769px) / 2048);        
-        margin-bottom: calc(68px + 72 * (100vw - 769px) / 2048);
+    .next .skills-section, .next .icon-skill, .next .skill {
+        transform: translateX(75vw);
+    }
+    
+    .previous .skills-section .skills-wrapper {
+        transform: translateX(-75vw);
+    }
+    
+    .next .skills-section .skills-wrapper {
+        transform: translateX(75vw);
     }
 
-    #skills-main .skills-wrapper {
-        margin-bottom: 0;
-    }
-
-/* } */
+}
 
 @media(max-width: 768px) {
 

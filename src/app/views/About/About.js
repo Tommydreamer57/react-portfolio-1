@@ -23,27 +23,28 @@ class About extends Component {
         return (
             <div id="About">
                 <div id="about-wrapper">
-                    <div id="mobile-logo" className="mobile-only">
+                    {/* <div id="mobile-logo" className="mobile-only">
                         <div id="mobile-logo-circle">
-                            <img src={logo} />
+                        <img src={logo} />
                         </div>
-                    </div>
+                    </div> */}
                     <div className="landing" >
                         <AnimatedText
                             tag="h1"
                             text={bio.About.greeting}
                             delay={0}
-                            after={20}
+                            after={1100}
                             done={this.h1done}
-                            speed={20}
+                            speed={40}
                             history={this.props.history}
                         />
                         <AnimatedText
                             tag="h4"
                             text={bio.About.intro}
+                            delay={500}
                             await={this.state.h1}
                             done={this.h3done}
-                            speed={20}
+                            speed={25}
                             finalCursor={true}
                             history={this.props.history}
                         />

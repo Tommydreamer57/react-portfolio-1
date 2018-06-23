@@ -19,6 +19,7 @@ import Buttons from '../components/Buttons/Buttons';
 import Copyright from '../components/Copyright/Copyright';
 // scrollbar controller
 import addEventListeners from '../event-listeners';
+import jump from 'jump.js';
 
 let i = 10
 
@@ -48,36 +49,11 @@ class View extends Component {
         setTimeout(this.componentDidUpdate, 50)
     }
     componentWillReceiveProps = ({ match: { params: { view } }, location: { pathname } }) => {
-        console.log(arguments);
+        console.log("VIEW RECEIVED PROPS")
         if (pathname === this.props.location.pathname) return;
-        // if (view === '/') document.getElementById('root').style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
-        // else document.getElementById('root').style.backgroundColor = 'rgba(128, 128, 128, 0.5)';
-        // let root = document.getElementById('root');
-        // let color = root.style.backgroundColor;
-        // switch (view) {
-        //     case '/':
-        //         color = 'rgba(255,127.5,127.5,0.125)';
-        //         break;
-        //     case 'skills':
-        //         color = 'rgba(127.5,255,127.5,0.125)';
-        //         break;
-        //     case 'projects':
-        //         color = 'rgba(0,255,255,0.125)';
-        //         break;
-        //     case 'details':
-        //         color = 'rgba(127.5,127.5,255,0.125)';
-        //         break;
-        //     case 'contact':
-        //         color = 'rgba(255,255,0,0.125)';
-        //         break;
-        //     default:
-        //         color = 'rgba(127.5,127.5,255,0.125)';
-        //         break;
-        // }
-        // console.log(color);
-        // root.style.backgroundColor = color;
     }
     componentDidUpdate = () => {
+        console.log("VIEW UPDATED")
         this.scrollbar = this.scrollbar.removeEventListeners().addEventListeners()
     }
     toggleMenu = () => {
@@ -195,7 +171,7 @@ class View extends Component {
                     })
                 }
                 {/* LOGO */}
-                <Link to="/" id="logo-wrapper">
+                <Link to="/#About" id="logo-wrapper">
                     <div id="logo-circle">
                         <img id="logo" src={logo} />
                     </div>
@@ -221,4 +197,37 @@ class View extends Component {
     }
 }
 
-export default View
+function scrollable(Comp) {
+    // if (window.innerWidth > 769) {
+    //     console.log("NOT MOBILE")
+    //     return Comp
+    // } else
+    return class extends Comp {
+        componentWillReceiveProps = (newProps) => {
+            console.log("RECEIVING PROPS")
+            console.log(newProps)
+            if (newProps.location !== this.props.location && newProps.location.hash) {
+                let el = document.querySelector(newProps.location.hash)
+                if (el) {
+                    jump(el, {
+                        duration: 400,
+                        offset: -window.innerHeight / 10
+                    })
+                }
+                console.log(el)
+            }
+            if (super.componentWillReceiveProps) {
+                super.componentWillReceiveProps()
+            }
+        }
+        // componentDidUpdate = (prevProps) => {
+        //     console.log("UPDATING")
+        //     console.log(prevProps)
+        //     if (super.componentDidUpdate) {
+        //         super.componentDidUpdate(prevProps)
+        //     }
+        // }
+    }
+}
+
+export default scrollable(View)

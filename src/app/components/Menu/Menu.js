@@ -7,22 +7,22 @@ let i = 0;
 function Menu({ current, open, toggleMenu }) {
     const links = [
         {
-            to: '/',
+            to: '/#About',
             label: 'About',
             selected: !current
         },
         {
-            to: '/skills',
+            to: '/skills#Skills',
             label: 'Skills',
             selected: current === 'skills'
         },
         {
-            to: '/projects',
+            to: '/projects#Projects',
             label: 'Projects',
             selected: current === 'projects'
         },
         {
-            to: '/contact',
+            to: '/contact#Contact',
             label: 'Contact',
             selected: current === 'contact'
         }

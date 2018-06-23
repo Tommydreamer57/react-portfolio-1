@@ -39,20 +39,20 @@ export default function Buttons({ open, current, details, history, toggleMenu })
             nextLabel = "Skills"
             break;
         case "skills":
-            previous = "/"
+            previous = "/#About"
             previousLabel = "About"
-            next = "/projects"
+            next = "/projects#Projects"
             nextLabel = "Projects"
             break;
         case "projects":
-            previous = "/skills"
+            previous = "/skills#Skills"
             previousLabel = "Skills"
-            next = "/contact"
+            next = "/contact#Contact"
             nextLabel = "Contact"
             break;
         case "details":
         case "contact":
-            previous = "/projects"
+            previous = "/projects#Projects"
             previousLabel = "Projects"
             break;
     }
@@ -74,7 +74,7 @@ export default function Buttons({ open, current, details, history, toggleMenu })
                 <div id="menu-three" className="arrow" />
             </button>
 
-            <Link to={previous || "/"} id="LeftButton" className={leftClass} >
+            <Link to={previous || "/#About"} id="LeftButton" className={leftClass} >
                 <div className="arrow-wrapper">
                     <div id="left-one" className="arrow" />
                     {
@@ -84,7 +84,7 @@ export default function Buttons({ open, current, details, history, toggleMenu })
                 </div>
             </Link>
 
-            <Link to={next || "/contact"} id="RightButton" className={rightClass} >
+            <Link to={next || "/contact#Contact"} id="RightButton" className={rightClass} >
                 <div className="arrow-wrapper">
                     <div id="right-one" className="arrow" />
                     {

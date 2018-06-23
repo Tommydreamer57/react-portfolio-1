@@ -37,6 +37,10 @@
     margin-bottom: calc(12px + 10 * (100vw - 769px) / 2048);
 }
 
-.next .project-details h3, .next .project-details .tech, .next .project-details .description span, .next .project-details .description h4, .next .project-details .description p, .next .project-details .image {
-    transform: translateX(75vw);
+@media(min-width: 769px) {
+    
+    .next .project-details h3, .next .project-details .tech, .next .project-details .description span, .next .project-details .description h4, .next .project-details .description p, .next .project-details .image {
+        transform: translateX(75vw);
+    }
+    
 }
