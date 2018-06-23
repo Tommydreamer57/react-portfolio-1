@@ -12,7 +12,7 @@ class DropDown extends Component {
         this.setState({ open: !this.state.open });
     }
     render() {
-        console.log(this.props.transitionDelay)
+        // console.log(this.props.transitionDelay)
         let { text } = this.props;
         if (!Array.isArray(text)) return (
             <Text text={text} transitionDelay={this.props.transitionDelay} />

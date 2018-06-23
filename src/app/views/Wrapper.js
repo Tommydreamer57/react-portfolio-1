@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 // TOUCH
 function Touch({ clientX, clientY, radiusX, radiusY, force }) {
@@ -35,132 +36,132 @@ export default class Wrapper extends Component {
             initialTouches: []
         }
     }
-    onTouchStart = ({ touches }) => {
-        touches = [...touches]
-        // console.log(touches)
-        let initialTouches = touches
-        this.setState({
-            touches,
-            initialTouches,
-        })
-    }
-    onTouchMove = ({ touches }) => {
-        touches = [...touches]
-        if (touches.length === 1 && this.state.initialTouches.length === 1) {
-            // ACCESS INITIAL COORDINATES OF THE TOUCH
-            let initialTouch = this.state.initialTouches[0]
-            let currentTouch = touches[0]
+    // onTouchStart = ({ touches }) => {
+    //     touches = [...touches]
+    //     // console.log(touches)
+    //     let initialTouches = touches
+    //     this.setState({
+    //         touches,
+    //         initialTouches,
+    //     })
+    // }
+    // onTouchMove = ({ touches }) => {
+    //     touches = [...touches]
+    //     if (touches.length === 1 && this.state.initialTouches.length === 1) {
+    //         // ACCESS INITIAL COORDINATES OF THE TOUCH
+    //         let initialTouch = this.state.initialTouches[0]
+    //         let currentTouch = touches[0]
 
-            // CALCULATE CHANGE IN Y / CHANGE IN X = SLOPE
-            let changeX = currentTouch.clientX - initialTouch.clientX
-            let changeY = initialTouch.clientY - currentTouch.clientY
+    //         // CALCULATE CHANGE IN Y / CHANGE IN X = SLOPE
+    //         let changeX = currentTouch.clientX - initialTouch.clientX
+    //         let changeY = initialTouch.clientY - currentTouch.clientY
 
-            let slope = changeY / changeX
+    //         let slope = changeY / changeX
 
-            // CHECK IF INITIAL TOUCH WAS ON THE SIDE OF THE SCREEN
-            let direction = undefined
+    //         // CHECK IF INITIAL TOUCH WAS ON THE SIDE OF THE SCREEN
+    //         let direction = undefined
 
-            if (initialTouch.clientX < window.innerWidth / 3) direction = 'right'
-            if (initialTouch.clientX > window.innerWidth * 2 / 3) direction = 'left'
+    //         if (initialTouch.clientX < window.innerWidth / 3) direction = 'right'
+    //         if (initialTouch.clientX > window.innerWidth * 2 / 3) direction = 'left'
 
-            // console.log(Math.abs(slope), initialTouch.navigating, direction)
+    //         // console.log(Math.abs(slope), initialTouch.navigating, direction)
 
-            // IF INITIAL CONDITIONS MET
-            if (direction && (Math.abs(slope) < 0.66 && initialTouch.navigating !== false)) {
-                // NAVIGATION IS SET ONCE FOR EACH TOUCH
-                initialTouch.navigating = true
-                // DIRECTION IS SET ONCE FOR EACH TOUCH
-                if (!initialTouch.direction) {
-                    // console.log('setting direction to ' + direction)
-                    initialTouch.direction = direction
-                }
-            }
-            else {
-                initialTouch.navigating = false
-            }
+    //         // IF INITIAL CONDITIONS MET
+    //         if (direction && (Math.abs(slope) < 0.66 && initialTouch.navigating !== false)) {
+    //             // NAVIGATION IS SET ONCE FOR EACH TOUCH
+    //             initialTouch.navigating = true
+    //             // DIRECTION IS SET ONCE FOR EACH TOUCH
+    //             if (!initialTouch.direction) {
+    //                 // console.log('setting direction to ' + direction)
+    //                 initialTouch.direction = direction
+    //             }
+    //         }
+    //         else {
+    //             initialTouch.navigating = false
+    //         }
 
-            // AFTER NAVIGATION HAS BEEN SET, WE CAN DO THE NAVIGATION
-            if (initialTouch.navigating) {
-                // update the 'left' property of the previous or next view through props
-                let distance = Math.abs(initialTouch.clientX - currentTouch.clientX)
-                this.props.swipe(initialTouch.direction, distance)
-            }
-        }
-        this.setState({
-            touches
-        })
-    }
-    onTouchEnd = ({ touches }) => {
-        touches = [...touches]
-        let initialTouches = this.state.initialTouches.filter(touch => touches.some(otherTouch => otherTouch.id === touch.id))
-        if (this.state.touches.length === 1) {
+    //         // AFTER NAVIGATION HAS BEEN SET, WE CAN DO THE NAVIGATION
+    //         if (initialTouch.navigating) {
+    //             // update the 'left' property of the previous or next view through props
+    //             let distance = Math.abs(initialTouch.clientX - currentTouch.clientX)
+    //             this.props.swipe(initialTouch.direction, distance)
+    //         }
+    //     }
+    //     this.setState({
+    //         touches
+    //     })
+    // }
+    // onTouchEnd = ({ touches }) => {
+    //     touches = [...touches]
+    //     let initialTouches = this.state.initialTouches.filter(touch => touches.some(otherTouch => otherTouch.id === touch.id))
+    //     if (this.state.touches.length === 1) {
 
-            let initialTouch = this.state.initialTouches[0]
-            let currentTouch = this.state.touches[0]
+    //         let initialTouch = this.state.initialTouches[0]
+    //         let currentTouch = this.state.touches[0]
 
-            if (initialTouch.navigating) {
-                let { history, path } = this.props
-                let views = ['/', '/skills', '/projects', '/contact']
-                let previousView = views[views.indexOf(path) - 1] || '/'
-                let nextView = views[views.indexOf(path) + 1] || '/contact'
-                // console.log('previous: "' + previousView, '", next: "' + nextView + '"')
-                if (initialTouch.direction === 'left' && currentTouch.clientX < window.innerWidth / 2) {
-                    // console.log('pushing to ', nextView)
-                    history.push(nextView)
-                }
-                else if (initialTouch.direction === 'right' && currentTouch.clientX > window.innerWidth / 2) {
-                    // console.log('pushing to ', previousView)
-                    history.push(previousView)
-                }
-            }
+    //         if (initialTouch.navigating) {
+    //             let { history, path } = this.props
+    //             let views = ['/', '/skills', '/projects', '/contact']
+    //             let previousView = views[views.indexOf(path) - 1] || '/'
+    //             let nextView = views[views.indexOf(path) + 1] || '/contact'
+    //             // console.log('previous: "' + previousView, '", next: "' + nextView + '"')
+    //             if (initialTouch.direction === 'left' && currentTouch.clientX < window.innerWidth / 2) {
+    //                 // console.log('pushing to ', nextView)
+    //                 history.push(nextView)
+    //             }
+    //             else if (initialTouch.direction === 'right' && currentTouch.clientX > window.innerWidth / 2) {
+    //                 // console.log('pushing to ', previousView)
+    //                 history.push(previousView)
+    //             }
+    //         }
 
-            this.props.swipe(null, 0)
-        }
-        this.setState({
-            touches,
-            initialTouches
-        })
-    }
+    //         this.props.swipe(null, 0)
+    //     }
+    //     this.setState({
+    //         touches,
+    //         initialTouches
+    //     })
+    // }
     render() {
         let {
             open,
             current,
             id,
             position,
-            slidePosition,
-            slideDirection,
+            // slidePosition,
+            // slideDirection,
             child: Child,
             childProps,
             history
         } = this.props
 
-        let translateX = 0
+        // let translateX = 0
 
-        if (id === 'next-view' && slideDirection === 'left') {
-            translateX = -slidePosition
-        }
-        else if (id === 'previous-view' && slideDirection === 'right') {
-            translateX = slidePosition
-        }
-        else if (id === 'next-view') {
+        // if (id === 'next-view' && slideDirection === 'left') {
+        //     translateX = -slidePosition
+        // }
+        // else if (id === 'previous-view' && slideDirection === 'right') {
+        //     translateX = slidePosition
+        // }
+        // else if (id === 'next-view') {
 
-        }
-        else if (id === 'previous-view') {
+        // }
+        // else if (id === 'previous-view') {
 
-        }
+        // }
 
-        else if (position === 'current' && slideDirection === 'right') {
-            translateX = slidePosition
-        }
-        else if (position === 'current' && slideDirection === 'left') {
-            translateX = -slidePosition
-        }
+        // else if (position === 'current' && slideDirection === 'right') {
+        //     translateX = slidePosition
+        // }
+        // else if (position === 'current' && slideDirection === 'left') {
+        //     translateX = -slidePosition
+        // }
 
         let style = {}
         if (window.innerWidth < 769) {
-            style.top = position === 'current' ? undefined : 0
-            style.transform = `translateX(${translateX}px)`
-            style.transition = 'margin-top .3s'
+            if (current === 'details') {
+                style.transform = 'translateX(-175vw)'
+            }
         }
         else {
             if (position !== 'current') {
@@ -169,12 +170,12 @@ export default class Wrapper extends Component {
             else {
                 style.transition = 'transform .8s, margin-top .3s'
             }
+            if (open) {
+                let scrollTop = document.getElementsByClassName('current')[0].scrollTop || 0
+                style.marginTop = `calc(110vh + ${scrollTop}px)`
+            }
         }
 
-        if (open) {
-            let scrollTop = document.getElementsByClassName('current')[0].scrollTop || 0
-            style.marginTop = `calc(110vh + ${scrollTop}px)`
-        }
 
         if (position.includes('current') && current === 'details') {
             let el = document.getElementsByClassName('current')[0] || {}
@@ -236,9 +237,21 @@ export class DetailWrapper extends Wrapper {
 
         let style = {}
         if (window.innerWidth < 769) {
-            style.top = position.includes('current') ? undefined : 0
-            // style.transform = `translateX(${translateX}px)`
-            style.transition = 'margin-top .3s'
+            let views = [
+                ...document.getElementsByClassName('previous'),
+                ...document.getElementsByClassName('next'),
+            ]
+            if (position.includes('current')) {
+                style.left = '0px'
+                views.forEach(el => {
+                    el.style.transform = 'translateX(-125vh)'
+                })
+            } else {
+                views.forEach(el => {
+                    el.style.transform = 'translateX(0)'
+                })
+            }
+            style.transition = '0.3s'
         }
         else {
             if (!position.includes('current')) {
@@ -247,26 +260,35 @@ export class DetailWrapper extends Wrapper {
             else {
                 style.transition = 'transform .8s, margin-top .3s'
             }
-        }
-
-        if (open) {
-            let scrollTop = document.getElementsByClassName('current')[0].scrollTop || 0
-            style.marginTop = `calc(110vh + ${scrollTop}px)`
+            if (open) {
+                let scrollTop = document.getElementsByClassName('current')[0].scrollTop || 0
+                style.marginTop = `calc(110vh + ${scrollTop}px)`
+            }
         }
 
         let outerProps = {
             className: position,
             style,
-            onTouchStart: this.onTouchStart,
-            onTouchMove: this.onTouchMove,
-            onTouchEnd: this.onTouchEnd
+            // onTouchStart: this.onTouchStart,
+            // onTouchMove: this.onTouchMove,
+            // onTouchEnd: this.onTouchEnd
         }
 
 
         return (
             <div {...outerProps} >
                 <div className="content details-content">
+                    <Link to='/projects' >
+                        <h4>
+                            Back To Projects
+                        </h4>
+                    </Link>
                     <Child {...childProps} />
+                    <Link to='/projects' >
+                        <h4>
+                            Back To Projects
+                        </h4>
+                    </Link>
                     <div className="bottom-padding" />
                     <div className="scrollbar-cover" />
                 </div>

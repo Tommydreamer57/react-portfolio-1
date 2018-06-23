@@ -153,6 +153,10 @@
 
 @media(max-width: 768px) {
 
+    #Menu {
+        background: #F54;
+    }
+
     .menu-link {
         margin: 0 7.5vw;
     }

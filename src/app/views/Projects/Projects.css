@@ -96,14 +96,6 @@
     margin-top: calc(36px + 96 * (100vw - 769px) / 2048)
 }
 
-.previous .tech-list, .previous .project h3, .previous .project h4, .previous .project .image, .previous .tag, .previous .tech {
-    transform: translateX(-75vw);
-}
-
-.next .tech-list, .next .project h3, .next .project h4, .next .project .image, .next .tag, .next .tech {
-    transform: translateX(75vw);
-}
-
 .project {
     /* margin-bottom: calc(24px + 10 * (100vw - 769px) / 2048); */
     /* margin-bottom: 10%; */
@@ -158,6 +150,14 @@
 }
 
 @media(min-width: 769px) {
+            
+    .previous .tech-list, .previous .project h3, .previous .project h4, .previous .project .image, .previous .tag, .previous .tech {
+        transform: translateX(-75vw);
+    }
+
+    .next .tech-list, .next .project h3, .next .project h4, .next .project .image, .next .tag, .next .tech {
+        transform: translateX(75vw);
+    }
 
     .project {
         /* margin: 2rem 0 1rem; */        

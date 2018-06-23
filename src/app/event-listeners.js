@@ -71,12 +71,12 @@ function addEventListeners() {
         }
         // IF SCROLLBAR HEIGHT CHANGES
         if (~~scrollbar.style.height.replace(/px/, "") != ~~scrollbarHeight) {
-            console.log(`changing scrollbar height from ${scrollbar.style.height} to ${scrollbarHeight}`);
+            // console.log(`changing scrollbar height from ${scrollbar.style.height} to ${scrollbarHeight}`);
             // SET TRANSITION TOP FOR HEIGHT CHANGE
-            console.log('adding top to scrollbar transition');
+            // console.log('adding top to scrollbar transition');
             scrollbar.style.transition = 'height .4s ease, top .4s ease';
             let timeout = setTimeout(function resetTransition() {
-                console.log('resetting scrollbar transition');
+                // console.log('resetting scrollbar transition');
                 // REMOVE TRANSITION TOP AFTER HEIGHT CHANGE
                 scrollbar.style.transition = 'height .4s ease';
             }, 401);

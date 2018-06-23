@@ -1,16 +1,11 @@
 
-#About {
-    margin-bottom: -10vh;
-}
-
 .landing {
     min-height: calc(100vh - 10vw);
-    max-width: 55vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    white-space: nowrap;
+    margin: 0;
 }
 
 .landing h1 {
@@ -25,6 +20,8 @@
 #underscore {
     position: absolute;
     left: 100%;
+    top: 0;
+    line-height: 1.1;
     animation-name: blink;
     animation-iteration-count: infinite;
     animation-duration: 0.7s;
@@ -37,10 +34,6 @@
 
 .transition-letter.bold:hover {
     cursor: pointer;
-}
-
-.previous .transition-letter {
-    left: -75vw;
 }
 
 .more {
@@ -60,15 +53,44 @@
     text-align: center;
 }
 
-.ellipsis:hover {
-    cursor: pointer;
+@media(min-width: 769px) {
+        
+    #About {
+        margin-bottom: -10vh;
+    }
+
+    .previous .transition-letter {
+        left: -75vw;
+    }
+
+    .landing {
+        max-width: 55vw;
+        width: 100%;
+        white-space: nowrap;
+    }
+    
+    .ellipsis:hover {
+        cursor: pointer;
+    }
+    
 }
 
 @media(max-width: 768px) {
 
+    .landing {
+        padding: 3rem 0rem 5rem;
+        text-align: left;
+        margin-bottom: 15vw;
+    }
+
+    .landing br {
+        line-height: 3;
+    }
+
     #mobile-logo {
         width: 100%;
-        display: flex;
+        display: none;
+        /* display: flex; */
         justify-content: center;
         align-items: center;
         margin: 3rem 0;
