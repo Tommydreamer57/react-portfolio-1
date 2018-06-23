@@ -16,7 +16,7 @@ export default class AnimatedText extends Component {
             setTimeout(this.addLetter, this.props.delay)
         }
         this.letters.forEach((el, i) => {
-            el.style.transitionDelay = ((i + 1) * 0.005) + 's'
+            el.style.transitionDelay = ((i + 1) * (this.props.stagger || 0.005)) + 's'
         })
     }
 
@@ -31,7 +31,7 @@ export default class AnimatedText extends Component {
         if (this.index < this.props.text.length) {
             let previous = this.letters[this.index - 1] || { style: {}, innerHTML: {} }
             let next = this.letters[this.index] || { style: {}, innerHTML: {} }
-            let underscore = `<span id="underscore" class="transition-letter" style="transition-delay: ${((this.index + 1) * 0.005).toFixed(3)}s;" >_</span>`
+            let underscore = `<span id="underscore" class="transition-letter" style="transition-delay: ${((this.index + 1) * (this.props.stagger || 0.005)).toFixed(3)}s;" >_</span>`
             previous.innerHTML = (previous.innerHTML + '').slice(0, previous.innerHTML.length - underscore.length + 1)
             next.innerHTML += underscore
             next.style.opacity = 1
@@ -54,7 +54,6 @@ export default class AnimatedText extends Component {
             typeof this.props.tag === 'string' ?
                 (
                     <this.props.tag>
-                        <span>&nbsp;</span>
                         {
                             this.props.text.split('')
                                 .map((letter, i, arr) => {
@@ -81,7 +80,8 @@ export default class AnimatedText extends Component {
                                         )
                                     } else if (flag === 3) {
                                         return (
-                                            <span
+                                            <a
+                                                href="mailto:minilao94@yahoo.com"
                                                 key={i}
                                                 ref={this.setletters[i]}
                                                 className="transition-letter"
@@ -92,7 +92,7 @@ export default class AnimatedText extends Component {
                                                 }}
                                             >
                                                 {letter}
-                                            </span>
+                                            </a>
                                         )
                                     } else return (
                                         <span

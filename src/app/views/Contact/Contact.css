@@ -1,10 +1,15 @@
 
+#Contact {
+    margin-bottom: -12.5vh;
+}
+
 .links {
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: calc(48px + 112 * (100vw - 769px) / 2048);
+    /* margin-top: calc(48px + 112 * (100vw - 769px) / 2048); */
+    margin-top: calc(28px + 72 * (100vw - 769px) / 2048);
 }
 
 .link {
@@ -18,8 +23,13 @@
     transition: 0.6s;
 }
 
-.previous .link {
-    transform: translateX(-75vw);
+.transition-letter {
+    left: 0;
+    transition: left 0.6s;
+}
+
+.next .transition-letter {
+    left: 75vw;
 }
 
 .next .link {

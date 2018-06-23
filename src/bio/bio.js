@@ -312,23 +312,26 @@ let Projects = [
     }
 ]
 
-let Contact = [
-    {
-        name: "GitHub",
-        icon: "devicon-github-plain",
-        link: "https://github.com/tommydreamer57"
-    },
-    // {
-    //     name: "minilao94@yahoo.com",
-    //     svg: logo,
-    //     link: "minilao94@yahoo.com"
-    // },
-    {
-        name: "LinkedIn",
-        svg: LinkedIn,
-        link: "http://linkedin.com/in/thomasglowry"
-    }
-]
+let Contact = {
+    text: "Feel free to reach out to me through LinkedIn, or send me an email at $$$minilao94@yahoo.com$.",
+    links: [
+        {
+            name: "GitHub",
+            icon: "devicon-github-plain",
+            link: "https://github.com/tommydreamer57"
+        },
+        // {
+        //     name: "minilao94@yahoo.com",
+        //     svg: logo,
+        //     link: "minilao94@yahoo.com"
+        // },
+        {
+            name: "LinkedIn",
+            svg: LinkedIn,
+            link: "http://linkedin.com/in/thomasglowry"
+        }
+    ]
+}
 
 
 export default {
