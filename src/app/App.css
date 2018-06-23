@@ -41,6 +41,7 @@ body,
     width: 100vw;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     font-family:
         /* 'Overpass Mono', */
         Inconsolata,
@@ -308,6 +309,10 @@ font-size starts at 20px at vewport width of 769px and ranges to 30px at viewpor
     #logo-wrapper, #scrollbar {
         display: none;
     }
+
+    #Skills {
+        margin-top: 20vh;
+    }
     
     .previous-left-margin, .previous-right-margin, .current-left-margin, .current-right-margin, .next-left-margin, .next-right-margin {
         display: none
@@ -318,9 +323,12 @@ font-size starts at 20px at vewport width of 769px and ranges to 30px at viewpor
         flex-direction: column;
         /* margin: 0rem 2rem 5rem; */
         margin-top: 0;
-        width: calc(100% - (24px + 48 * (100vw - 360px)) * 2);
+        width: 90vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        /* width: calc(100% - (24px + 48 * (100vw - 360px)) * 2);
         padding-left: calc(24px + 48 * (100vw - 360px) / 768);
-        padding-right: calc(24px + 48 * (100vw - 360px) / 768);
+        padding-right: calc(24px + 48 * (100vw - 360px) / 768); */
         margin-bottom: 5rem;
         /* padding-left: 1rem;
         padding-right: 1rem; */
