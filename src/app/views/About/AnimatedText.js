@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-let mounted = false
+import { Link } from 'react-router-dom';
 
 export default class AnimatedText extends Component {
     constructor(props) {
@@ -16,7 +15,6 @@ export default class AnimatedText extends Component {
         if (!this.props.hasOwnProperty('await') || this.props.await) {
             setTimeout(this.addLetter, this.props.delay)
         }
-        mounted = true
     }
 
     componentWillReceiveProps = newProps => {
@@ -30,8 +28,9 @@ export default class AnimatedText extends Component {
         if (this.index < this.props.text.length) {
             let previous = this.letters[this.index - 1] || { style: {}, innerHTML: {} }
             let next = this.letters[this.index] || { style: {}, innerHTML: {} }
-            previous.innerHTML = previous.innerHTML[0]
-            next.innerHTML += '<span id="underscore" style="position:absolute;top:0;" >_</span>'
+            let underscore = '<span id="underscore" style="position:absolute;top:0;" >_</span>'
+            previous.innerHTML = (previous.innerHTML + '').slice(0, previous.innerHTML.length - underscore.length + 1)
+            next.innerHTML += underscore
             next.style.opacity = 1
 
             setTimeout(this.addLetter, this.props.speed || 250)
@@ -45,6 +44,7 @@ export default class AnimatedText extends Component {
     }
 
     render() {
+        let flag = 0;
         return (
             typeof this.props.tag === 'string' ?
                 (
@@ -52,9 +52,54 @@ export default class AnimatedText extends Component {
                         <span>&nbsp;</span>
                         {
                             this.props.text.split('')
-                                .map((letter, i) => (
-                                    <span key={i} ref={this.setletters[i]} style={{ opacity: 0, position: 'relative' }} >{letter}</span>
-                                ))
+                                .map((letter, i, arr) => {
+                                    if (letter === '$') {
+                                        flag++
+                                        return ''
+                                    } else if (arr[i - 1] === '.' && letter === ' ') {
+                                        return <br key={i} />
+                                    } else if (flag === 1) {
+                                        return (
+                                            <span
+                                                key={i}
+                                                ref={this.setletters[i]}
+                                                style={{
+                                                    opacity: 0,
+                                                    position: 'relative',
+                                                    fontWeight: 'bold'
+                                                }}
+                                            >
+                                                <Link
+                                                    to="/projects"
+                                                >
+                                                    {letter}
+                                                </Link>
+                                            </span>
+                                        )
+                                    } else if (flag === 3) {
+                                        return (
+                                            <span
+                                                key={i}
+                                                ref={this.setletters[i]}
+                                                style={{
+                                                    opacity: 0,
+                                                    position: 'relative',
+                                                    fontWeight: 'bold'
+                                                }}
+                                            >
+                                                {letter}
+                                            </span>
+                                        )
+                                    } else return (
+                                        <span
+                                            key={i}
+                                            ref={this.setletters[i]}
+                                            style={{ opacity: 0, position: 'relative' }}
+                                        >
+                                            {letter}
+                                        </span>
+                                    )
+                                })
                             // this.props.text.split('')
                             //     .map((letter, i) => (
                             //         ((!mounted && console.log(letter, i)) || true) &&

@@ -115,7 +115,7 @@
     /* font-size: 1.75rem; */
     /* margin-bottom: 0.75rem; */
     margin-bottom: calc(8px + 6 * (100vw - 769px) / 2048);
-    transition: 0.6s;
+    transition: 0.5s;
 }
 
 .project h4 {
@@ -129,7 +129,7 @@
     text-overflow: ellipsis;
     /* margin-bottom: 1rem; */
     margin-bottom: calc(14px + 16 * (100vw - 769px) / 2048);    
-    transition: 0.6s;
+    transition: 0.5s;
 }
 
 .project .image {
@@ -137,7 +137,7 @@
     z-index: 2;
     /* margin-bottom: 1.75rem; */
     padding: 0;
-    transition: 0.6s;
+    transition: 0.5s;
 }
 
 .project .image, .image img {
