@@ -36,6 +36,7 @@ class About extends Component {
                             after={20}
                             done={this.h1done}
                             speed={20}
+                            history={this.props.history}
                         />
                         <AnimatedText
                             tag="h4"
@@ -44,6 +45,7 @@ class About extends Component {
                             done={this.h3done}
                             speed={20}
                             finalCursor={true}
+                            history={this.props.history}
                         />
                         {/* <h1>{bio.About.greeting}</h1> */}
                         {/* <h3>{bio.About.intro}</h3> */}

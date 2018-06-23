@@ -15,6 +15,9 @@ export default class AnimatedText extends Component {
         if (!this.props.hasOwnProperty('await') || this.props.await) {
             setTimeout(this.addLetter, this.props.delay)
         }
+        this.letters.forEach((el, i) => {
+            el.style.transitionDelay = ((i + 1) * 0.005) + 's'
+        })
     }
 
     componentWillReceiveProps = newProps => {
@@ -28,7 +31,7 @@ export default class AnimatedText extends Component {
         if (this.index < this.props.text.length) {
             let previous = this.letters[this.index - 1] || { style: {}, innerHTML: {} }
             let next = this.letters[this.index] || { style: {}, innerHTML: {} }
-            let underscore = '<span id="underscore" style="position:absolute;top:0;" >_</span>'
+            let underscore = `<span id="underscore" class="transition-letter" style="transition-delay: ${((this.index + 1) * 0.005).toFixed(3)}s;" >_</span>`
             previous.innerHTML = (previous.innerHTML + '').slice(0, previous.innerHTML.length - underscore.length + 1)
             next.innerHTML += underscore
             next.style.opacity = 1
@@ -42,6 +45,8 @@ export default class AnimatedText extends Component {
             this.props.done()
         }, this.props.after)
     }
+
+    goToProjects = () => this.props.history.push('/projects')
 
     render() {
         let flag = 0;
@@ -63,17 +68,15 @@ export default class AnimatedText extends Component {
                                             <span
                                                 key={i}
                                                 ref={this.setletters[i]}
+                                                className="transition-letter"
                                                 style={{
                                                     opacity: 0,
                                                     position: 'relative',
                                                     fontWeight: 'bold'
                                                 }}
+                                                onClick={this.goToProjects}
                                             >
-                                                <Link
-                                                    to="/projects"
-                                                >
-                                                    {letter}
-                                                </Link>
+                                                {letter}
                                             </span>
                                         )
                                     } else if (flag === 3) {
@@ -81,6 +84,7 @@ export default class AnimatedText extends Component {
                                             <span
                                                 key={i}
                                                 ref={this.setletters[i]}
+                                                className="transition-letter"
                                                 style={{
                                                     opacity: 0,
                                                     position: 'relative',
@@ -94,6 +98,7 @@ export default class AnimatedText extends Component {
                                         <span
                                             key={i}
                                             ref={this.setletters[i]}
+                                            className="transition-letter"
                                             style={{ opacity: 0, position: 'relative' }}
                                         >
                                             {letter}

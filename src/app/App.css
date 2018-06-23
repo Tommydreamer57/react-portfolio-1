@@ -7,6 +7,8 @@
 @import url('https://fonts.googleapis.com/css?family=Mukta+Mahee');
 @import url('https://fonts.googleapis.com/css?family=Cousine');
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+@import url('https://fonts.googleapis.com/css?family=Overpass+Mono');
 
 /*
     foxes
@@ -52,7 +54,14 @@ body,
     /* background: #060660; */
     /* LIGHTER */
     /* background: #66D; */
-    font-family: 'Mukta Mahee', Cousine, 'Fira Mono', 'Ubuntu Mono', Roboto;
+    font-family:
+        /* 'Overpass Mono', */
+        Inconsolata,
+        'Mukta Mahee',
+        Cousine,
+        'Fira Mono',
+        'Ubuntu Mono',
+        Roboto;
     /* color: rgba(255, 255, 255, 0.75); */
 }
 
@@ -152,7 +161,7 @@ body,
     background-position-y: 40%;
     /* RED WALL */
     background-image: url(https://images.unsplash.com/photo-1484009479330-67a6e7339295?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5c4048aba6e4800f69c82e067899a275&auto=format&fit=crop&w=600&q=60);
-    filter: blur(8px) brightness(150%) contrast(115%);
+    filter: blur(9px) brightness(150%) contrast(115%);
     background-position-y: 44%;
     /* RED / WHITE TEXTURE */
     /* background-image: url(https://images.unsplash.com/photo-1520241334777-b5b1824ce314?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=195b520c2fc5d0682271e8580d70fc30&auto=format&fit=crop&w=600&q=60);
@@ -349,6 +358,10 @@ font-size starts at 20px at vewport width of 769px and ranges to 30px at viewpor
     h5 {
         /* font-size: 1.25rem; */
         font-size: calc(16px + 10 * (100vw - 769px) / 2048);
+    }
+
+    h6 {
+        font-size: calc(16px + 8 * (100vw - 769px) / 2048);
     }
 
     h1, h2, h3, h4, h5 {

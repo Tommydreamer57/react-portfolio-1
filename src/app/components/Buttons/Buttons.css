@@ -20,11 +20,11 @@ button:focus {
 
 .arrow {
     width: 50px;
-    height: 4px;
+    height: 3px;
     /* background: rgba(85, 25, 140, 0.6); */
     background: black;
     /* box-shadow: 0px 0px 7.5px 2.5px rgba(255, 255, 255, 0.25); */
-    opacity: 0.25;
+    opacity: 0.35;
     /* border-radius: 3px; */
     transition: margin 0.4s ease, transform 0.4s ease;
 }
@@ -52,13 +52,13 @@ button:focus {
 }
 
 .close-menu .arrow {
-    margin: -2px;
+    margin: -1.5px;
     width: 65px;
 }
 
 .close-menu #menu-one, .close-menu #menu-three {
     transform: rotate(-225deg);
-    opacity: 0.125;    
+    opacity: 0.1775;    
 }
 
 .close-menu #menu-two {
@@ -99,6 +99,7 @@ button:focus {
     position: absolute;
     transition: left .4s ease, right .4s ease, color .4s ease;
     color: rgba(0, 0, 0, 0);
+    font-weight: bold;
     /* opacity: 0; */
 }
 
@@ -233,7 +234,7 @@ button:focus {
     }
 
     .nav-button:hover .nav-label-display {
-        color: rgba(0, 0, 0, 0.5);
+        color: rgba(0, 0, 0, 0.675);
         /* rgba(85, 30, 140, 0.9); */
     }
     

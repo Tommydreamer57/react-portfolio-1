@@ -10,9 +10,9 @@ export default function Buttons({ open, current, details, history, toggleMenu })
         let key = `Left Button ${label} ${i}`
         let className = label === previousLabel ? 'nav-label nav-label-display' : 'nav-label'
         return (
-            <div key={key} className={className} >
+            <h6 key={key} className={className} >
                 {label}
-            </div>
+            </h6>
         )
     }
 
@@ -20,9 +20,9 @@ export default function Buttons({ open, current, details, history, toggleMenu })
         let key = `Right Button ${label} ${i}`
         let className = label === nextLabel ? 'nav-label nav-label-display' : 'nav-label'
         return (
-            <div key={0} className={className} >
+            <h6 key={key} className={className} >
                 {label}
-            </div>
+            </h6>
         )
     }
 
