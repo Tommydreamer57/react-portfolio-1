@@ -128,6 +128,7 @@ class View extends Component {
                     id={aboutId}
                     position={aboutPosition}
                     child={About}
+                    childProps={{ current }}
                 />
                 {/* SKILLS */}
                 <Wrapper
@@ -153,6 +154,7 @@ class View extends Component {
                     id={contactId}
                     position={contactPosition}
                     child={Contact}
+                    childProps={{ current }}
                 />
                 {/* SECONDARY VIEWS */}
                 {/* PROJECT DETAILS */}

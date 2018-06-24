@@ -280,13 +280,13 @@ export class DetailWrapper extends Wrapper {
         return (
             <div {...outerProps} >
                 <div className="content details-content">
-                    <Link to='/projects' >
+                    <Link to='/projects' className="mobile-only" >
                         <h4>
                             Back To Projects
                         </h4>
                     </Link>
                     <Child {...childProps} />
-                    <Link to='/projects' >
+                    <Link to='/projects' className="mobile-only" >
                         <h4>
                             Back To Projects
                         </h4>

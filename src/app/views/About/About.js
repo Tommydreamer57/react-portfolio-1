@@ -14,12 +14,13 @@ class About extends Component {
             h3: false,
             p: 0
         }
-
+        this.renderCount = 0;
     }
     h1done = () => this.setState({ h1: true })
     h3done = () => this.setState({ h3: true })
     pdone = () => this.setState({ p: this.state.p + 1 })
     render() {
+        this.renderCount++;
         return (
             <div id="About">
                 <div id="about-wrapper">
@@ -33,18 +34,20 @@ class About extends Component {
                             tag="h1"
                             text={bio.About.greeting}
                             delay={0}
-                            after={1100}
+                            after={400}
+                            pause={','}
+                            pauseLength={210}
                             done={this.h1done}
-                            speed={40}
+                            speed={27}
                             history={this.props.history}
                         />
                         <AnimatedText
                             tag="h4"
                             text={bio.About.intro}
-                            delay={500}
+                            delay={190}
                             await={this.state.h1}
                             done={this.h3done}
-                            speed={25}
+                            speed={18}
                             finalCursor={true}
                             history={this.props.history}
                         />

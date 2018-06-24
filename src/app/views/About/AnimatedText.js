@@ -41,7 +41,21 @@ export default class AnimatedText extends Component {
             //     console.log({ next })
             // }
 
-            setTimeout(this.addLetter, current.innerHTML[0] === '.' && next.innerHTML[0] === ' ' || next.tagName === 'BR' ? this.props.delay : this.props.speed || 250)
+            setTimeout(this.addLetter, (
+                (current.innerHTML[0] === '.'
+                    &&
+                    next.innerHTML[0] === ' '
+                    ||
+                    next.tagName === 'BR')
+                    ?
+                    this.props.delay
+                    :
+                    current.innerHTML[0] === this.props.pause
+                        ?
+                        this.props.pauseLength
+                        :
+                        this.props.speed || 250
+            ))
 
             this.index++
         } else setTimeout(() => {
@@ -52,7 +66,7 @@ export default class AnimatedText extends Component {
         }, this.props.after)
     }
 
-    goToProjects = () => this.props.history.push('/projects#Projects')
+    goToProjects = () => this.props.history.push('/projects' + (window.innerWidth < 769 ? '#Projects' : ''))
 
     render() {
         let flag = 0
