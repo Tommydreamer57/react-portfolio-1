@@ -7,6 +7,8 @@
   <meta name="theme-color" content="#000000">
   <meta name="google-site-verification" content="rmfr7UDAfnJ2noBDpSYvmJNOD_F_gTCgQ3_SdD7mK3I">
   <meta name="author" content="Thomas Lowry">
+  <meta name="description" content="Web Portfolio of Thomas Glenn Lowry">
+  <meta name="keywords" content="Portfolio, Web Development, Programming, JavaScript, Thomas Lowry,">
   <meta property="og:url" content="https://www.thomaslowry.me">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Thomas Lowry Portfolio">
@@ -21,6 +23,16 @@
 
 </head>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121417773-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-121417773-1');
+</script>
+
+<!-- Iterable Numbers -->
 <script>
   Number.prototype[Symbol.iterator] = function* () {
     for (let i = 0; i < this; i++) {
