@@ -55,6 +55,23 @@ class View extends Component {
     componentDidUpdate = () => {
         console.log("VIEW UPDATED")
         this.scrollbar = this.scrollbar.removeEventListeners().addEventListeners()
+        let $root = document.getElementById('root')
+        if (window.innerWidth > 768) {
+            let current = this.props.match.params.view
+            switch (current) {
+                case 'skills':
+                    $root.style.background = '#FA4'
+                    break;
+                case 'projects':
+                    $root.style.background = '#A4E'
+                    break;
+                default:
+                    $root.style.background = '#F54'
+                    break;
+            }
+        } else {
+            $root.style.background = '#F54'
+        }
     }
     toggleMenu = () => {
         this.setState({

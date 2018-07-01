@@ -7,13 +7,14 @@ export default class AnimatedText extends Component {
         this.index = -1
         this.setletters = props.text.split('').map((l, i) => el => this.letters[i] = el)
         this.letters = []
+        this.done = window.innerWidth < 769
     }
 
     componentDidMount = () => {
-        // console.log(this.props.text)
-        // console.log(this.letters)
-        if (!this.props.hasOwnProperty('await') || this.props.await) {
-            setTimeout(this.addLetter, this.props.delay)
+        if (window.innerWidth > 768) {
+            if (!this.props.hasOwnProperty('await') || this.props.await) {
+                setTimeout(this.addLetter, this.props.delay)
+            }
         }
         this.letters.forEach((el, i) => {
             el.style.transitionDelay = ((i + 1) * (this.props.stagger || 0.005)) + 's'
@@ -63,6 +64,7 @@ export default class AnimatedText extends Component {
                 this.letters[this.letters.length - 1].innerHTML = this.letters[this.letters.length - 1].innerHTML[0]
             }
             this.props.done()
+            this.done = true
         }, this.props.after)
     }
 
@@ -70,6 +72,7 @@ export default class AnimatedText extends Component {
 
     render() {
         let flag = 0
+        let opacity = window.innerWidth < 769 || this.done ? 1 : 0
         return (
             <this.props.tag>
                 {
@@ -100,7 +103,7 @@ export default class AnimatedText extends Component {
                                         ref={this.setletters[i]}
                                         className="transition-letter bold"
                                         style={{
-                                            opacity: 0,
+                                            opacity,
                                             position: 'relative',
                                             fontWeight: 'bold'
                                         }}
@@ -117,7 +120,7 @@ export default class AnimatedText extends Component {
                                         ref={this.setletters[i]}
                                         className="transition-letter"
                                         style={{
-                                            opacity: 0,
+                                            opacity,
                                             position: 'relative',
                                             fontWeight: 'bold'
                                         }}
@@ -130,7 +133,7 @@ export default class AnimatedText extends Component {
                                     key={i}
                                     ref={this.setletters[i]}
                                     className="transition-letter"
-                                    style={{ opacity: 0, position: 'relative' }}
+                                    style={{ opacity, position: 'relative' }}
                                 >
                                     {letter}
                                 </span>
