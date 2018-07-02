@@ -78,13 +78,15 @@
 
 .tech-reset {
     /* background: rgba(200, 48, 16, 0.275); */
-    background: rgba(225, 60, 65, 0.45);
+    /* background: rgba(225, 60, 65, 0.45); */
+    background: rgba(255, 80, 32, 0.5)
 }
 
 .tech-reset .slide {
     opacity: 0.5;
     /* border-top: 3rem solid rgb(255, 48, 16); */
-    border-top: 3rem solid rgb(225, 60, 65);
+    /* border-top: 3rem solid rgb(225, 60, 65); */
+    border-top: 3rem solid rgb(255, 80, 32);
     /* left: 0; */
     /* transform: rotate(180deg); */
 }
