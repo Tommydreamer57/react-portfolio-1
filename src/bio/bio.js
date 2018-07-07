@@ -128,18 +128,20 @@ const Doug_Maxfield = { name: "Doug Maxfield" }
 const JJ_Berrett = { name: "JJ Berrett", link: "https://jjberrett.com/" }
 const North_Star = { name: "North Star International", link: "https://northstarlds.org/" }
 
-const Meiosis_Tutorial = { name: "here", link: "https://github.com/Tommydreamer57/meiosis-demo" }
+const Meiosis_Tutorial = { name: "tutorial", link: "https://github.com/Tommydreamer57/meiosis-demo" }
 
 const StudentInfoAPI = {
     title: "Student Info API",
     subtitle: "API for Tracking Class and Student Progress",
     description: [
         ["# Collaborators",
-            ["I worked together with my co-mentors, under the direction of the senior staff at DevMountain on this project."]],
+            ["I collaborated with my co-mentors to build this server for gathering information on students and classes at DevMountain."]],
         ["# DevMountain",
-            "This server is meant to be the main API for gathering information on students and classes at DevMountain. It connects directly to DevMountain's PostgreSQL database to pull statistics on student progress at each week of the program, matched against specific benchmark requirements."],
+            "This server is the main source for student and class statistics. It connects directly to DevMountain's PostgreSQL database to pull statistics on student progress at each week of the program and compare them against specific benchmark requirements."],
+        ["# Data Structure",
+            "This API provides multiple endpoints with several query options to select data on an entire campus or specific to an individual class or student. It also provides a method for updating milestones and changing the benchmarks against which the students are compared."],
         ["# Klipfolio",
-            "Statistics on each current class are gathered and displayed in a klip on Klipfolio to be viewed by management."]
+            "Statistics on each current class are gathered and displayed in a klip on Klipfolio to be viewed by management. Multiple klips allow management to compare classes and campuses to each other as well as see the status of each individual student in a class."]
     ],
     img: students,
     tech: [
@@ -160,13 +162,13 @@ const MeiosisProject = {
     subtitle: "Clone of Slack.com",
     description: [
         ["# Collaborators",
-            ["I worked together with", Scott_Abbott, Tayt_Low, "and", Tav_Hafner, "on this project."]],
+            "I built this project just for the sake of learning and fun, with the help of some of my former students."],
         ["# Meiosis",
-            ["This is my first project using the JavaScript pattern, Meiosis. Meiosis is a pattern for managing state in an application following the model view concept. I built a tutorial on this pattern", Meiosis_Tutorial, ". I found this pattern to be much lighter than Redux as well as easier to implement."]],
+            ["This is my first project using the Meiosis pattern. Meiosis is a pattern for managing state in an application, following the model-view concept. I wrote a ", Meiosis_Tutorial, " on this pattern. I found Meiosis to be much lighter than Redux as well as easier to implement."]],
         ["# CSS in JS",
             "I decided to try out CSS in JS with the library Aphrodite-JSS in this project. This project therefore has 0 CSS files and is almost 100% JavaScript (just one HTML file on the front end, and several SQL queries in the back)."],
         ["# Bcrypt",
-            "For authentication I decided to try out the bcrypt library for salting and hashing passwords. Implementation was quick and easy with bcrypt, and it allowed me to control sessions directly in the server."]
+            "For authentication I decided to try out the bcrypt library for salting and hashing passwords. Implementation was quick and easy, and it allowed me to maintain direct control of sessions in the server."]
     ],
     img: cell,
     github: "https://github.com/Tommydreamer57/cell",
@@ -217,15 +219,16 @@ const BoggleApp = {
     subtitle: "Boggle Word Search",
     description: [
         ["# Features",
-            "This project features an algorithm to map out all paths to create a given word on a boggle board and a muli-layered cache system for minimizing http requests."],
+            "This project features an algorithm for mapping out all possible paths that can create a given word on a boggle board, and a muli-layered cache system for minimizing http requests."],
         ["# Mapping Algorithm",
             "The mapping algorithm finds all possible starting points for a given word, then loops through the starting points to recursively create all possible paths from each starting point that can create the given word."],
         ["# Oxford Dictionary API",
             "This project uses the Oxford Dictionary API to validate words. I implemented the cache system to remember the results of each request to the API and minimize the number of requests made on all levels."],
         ["# Cache System",
-            "The cache system begins in the browser, which makes an initial request to get a list of all previously validated words with which to compare inputted words before making a request to the server.",
+            "The cache system begins in the browser, which makes an initial request to get a list of all previously validated words with which to compare inputted words before making consecutive requests to the server.",
             "If a word is inputted that has not previously been validated, the browser will send a request to the server to validate the word. The server keeps a cache of all previously validated words and of all current outgoing requests to both the database and Oxford.",
-            "First, the server will check its own cache for the word. If it doesn't find the word, it will check its cache for an outgoing request for the word and subscribe to that request. If it still hasn't found the word, it will send a request to th  e database for the word"]
+            "Then the server will first check its own cache for the word. If it doesn't find the word, it will check its cache for an outgoing request for the word and subscribe to that request. Finally, the server will check my own database for the word before requesting it from Oxford.",
+            "Only words that make it through all levels of the cache will be sent to Oxford, so that each word will only ever be requested from Oxford exactly one time."]
     ],
     img: boggle,
     github: "https://github.com/Tommydreamer57/boggle",
@@ -288,7 +291,10 @@ const PersonalProject = {
     title: "Blog Template",
     subtitle: "DevMountain Personal Project",
     description: [
-        "I built this project using React on Redux with the SlateJS text-editing library and Passport-Auth0 authentication. Users can navigate through posts and add comments, responses and favorites. Admins can login to create, edit, and publish new posts."
+        ["# My First Full-stack, Full-CRUD Project",
+            "This is my personal project I built as a part of DevMountain's web development program. It was my first experience building a full-stack, full-CRUD application.",
+            "It is a simple blogging site where users can log in and navigate through posts and add comments, responses and favorites. Admins can login to create, edit, and publish new posts.",
+            "I implemented Passport's Auth0 Strategy to handle authentication and sessions, and the SlateJS rich text editing library for creating dynamic blog posts directly in the browser."]
     ],
     img: personal,
     github: "https://github.com/Tommydreamer57/personal-project",
@@ -319,10 +325,10 @@ const GroupProject = {
     subtitle: "DevMountain Group Project",
     description: [
         ["# Collaborators",
-            ["I worked together with", Chase_Davis, "and", Conner_Jensen, "to create this clone of CodeWars.com, a webapp for practicing code."]],
+            ["This is my group project that I built together with", Chase_Davis, "and", Conner_Jensen, "as a part of DevMountain's web development program. It is a clone of CodeWars.com, a web application for practicing code."]],
         ["# Features",
-            "This project utilizes the Ace code editor and Slate text editor as well as an iframe sandbox for security. Code input and test cases are saved as strings and sent to the iframe to be converted into their correct data types and evaluated."],
-        ["# Responsibilities",
+            "This project utilizes the Ace library for editing code in the browser and the Slate library for editing text as well as an iframe sandbox for security when running a user's code input. Code input and test cases are saved as strings in state and then sent to the iframe to be converted into their correct data types and evaluated."],
+        ["# Parsing Algorithms",
             "My responsibilities included creating the algorithms to parse the strings into the correct data types, evaluate the code input, catch any errors, and return the results. In conjunction with the testing functionality, I built the create page and the tests component."]
     ],
     img: group,
@@ -354,9 +360,10 @@ const TriviaTrends = {
     title: "Trivia Trends",
     subtitle: "Angular Simulation",
     description: [
-        ["# ",
-            "I built this project in Angular for a competition at devmountain. The styles and basic HTML were already set up, along with an API.",
-            "The contest was to be the first to add all the functionality with Angular, including retreiving, filtering, and mapping through the data, handling clicks and adding correct class-names, and sending data back to the API.",
+        ["# Coding Competition",
+            "I built this project in AngularJS for a competition during the latter half of DevMountain's web development course. The styles and basic HTML were already set up, along with a full back-end.",
+            "The contest was to be the first to add all the functionality with Angular, including retreiving, filtering, and mapping through the data, handling events, and sending data back to the API.",
+        ], ["# Winners",
             "My group won this competition, and afterwards I built my own database and server for the project."]
     ],
     img: trivia,

@@ -192,11 +192,11 @@ class View extends Component {
                     })
                 }
                 {/* LOGO */}
-                <Link to="/#Home" id="logo-wrapper">
+                {/* <Link to="/#Home" id="logo-wrapper">
                     <div id="logo-circle">
                         <img id="logo" src={logo} />
                     </div>
-                </Link>
+                </Link> */}
                 {/* BUTTONS */}
                 <Buttons
                     open={open}

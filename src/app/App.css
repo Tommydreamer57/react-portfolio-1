@@ -129,9 +129,10 @@ a {
     justify-content: center;
     align-items: center;
     border-radius: 100%;
-    background: rgba(255, 255, 255, 0.175);
+    /* background: rgba(255, 255, 255, 0.175); */
     /* background: rgba(15, 230, 255, 0.6); */
     /* background: rgba(85, 25, 140, 0.6); */
+    color: rgba(0, 0, 0, 0.45);
 }
 
 #logo {

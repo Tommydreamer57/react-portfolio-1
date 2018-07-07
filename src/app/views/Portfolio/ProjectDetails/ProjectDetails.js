@@ -47,13 +47,22 @@ function ProjectDetails({ project }) {
                 }
             </div>
             <div className="description">
-                {project.github && <p style={{ transitionDelay: ((project.description.length + 1) * 0.125) + 's' }} >Click <a href={project.github} target="_blank" >here</a> to see this project on GitHub.</p>}
+                {project.github &&
+                    <p style={{ transitionDelay: ((project.description.length + 1) * 0.125) + 's' }} >
+                        <span> Check out this project's code on </span>
+                        <a href={project.github} target="_blank" > GitHub</a>
+                        <span>.</span>
+                    </p>}
                 {project.url && <p style={{ transitionDelay: ((project.description.length + 2) * 0.125) + 's' }} >Click the image to view the hosted project.</p>}
             </div>
             <div style={{ transitionDelay: ((project.description.length + 6) * 0.125) + 's' }} className="image">
-                <a href={project.url} target="_blank" >
+                {project.url ?
+                    <a href={project.url} target="_blank" >
+                        <img src={project.img} />
+                    </a>
+                    :
                     <img src={project.img} />
-                </a>
+                }
             </div>
         </div>
     )

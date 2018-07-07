@@ -93,6 +93,7 @@
 
 #projects-header {
     margin-top: calc(2.5% + 4 * (100vw - 2048px) / 769);
+    margin-bottom: calc(7.5% + 8 * (100vw - 2048px) / 769);
     transition: 0.5s;
 }
 
