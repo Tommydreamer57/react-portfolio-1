@@ -3,9 +3,9 @@ import bio from '../../../../bio/bio';
 import './ProjectDetails.css';
 import Text from '../../../components/Text/Text';
 
-function Tech(tech, i) {
+function Tech(tech, i, arr) {
     return (
-        <div key={`Project Details Tech ${tech.name}`} className="tech" style={{ transitionDelay: ((i + 1) * 0.05) + 's' }} >
+        <div key={`Project Details Tech ${tech.name}`} className={tech.tech ? 'tech' : 'tech tag'} style={{ transitionDelay: ((i + 1) * 0.05) + 's' }} >
             <h4>{tech.name}</h4>
             <div className="slide" />
         </div>
@@ -15,13 +15,28 @@ function Tech(tech, i) {
 function ProjectDetails({ project }) {
     project = bio.Projects.find(item => item.title === project)
     if (!project) return null
+    let tags = project.tags.map(tag => ({ ...tag, tag: true }))
+    let tech = project.tech.map(tech => ({ ...tech, tech: true }))
+    let fullList = [...tags, ...tech]
     return (
         <div className="project-details">
             <h1>{project.title}</h1>
             <h3 style={{ transitionDelay: 0.1 }} >{project.subtitle}</h3>
             <div className="tech-list" >
                 {
-                    project.tech.map(Tech)
+                    tags.map(Tech)
+                }
+                <div
+                    style={{
+                        width: '100%',
+                        height: 0
+                    }}
+                />
+                {
+                    tech.map(Tech)
+                }
+                {
+                    // fullList.map(Tech)
                 }
             </div>
             <div className="description">

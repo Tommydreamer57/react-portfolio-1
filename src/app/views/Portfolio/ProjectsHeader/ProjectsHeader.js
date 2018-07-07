@@ -8,9 +8,8 @@ export default function ProjectsHeader({ count, search, delay }) {
                 !search.tag.length && !search.skill.length ?
                     <span> all </span>
                     :
-                    null
+                    <span> {count} </span>
             }
-            <span> {count} </span>
             {
                 search.tag.length ?
                     <span>
