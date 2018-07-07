@@ -6,7 +6,7 @@ function Menu({ current, open, toggleMenu }) {
     const links = [
         {
             to: '/',
-            label: 'About',
+            label: 'Home',
             selected: !current
         },
         {
@@ -15,9 +15,9 @@ function Menu({ current, open, toggleMenu }) {
             selected: current === 'skills'
         },
         {
-            to: '/projects',
-            label: 'Projects',
-            selected: current === 'projects'
+            to: '/portfolio',
+            label: 'Portfolio',
+            selected: current === 'portfolio'
         },
         {
             to: '/contact',

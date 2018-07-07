@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 // view wrappers
 import Wrapper, { DetailWrapper } from './Wrapper';
 // primary views
-import About from './About/About';
+import Home from './Home/Home';
 import Skills from './Skills/Skills';
-import Projects from './Projects/Projects';
+import Portfolio from './Portfolio/Portfolio';
 import Contact from './Contact/Contact';
 // secondary view
 import SkillDetails from './Skills/SkillDetails/SkillDetails';
-import ProjectDetails from './Projects/ProjectDetails/ProjectDetails';
+import ProjectDetails from './Portfolio/ProjectDetails/ProjectDetails';
 // data
 import bio from '../../bio/bio';
 // fixed components
@@ -21,7 +21,7 @@ import Copyright from '../components/Copyright/Copyright';
 import addEventListeners from '../event-listeners';
 import jump from 'jump.js';
 
-let i = 10
+let i = 10;
 
 class View extends Component {
     constructor(props) {
@@ -36,7 +36,7 @@ class View extends Component {
             slideDirection: ''
         }
         let currentView = props.match.params.view
-        let allowedViews = ['skills', 'projects', 'details', 'contact']
+        let allowedViews = ['skills', 'portfolio', 'details', 'contact']
         if (currentView && !allowedViews.includes(currentView)) {
             if (i > 0) {
                 props.history.push("/")
@@ -62,7 +62,7 @@ class View extends Component {
                 case 'skills':
                     $root.style.background = '#FA4'
                     break;
-                case 'projects':
+                case 'portfolio':
                     $root.style.background = '#A4E'
                     break;
                 default:
@@ -72,6 +72,11 @@ class View extends Component {
         } else {
             $root.style.background = '#F54'
         }
+        window.addEventListener('keydown', ({ key }) => {
+            if (key === 'Escape' && this.state.open) {
+                this.setState({ open: false })
+            }
+        })
     }
     toggleMenu = () => {
         this.setState({
@@ -113,18 +118,15 @@ class View extends Component {
             else search[key] = [...search[key], val]
         })
 
-        let aboutPosition = !current ? 'current' : 'previous'
+        let homePosition = !current ? 'current' : 'previous'
         let skillsPosition = !current ? 'next' : current === 'skills' ? 'current' : 'previous'
-        let projectsPosition = current === 'contact' ? 'previous' : current === 'projects' ? 'current' : current === 'details' ? 'previous' : 'next'
+        let portfolioPosition = current === 'contact' ? 'previous' : current === 'portfolio' ? 'current' : current === 'details' ? 'previous' : 'next'
         let contactPosition = current === 'contact' ? 'current' : 'next'
 
-        let aboutId = current === 'skills' ? 'previous-view' : ''
-        let skillsId = !current ? 'next-view' : current === 'projects' ? 'previous-view' : ''
-        let projectsId = current === 'skills' ? 'next-view' : current === 'contact' || current === 'details' ? 'previous-view' : ''
-        let contactId = current === 'projects' ? 'next-view' : ''
-
-        let { main, front, back, other } = bio.Skills
-        let allSkills = [...main, ...front, ...back, ...other]
+        let homeId = current === 'skills' ? 'previous-view' : ''
+        let skillsId = !current ? 'next-view' : current === 'portfolio' ? 'previous-view' : ''
+        let portfolioId = current === 'skills' ? 'next-view' : current === 'contact' || current === 'details' ? 'previous-view' : ''
+        let contactId = current === 'portfolio' ? 'next-view' : ''
 
         let outerProps = {
             open,
@@ -138,13 +140,13 @@ class View extends Component {
         return (
             <div id="View" onKeyDown={this.onKeyDown} >
                 {/* PRIMARY VIEWS */}
-                {/* ABOUT */}
+                {/* HOME */}
                 <Wrapper
                     {...outerProps}
                     path="/"
-                    id={aboutId}
-                    position={aboutPosition}
-                    child={About}
+                    id={homeId}
+                    position={homePosition}
+                    child={Home}
                     childProps={{ current }}
                 />
                 {/* SKILLS */}
@@ -155,13 +157,13 @@ class View extends Component {
                     position={skillsPosition}
                     child={Skills}
                 />
-                {/* PROJECTS */}
+                {/* PORTFOLIO */}
                 <Wrapper
                     {...outerProps}
-                    path="/projects"
-                    id={projectsId}
-                    position={projectsPosition}
-                    child={Projects}
+                    path="/portfolio"
+                    id={portfolioId}
+                    position={portfolioPosition}
+                    child={Portfolio}
                     childProps={{ current, search, searchString }}
                 />
                 {/* CONTACT */}
@@ -190,7 +192,7 @@ class View extends Component {
                     })
                 }
                 {/* LOGO */}
-                <Link to="/#About" id="logo-wrapper">
+                <Link to="/#Home" id="logo-wrapper">
                     <div id="logo-circle">
                         <img id="logo" src={logo} />
                     </div>

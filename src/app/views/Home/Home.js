@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import bio from '../../../bio/bio';
-import './About.css';
+import './Home.css';
 // import { MoreButton } from '../../components/Buttons/Buttons';
 import AnimatedText from './AnimatedText';
 import logo from '../../../assets/logo.svg';
 import Text from '../../components/Text/Text';
 
-class About extends Component {
+class Home extends Component {
     constructor() {
         super()
         this.state = {
@@ -22,8 +22,8 @@ class About extends Component {
     render() {
         this.renderCount++;
         return (
-            <div id="About">
-                <div id="about-wrapper">
+            <div id="Home">
+                <div id="home-wrapper">
                     {/* <div id="mobile-logo" className="mobile-only">
                         <div id="mobile-logo-circle">
                         <img src={logo} />
@@ -32,7 +32,7 @@ class About extends Component {
                     <div className="landing" >
                         <AnimatedText
                             tag="h1"
-                            text={bio.About.greeting}
+                            text={bio.Home.greeting}
                             delay={0}
                             after={400}
                             pause={','}
@@ -43,7 +43,7 @@ class About extends Component {
                         />
                         <AnimatedText
                             tag="h4"
-                            text={bio.About.intro}
+                            text={bio.Home.intro}
                             delay={190}
                             await={this.state.h1}
                             done={this.h3done}
@@ -51,10 +51,10 @@ class About extends Component {
                             finalCursor={true}
                             history={this.props.history}
                         />
-                        {/* <h1>{bio.About.greeting}</h1> */}
-                        {/* <h3>{bio.About.intro}</h3> */}
+                        {/* <h1>{bio.Home.greeting}</h1> */}
+                        {/* <h3>{bio.Home.intro}</h3> */}
                         {
-                            // bio.About.info.map((text, i) => {
+                            // bio.Home.info.map((text, i) => {
                             //     return (
                             //         <AnimatedText
                             //             key={i}
@@ -65,16 +65,16 @@ class About extends Component {
                             //             speed={30}
                             //         />
                             //         // <Text key={JSON.stringify(text)} text={text} />
-                            //         // <p key={`About: ${paragraph.slice(0, 25)}`}>{paragraph}</p>
+                            //         // <p key={`Home: ${paragraph.slice(0, 25)}`}>{paragraph}</p>
                             //     )
                             // })
                         }
                     </div>
                     {/* <div className="more" >
                     {
-                        bio.About.more.map(paragraph => {
+                        bio.Home.more.map(paragraph => {
                             return (
-                                <p key={`About: ${paragraph.slice(0, 25)}`}>{paragraph}</p>
+                                <p key={`Home: ${paragraph.slice(0, 25)}`}>{paragraph}</p>
                             )
                         })
                     }
@@ -85,4 +85,4 @@ class About extends Component {
     }
 }
 
-export default About
+export default Home

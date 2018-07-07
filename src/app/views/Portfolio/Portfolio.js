@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import bio from '../../../bio/bio';
-import './Projects.css';
+import './Portfolio.css';
 import NoProjectsHeader from './NoProjectsHeader/NoProjectsHeader';
+import ProjectsHeader from './ProjectsHeader/ProjectsHeader';
 
 // PROJECT
 function Project(project, i) {
     let key = `Project ${project.title}`
     let to = `/details/${project.title}`
     let alt = `GitHub Repository: ${project.github}`
+    let imgMaxWidth = document.querySelector(".content")
+    console.log({ imgMaxWidth })
     return (
         <Link to={to} key={key} className='project' style={{ transitionDelay: (i + 3.5) * 0.125 + 's' }} >
             <h3 style={{ transitionDelay: ((i + 3.5) * 0.125) + 's' }} >{project.title}</h3>
@@ -31,7 +34,7 @@ function Tech(item, i) {
 }
 
 // VIEW
-export default class Projects extends Component {
+export default class Portfolio extends Component {
     constructor(props) {
         let { search, searchString, current } = props;
         super(props);
@@ -43,9 +46,9 @@ export default class Projects extends Component {
         }
     }
     shouldComponentUpdate = ({ current, search, searchString }) => {
-        // do not update when navigating from projects to another screen
+        // do not update when navigating from portfolio to another screen
         if (this.props.current === 'details') return false
-        else if (this.props.current === 'projects' && current !== 'projects') return false
+        else if (this.props.current === 'portfolio' && current !== 'portfolio') return false
         else return true
     }
     render = () => {
@@ -68,7 +71,7 @@ export default class Projects extends Component {
 
             // console.log(searchString.replace(new RegExp(`(\\?{0,1})(${item.type}=${item.name})(&){0,1}|(&{0,1})(${item.type}=${item.name})`), "$1"))
 
-            let to = '/projects'
+            let to = '/portfolio'
             // to += selected ? searchString.replace(`?${item.type}=${item.name}&`, "?").replace(`?${item.type}=${item.name}`, "").replace(`&${item.type}=${item.name}`, "") : searchString.includes('?') ? `${searchString}&${item.type}=${item.name}` : `${searchString}?${item.type}=${item.name}`
 
             let regex = new RegExp(`(\\?{0,1})(&{0,1})(${item.type}=${item.name})(&{0,1})`)
@@ -98,19 +101,21 @@ export default class Projects extends Component {
                 search.tag.every(stag => project.tags.some(tag => stag.includes(tag.name)))
         })
 
+        // let featuredProject = projects.shift();
+
         const RESET = {
             name: "Reset",
             type: "reset",
             className: `tech tech-reset ${search.tag.length || search.skill.length ? 'selected-tech' : ''}`,
             key: "Project Tech Reset",
             selected: false,
-            to: "/projects"
+            to: "/portfolio"
         }
 
         return (
-            <div id="Projects" >
+            <div id="Portfolio" >
                 {/* TITLE */}
-                <h1>Projects</h1>
+                <h1>Portfolio</h1>
                 {/* LIST */}
                 <div className="tech-list">
                     {
@@ -120,15 +125,25 @@ export default class Projects extends Component {
                         Tech(RESET, fullList.length)
                     }
                 </div>
+                {
+                    // HEADER
+                    projects.length ?
+                        <ProjectsHeader
+                            total={bio.Projects.length}
+                            count={projects.length}
+                            search={search}
+                            delay={(fullList.length + 10) * 0.02 + 's'}
+                        />
+                        :
+                        // NO PROJECTS
+                        <NoProjectsHeader
+                            search={search}
+                        />
+                }
                 {/* PROJECTS */}
                 <div className="projects-wrapper">
                     {
-                        projects.length ?
-                            // PROJECTS
-                            projects.map(Project)
-                            :
-                            // NO PROJECTS
-                            <NoProjectsHeader search={search} />
+                        projects.map(Project)
                     }
                 </div>
             </div>

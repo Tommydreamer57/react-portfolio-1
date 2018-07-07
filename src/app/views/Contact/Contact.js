@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import bio from '../../../bio/bio';
 import './Contact.css';
-import AnimatedText from '../About/AnimatedText';
+import AnimatedText from '../Home/AnimatedText';
 
 let renderCount = 0;
 

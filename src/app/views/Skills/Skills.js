@@ -20,7 +20,7 @@ function IconSkill(skill, i) {
 
 function Skill(skill, i) {
     return (
-        <Link to={`/projects?skill=${skill.name}${window.innerWidth < 769 ? '#Projects' : ''}`} key={i} className="skill" style={{ transitionDelay: (i + 1) * 0.1 + 's' }} >
+        <Link to={`/portfolio?skill=${skill.name}${window.innerWidth < 769 ? '#Portfolio' : ''}`} key={i} className="skill" style={{ transitionDelay: (i + 1) * 0.1 + 's' }} >
         {/* <Link to={`/details/${skill.name}`} key={i++} className="skill"> */}
             <h4>{skill.name}</h4>
             <div className="slide" />

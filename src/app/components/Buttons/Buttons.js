@@ -40,11 +40,11 @@ export default function Buttons({ open, current, details, history, toggleMenu })
             break;
         case "skills":
             previous = "/"
-            previousLabel = "About"
-            next = "/projects"
-            nextLabel = "Projects"
+            previousLabel = "Home"
+            next = "/portfolio"
+            nextLabel = "Portfolio"
             break;
-        case "projects":
+        case "portfolio":
             previous = "/skills"
             previousLabel = "Skills"
             next = "/contact"
@@ -52,8 +52,8 @@ export default function Buttons({ open, current, details, history, toggleMenu })
             break;
         case "details":
         case "contact":
-            previous = "/projects"
-            previousLabel = "Projects"
+            previous = "/portfolio"
+            previousLabel = "Portfolio"
             break;
     }
 
@@ -61,7 +61,7 @@ export default function Buttons({ open, current, details, history, toggleMenu })
     let leftClass = (details || current) && !open ? 'nav-button' : 'nav-button left-away'
     let rightClass = (!details && current !== "contact") && !open ? 'nav-button' : 'nav-button right-away'
 
-    let links = ['About', 'Skills', 'Projects', 'Contact']
+    let links = ['Home', 'Skills', 'Portfolio', 'Contact']
     let left = links.slice(0, 3)
     let right = links.slice(1)
 

@@ -1,6 +1,7 @@
 // ASPECT RATIO FOR IMAGES === 1871 x 893
 import students from '../assets/Student Info.PNG';
 import cell from '../assets/Meiosis.PNG';
+import conference from '../assets/North Star Bottom.jpg';
 import boggle from '../assets/Boggle Copy.png';
 import calendar from '../assets/Calendar Screenshot.PNG';
 import colors from '../assets/Color Blender Screenshot.PNG';
@@ -13,7 +14,7 @@ import logo from '../assets/logo.svg';
 
 
 
-const About = {
+const Home = {
     greeting: "Hi, I'm Tommy Lowry",
     // intro: "I am a full-stack web-developer, linguist, and artist.",
     intro: "I am a full-stack web-developer specializing in React, Node, and PostgreSQL. Feel free to take a look at my projects on my $portfolio page$. Or reach out to me at $minilao94@yahoo.com.$",
@@ -33,22 +34,26 @@ const About = {
 // TAGS
 const FULL_CRUD = { name: "Full CRUD" }
 const FULL_STACK = { name: "Full-Stack" }
-const FRONT_END = { name: "Front End" }
-const BACK_END = { name: "Back End" }
+const FRONT_END = { name: "Front-End" }
+const BACK_END = { name: "Back-End" }
 const RESPONSIVE = { name: "Responsive" }
+const MOBILE = { name: "Mobile" }
 const INDIVIDUAL = { name: "Individual" }
 const GROUP = { name: "Group" }
 const DEVMOUNTAIN = { name: "DevMountain" }
+const VOLUNTEER = { name: "Volunteer" }
 
 const Tags = [
-    FULL_CRUD,
     FULL_STACK,
     FRONT_END,
     BACK_END,
+    FULL_CRUD,
     RESPONSIVE,
+    MOBILE,
     INDIVIDUAL,
     GROUP,
-    DEVMOUNTAIN
+    DEVMOUNTAIN,
+    VOLUNTEER
 ]
 
 // SKILLS
@@ -60,6 +65,7 @@ const REDUX = { name: "Redux", svg: redux }
 const MEIOSIS = { name: "Meiosis", icon: "" }
 const SCSS = { name: "Sass", icon: "devicon-sass-original" }
 const ANGULARJS = { name: "AngularJS", icon: "devicon-angularjs-plain" }
+const IONIC = { name: "Ionic" }
 const JQUERY = { name: "JQuery", icon: "devicon-jquery-plain" }
 const NODE = { name: "Node", icon: "devicon-nodejs-plain" }
 const EXPRESS = { name: 'Express', icon: "" }
@@ -119,6 +125,8 @@ const Tav_Hafner = { name: "Tav Hafner" }
 const Courtenay_Eccles = { name: "Courtenay Eccles" }
 const Vincent_Palmer = { name: "Vincent Palmer" }
 const Doug_Maxfield = { name: "Doug Maxfield" }
+const JJ_Berrett = { name: "JJ Berrett", link: "https://jjberrett.com/" }
+const North_Star = { name: "North Star International", link: "https://northstarlds.org/" }
 
 const Meiosis_Tutorial = { name: "here", link: "https://github.com/Tommydreamer57/meiosis-demo" }
 
@@ -171,13 +179,36 @@ const MeiosisProject = {
         EXPRESS,
         BCRYPT,
         POSTGRESQL,
-    
+
     ],
     tags: [
         FULL_CRUD,
         FULL_STACK,
         FRONT_END,
         GROUP
+    ]
+}
+
+const NorthStarApp = {
+    title: "Conference App",
+    subtitle: "Mobile Conference App for North Star International",
+    description: [
+        ["# Volunteer",
+            ["I helped my friend", JJ_Berrett, "to improve this app for a non-profit organisation,", North_Star, ". I refreshed the styles in each view and reformatted some of the data to display more easily."]],
+        ["# Conference",
+            "This application provided upward of 600 attendees at the 2018 North Star Conference with a quick way to find information on breakout sessions, receive reminders of events going on at the conference, and provide feedback regarding each attended session."]
+    ],
+    img: conference,
+    github: "https://github.com/JJ-Berrett/North-Star-Conference-Mobile",
+    url: "https://itunes.apple.com/us/app/north-star-conference/id1191362319?mt=8",
+    tech: [
+        ANGULARJS,
+        IONIC,
+    ],
+    tags: [
+        MOBILE,
+        GROUP,
+        VOLUNTEER
     ]
 }
 
@@ -350,6 +381,7 @@ const TriviaTrends = {
 const Projects = [
     StudentInfoAPI,
     MeiosisProject,
+    NorthStarApp,
     BoggleApp,
     CalendarProject,
     // ColorBlender,
@@ -381,7 +413,7 @@ const Contact = {
 
 
 export default {
-    About,
+    Home,
     Skills,
     Projects,
     Tags,

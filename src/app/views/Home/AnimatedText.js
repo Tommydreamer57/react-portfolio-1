@@ -33,10 +33,12 @@ export default class AnimatedText extends Component {
             let previous = this.letters[this.index - 1] || { style: {}, innerHTML: {} }
             let current = this.letters[this.index] || { style: {}, innerHTML: {} }
             let next = this.letters[this.index + 1] || { innerHTML: {} }
-            let underscore = `<span id="underscore" class="transition-letter" style="transition-delay: ${((this.index + 1) * (this.props.stagger || 0.005)).toFixed(3)}s;" >_</span>`
-            previous.innerHTML = (previous.innerHTML + '').slice(0, previous.innerHTML.length - underscore.length + 1)
-            current.innerHTML += underscore
-            current.style.opacity = 1
+            if (this.props.text[this.props.text.length - 1] !== '$' || this.index !== this.props.text.length - 1) {
+                let underscore = `<span class="underscore transition-letter" style="transition-delay: ${((this.index + 1) * (this.props.stagger || 0.005)).toFixed(3)}s;" >_</span>`
+                previous.innerHTML = (previous.innerHTML + '').slice(0, previous.innerHTML.length - underscore.length + 1)
+                current.innerHTML += underscore
+                current.style.opacity = 1
+            }
 
             // if (current.innerHTML[0] === '.') {
             //     console.log({ next })
@@ -68,7 +70,7 @@ export default class AnimatedText extends Component {
         }, this.props.after)
     }
 
-    goToProjects = () => this.props.history.push('/projects' + (window.innerWidth < 769 ? '#Projects' : ''))
+    goToPortfolio = () => this.props.history.push('/portfolio' + (window.innerWidth < 769 ? '#Portfolio' : ''))
 
     render() {
         let flag = 0
@@ -107,7 +109,7 @@ export default class AnimatedText extends Component {
                                             position: 'relative',
                                             fontWeight: 'bold'
                                         }}
-                                        onClick={this.goToProjects}
+                                        onClick={this.goToPortfolio}
                                     >
                                         {letter}
                                     </span>

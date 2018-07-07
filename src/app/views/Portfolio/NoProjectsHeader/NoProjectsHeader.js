@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function NoProjectsHeader({ search }) {
     return (
-        <h4 id="no-projects">
+        <h4 id="projects-header">
             {
                 search.tag.length && !search.skill.length ?
                     <span>
@@ -23,7 +23,7 @@ export default function NoProjectsHeader({ search }) {
                         {search.skill.map((skill, i, arr) => (
                             <span key={`No Projects Skill ${skill}`} >
                                 <label> {skill}</label>
-                                <span>{i < arr.length - 2 ? ", " : i === arr.length - 2 ? " and " : ""}</span>
+                                <span>{i < arr.length - 2 ? ", " : i === arr.length - 2 ? arr.length > 2 ? ", and " : " and " : ""}</span>
                             </span>
                         ))}
                     </span>

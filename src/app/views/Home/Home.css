@@ -14,13 +14,15 @@
 
 .landing h4 {
     line-height: 1.75;
-    transform: translateY(37px);
+    transform: translateY(calc(24px + 64 * (100vw - 769px) / 2048));
+    /* transform: translateY(37px); */
 }
 
-#underscore {
-    position: absolute;
-    left: 100%;
-    top: 0;
+.underscore {
+    /* position: absolute; */
+    /* left: 100%; */
+    /* top: 0; */
+    transform: translateX(100%);
     line-height: 1.1;
     animation-name: blink;
     animation-iteration-count: infinite;
@@ -55,7 +57,7 @@
 
 @media(min-width: 769px) {
         
-    #About {
+    #Home {
         margin-bottom: -10vh;
     }
 
