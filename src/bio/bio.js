@@ -66,7 +66,7 @@ const MEIOSIS = { name: "Meiosis", icon: "" }
 const SCSS = { name: "Sass", icon: "devicon-sass-original" }
 const ANGULARJS = { name: "AngularJS", icon: "devicon-angularjs-plain" }
 const IONIC = { name: "Ionic" }
-const JQUERY = { name: "JQuery", icon: "devicon-jquery-plain" }
+// const JQUERY = { name: "JQuery", icon: "devicon-jquery-plain" }
 const NODE = { name: "Node", icon: "devicon-nodejs-plain" }
 const EXPRESS = { name: 'Express', icon: "" }
 const POSTGRESQL = { name: "PostgreSQL", icon: "devicon-postgresql-plain" }
@@ -92,26 +92,26 @@ const Skills = {
         REDUX,
         MEIOSIS,
         SCSS,
-        JSS
+        JSS,
+        ANGULARJS,
+        // JQUERY,
     ],
     back: [
         NODE,
         EXPRESS,
         AUTH0,
+        BCRYPT,
         POSTGRESQL,
         MONGODB,
-        // HEROKU
+        // HEROKU,
     ],
     other: [
-        KLIPFOLIO,
-        JQUERY,
-        ANGULARJS,
+        GIT,
         JEST,
         SLATE,
         ACE,
+        KLIPFOLIO,
         // IFRAME,
-        BCRYPT,
-        GIT
     ]
 }
 
