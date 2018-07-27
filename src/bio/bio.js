@@ -333,7 +333,7 @@ const GroupProject = {
     ],
     img: group,
     github: "https://github.com/DevMtn-CodeWars/Group-Project",
-    url: "http://groupproject.thomaslowry.me",
+    // url: "http://groupproject.thomaslowry.me",
     tech: [
         REACT,
         REDUX,
