@@ -17,7 +17,7 @@ function ProjectDetails({ project }) {
     if (!project) return null
     let tags = project.tags.map(tag => ({ ...tag, tag: true }))
     let tech = project.tech.map(tech => ({ ...tech, tech: true }))
-    let fullList = [...tags, ...tech]
+    // let fullList = [...tags, ...tech]
     return (
         <div className="project-details">
             <h1>{project.title}</h1>

@@ -67,8 +67,10 @@ const SCSS = { name: "Sass", icon: "devicon-sass-original" }
 const ANGULARJS = { name: "AngularJS", icon: "devicon-angularjs-plain" }
 const IONIC = { name: "Ionic" }
 // const JQUERY = { name: "JQuery", icon: "devicon-jquery-plain" }
+const DOCKER = { name: "Docker", icon: "" }
 const NODE = { name: "Node", icon: "devicon-nodejs-plain" }
-const EXPRESS = { name: 'Express', icon: "" }
+const EXPRESS = { name: "Express", icon: "" }
+const SOCKETIO = { name: "Socket.io", icon: "" }
 const POSTGRESQL = { name: "PostgreSQL", icon: "devicon-postgresql-plain" }
 const MONGODB = { name: "MongoDB", icon: "" }
 const AUTH0 = { name: "Auth0", icon: "" }
@@ -99,6 +101,7 @@ const Skills = {
     back: [
         NODE,
         EXPRESS,
+        SOCKETIO,
         AUTH0,
         BCRYPT,
         POSTGRESQL,
@@ -107,6 +110,7 @@ const Skills = {
     ],
     other: [
         GIT,
+        DOCKER,
         JEST,
         SLATE,
         ACE,
@@ -129,6 +133,41 @@ const JJ_Berrett = { name: "JJ Berrett", link: "https://jjberrett.com/" }
 const North_Star = { name: "North Star International", link: "https://northstarlds.org/" }
 
 const Meiosis_Tutorial = { name: "tutorial", link: "https://github.com/Tommydreamer57/meiosis-demo" }
+const Slack_Clone = { name: "clone of Slack.com", to: "/details/Cell"}
+
+const GamingPlatform = {
+    title: "Gaming Platform",
+    subtitle: "Online Gaming Platform",
+    description: [
+        ["# In Progress",
+            "I'm currently working on this project with a few of my recent students. The project is an platform for playing multiplayer games over the internet."],
+        ["# Docker & Socket.io",
+            "It is my first time using Docker and my first time with Socket.io. Sockets manage the the state of each game as players join or leave, and as the game progresses to completion."],
+        ["# Supported Games",
+            "The first supported games will be Boggle, chess, and other commonly known games."],
+        ["# Game Codes",
+            "Each game that a user creates is given a four-letter code with which other users can join the game. The state of the game is stored in the server and updated any time a user makes a move."],
+        ["# Game Progression",
+            "Initially all players are sent to a waiting room where they wait for other players to join. Once they are ready, a player presses a button to start the game. When the game is over, it is scored and players are routed to the results page where they have the option to play another game with the same group."],
+        ["# Meiosis",
+            ["The front-end of this app is built with the Meiosis pattern and the React library. Meiosis is a pattern for managing state with vanilla JavaScript as opposed to a library such as Redux. My", Slack_Clone, "was also built with Meiosis."]]
+    ],
+    // img: games,
+    github: "https://github.com/Tommydreamer57/games",
+    tech: [
+        REACT,
+        MEIOSIS,
+        DOCKER,
+        NODE,
+        SOCKETIO,
+    ],
+    tags: [
+        BACK_END,
+        FULL_STACK,
+        GROUP,
+        RESPONSIVE,
+    ]
+}
 
 const StudentInfoAPI = {
     title: "Student Info API",
@@ -386,6 +425,7 @@ const TriviaTrends = {
 }
 
 const Projects = [
+    GamingPlatform,
     StudentInfoAPI,
     MeiosisProject,
     NorthStarApp,
@@ -403,7 +443,7 @@ const Contact = {
         {
             name: "GitHub",
             icon: "devicon-github-plain",
-            link: "https://github.com/tommydreamer57"
+            link: "https://github.com/Tommydreamer57"
         },
         // {
         //     name: "minilao94@yahoo.com",

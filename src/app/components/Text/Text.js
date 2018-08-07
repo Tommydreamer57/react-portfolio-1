@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class DropDown extends Component {
     constructor() {
@@ -49,7 +50,13 @@ function Text({ text, toggle, transitionDelay }) {
                     if (typeof item === 'string') return item;
                     else if (typeof item === 'object') return (
                         <span style={{ transitionDelay: transitionDelay + ((i + 1) * 0.05) + 's' }}>
-                            <a key={item.link} href={item.link} target="_blank" > {item.name}</a>
+                            {item.link ?
+                                <a key={item.link} href={item.link} target="_blank" > {item.name}</a>
+                                :
+                                item.to ?
+                                    <Link key={item.to} to={item.to} > {item.name}</Link>
+                                    :
+                                    null}
                             <span>{typeof next === 'object' ? ', ' : next[0] === '.' ? '' : ' '}</span>
                         </span>
                     );

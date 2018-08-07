@@ -4,6 +4,7 @@ import bio from '../../../bio/bio';
 import './Portfolio.css';
 import NoProjectsHeader from './NoProjectsHeader/NoProjectsHeader';
 import ProjectsHeader from './ProjectsHeader/ProjectsHeader';
+import comingSoon from '../../../assets/Calendar Screenshot.PNG';
 
 // PROJECT
 function Project(project, i) {
@@ -17,7 +18,19 @@ function Project(project, i) {
             <h3 style={{ transitionDelay: ((i + 3.5) * 0.125) + 's' }} >{project.title}</h3>
             <h4 style={{ transitionDelay: ((i + 4.5) * 0.125) + 's' }} >{project.subtitle}</h4>
             <div style={{ transitionDelay: ((i + 5.5) * 0.125) + 's' }} className="image" >
-                <img src={project.img} />
+                <img
+                    src={project.img || comingSoon}
+                    alt={alt}
+                    style={{
+                        // opacity: Number(!!project.img)
+                    }}
+                />
+                {!project.img &&
+                    <div className="coming-soon" >
+                        <h5>
+                            Coming Soon!
+                        </h5>
+                    </div>}
             </div>
         </Link>
     )
